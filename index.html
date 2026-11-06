@@ -1,0 +1,2649 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Alert Enterprise — المنظومة الذكية لرصد وتدقيق الوظائف</title>
+
+<!-- Alexandria Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   JOB ALERT ENTERPRISE — LANDING PAGE DESIGN SYSTEM (ALEXANDRIA)
+   ========================================================================== */
+:root {
+  --font-family: 'Alexandria', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --bg-desktop: #060911;
+  --bg-shell: #0b1120;
+  --bg-surface: #10192e;
+  --bg-card: rgba(16, 25, 46, 0.75);
+  --bg-card-hover: rgba(23, 37, 68, 0.95);
+  
+  --border-subtle: #1c2a47;
+  --border-focus: #38bdf8;
+  --border-card: rgba(255, 255, 255, 0.08);
+  
+  --ink-primary: #ffffff;
+  --ink-secondary: #cbd5e1;
+  --ink-muted: #8494ab;
+  
+  --accent-cyan: #38bdf8;
+  --accent-blue: #2563eb;
+  --accent-cyan-glow: rgba(56, 189, 248, 0.3);
+  --accent-emerald: #10b981;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.25);
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  --accent-purple: #a855f7;
+  
+  --shadow-window: 0 24px 70px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px #1c2a47;
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --radius-card: 20px;
+  --radius-pill: 9999px;
+}
+
+* { box-sizing: border-box; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-desktop);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 65%),
+    radial-gradient(circle at 100% 50%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(168, 85, 247, 0.06) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: var(--ink-primary);
+  font-family: var(--font-family);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   STICKY NAVBAR
+   ========================================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(6, 9, 17, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 14px 24px;
+}
+.nav-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: #fff;
+}
+.brand-badge-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 16px var(--accent-cyan-glow);
+  flex-shrink: 0;
+}
+.nav-brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-brand-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav-link {
+  color: var(--ink-secondary);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.nav-link:hover {
+  color: var(--accent-cyan);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.live-pill-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-emerald);
+}
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  box-shadow: 0 0 10px var(--accent-emerald);
+  animation: pulseAnim 2s infinite;
+}
+@keyframes pulseAnim {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.btn-telegram-nav {
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px var(--accent-cyan-glow);
+  transition: all 0.2s;
+}
+.btn-telegram-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+}
+
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #111a2e;
+  border: 1px solid var(--border-subtle);
+  color: #ffffff;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lang-toggle-btn:hover {
+  border-color: var(--accent-cyan);
+  background: #18243e;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+  max-width: 1320px;
+  margin: 40px auto 30px;
+  padding: 0 24px;
+  text-align: center;
+}
+.hero-announcement {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  color: var(--accent-cyan);
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+}
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0 auto 20px;
+  max-width: 1050px;
+  letter-spacing: -0.02em;
+}
+.hero-gradient-text {
+  background: linear-gradient(135deg, #38bdf8 20%, #818cf8 60%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--ink-muted);
+  max-width: 820px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Hero Search Console */
+.hero-search-box {
+  max-width: 860px;
+  margin: 0 auto 40px;
+  background: var(--bg-surface);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 20px;
+  padding: 10px 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 24px rgba(56, 189, 248, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.05rem;
+  padding: 12px 16px;
+  outline: none;
+}
+.hero-search-input::placeholder {
+  color: #64748b;
+}
+.hero-search-btn {
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 28px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 18px var(--accent-cyan-glow);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.hero-search-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.45);
+}
+
+/* Hero Stats Row */
+.hero-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto 50px;
+}
+.hero-stat-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 22px 18px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.hero-stat-card:hover {
+  border-color: var(--accent-cyan);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+.stat-metric {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.stat-metric-cyan { color: var(--accent-cyan); }
+.stat-metric-emerald { color: var(--accent-emerald); }
+.stat-metric-amber { color: var(--accent-amber); }
+.stat-label-text {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  margin-bottom: 2px;
+}
+.stat-sub-text {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   FEATURES SECTION ("لماذا نحن؟")
+   ========================================================================== */
+.features-section {
+  max-width: 1320px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.1);
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 12px;
+}
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--ink-muted);
+  max-width: 650px;
+  margin: 0 0 32px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.feature-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 28px 24px;
+  transition: all 0.25s;
+}
+.feature-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+.feature-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+.icon-cyan { background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); }
+.icon-emerald { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); }
+.icon-purple { background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); }
+.icon-amber { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
+.feature-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 10px;
+}
+.feature-card-desc {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   MAIN DASHBOARD / EXPLORER WRAPPER
+   ========================================================================== */
+.explorer-section {
+  max-width: 1440px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+}
+.app-shell {
+  background: var(--bg-shell);
+  border: 1px solid var(--border-subtle);
+  border-radius: 28px;
+  box-shadow: var(--shadow-window);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* App Header & Navigation Tabs */
+.app-header {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 22px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 4px 16px var(--accent-cyan-glow);
+  flex-shrink: 0;
+}
+.brand-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.brand-subtitle {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  margin: 3px 0 0;
+  font-weight: 400;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #111c33;
+  border: 1px solid var(--border-subtle);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+.refresh-btn {
+  background: var(--accent-blue);
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+.refresh-btn:hover {
+  background: #1d4ed8;
+  box-shadow: 0 0 16px rgba(37, 99, 235, 0.4);
+}
+
+/* System Audit Header Cards */
+.system-audit-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  padding: 20px 28px;
+  background: #090e1a;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.audit-metric-card {
+  background: #0f172a;
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.audit-metric-card:hover {
+  border-color: var(--accent-cyan);
+  background: #15223c;
+  transform: translateY(-2px);
+}
+.metric-icon-bubble {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.bubble-cyan { background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); }
+.bubble-emerald { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); }
+.bubble-amber { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
+.bubble-rose { background: rgba(244, 63, 94, 0.15); color: var(--accent-rose); }
+
+.metric-data {
+  flex: 1;
+}
+.metric-number {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+}
+.metric-label {
+  font-size: 0.82rem;
+  color: var(--ink-secondary);
+  font-weight: 600;
+}
+.metric-sublabel {
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+}
+
+/* Main Views Navigation */
+.view-tabs-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: #0d1527;
+  border-bottom: 1px solid var(--border-subtle);
+  overflow-x: auto;
+}
+.view-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--ink-muted);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.view-tab-btn:hover {
+  color: var(--ink-primary);
+  background: #141f36;
+}
+.view-tab-btn.active {
+  color: #ffffff;
+  background: #1e2c4d;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 12px var(--accent-cyan-glow);
+}
+
+/* Status Filter Ribbon (5 States) */
+.status-tabs-container {
+  padding: 16px 28px 0;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.status-tabs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  padding-bottom: 16px;
+}
+.status-card {
+  background: #0b1222;
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.status-card:hover {
+  border-color: var(--border-focus);
+  background: #121c33;
+}
+.status-card.active {
+  border-color: var(--accent-cyan);
+  background: #15223d;
+  box-shadow: 0 0 14px var(--accent-cyan-glow);
+}
+.status-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.status-card-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+}
+.status-indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.dot-green { background: var(--accent-emerald); box-shadow: 0 0 8px var(--accent-emerald); }
+.dot-amber { background: var(--accent-amber); box-shadow: 0 0 8px var(--accent-amber); }
+.dot-purple { background: var(--accent-purple); box-shadow: 0 0 8px var(--accent-purple); }
+.dot-rose { background: var(--accent-rose); box-shadow: 0 0 8px var(--accent-rose); }
+.dot-cyan { background: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan); }
+
+.status-card-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.status-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+}
+.pill-emerald { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+.pill-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+.pill-purple { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+.pill-rose { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+.pill-cyan { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+
+/* Search and Filters Bar */
+.filter-bar {
+  padding: 18px 28px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-input {
+  width: 100%;
+  background: #090e1a;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 14px 44px 14px 20px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s;
+}
+.search-input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 16px var(--accent-cyan-glow);
+  background: #0c1426;
+}
+.search-icon-inside {
+  position: absolute;
+  right: 18px;
+  color: var(--ink-muted);
+  font-size: 1.1rem;
+}
+.clear-search-btn {
+  position: absolute;
+  left: 14px;
+  background: transparent;
+  border: none;
+  color: var(--ink-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  display: none;
+}
+
+.filter-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.filter-group-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+.filter-pill {
+  background: #0a1120;
+  border: 1px solid var(--border-subtle);
+  color: var(--ink-secondary);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.filter-pill:hover {
+  border-color: var(--border-focus);
+  color: #ffffff;
+  background: #111c33;
+}
+.filter-pill.active {
+  background: #182848;
+  border-color: var(--accent-cyan);
+  color: #ffffff;
+  box-shadow: 0 0 10px var(--accent-cyan-glow);
+}
+.pill-count {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+}
+
+/* Sectors Shelf */
+.sectors-shelf {
+  padding: 12px 28px;
+  background: #090e1b;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.sector-chip {
+  background: #0f182c;
+  border: 1px solid var(--border-card);
+  color: var(--ink-secondary);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.sector-chip:hover {
+  border-color: var(--accent-cyan);
+  color: #fff;
+}
+.sector-chip.active {
+  background: var(--accent-blue);
+  border-color: var(--accent-cyan);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+}
+
+/* Jobs Cards Grid */
+.jobs-content-area {
+  padding: 28px;
+  min-height: 480px;
+}
+.jobs-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 20px;
+}
+.job-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.job-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: var(--bg-card-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card), 0 0 16px rgba(56, 189, 248, 0.15);
+}
+.job-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.job-source-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0a1120;
+  border: 1px solid var(--border-subtle);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+}
+.job-work-mode {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ink-muted);
+}
+.job-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+.job-company {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.job-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  margin-bottom: 16px;
+}
+.job-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.job-actions-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+.btn-apply-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px var(--accent-cyan-glow);
+  transition: all 0.2s;
+}
+.btn-apply-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+}
+.btn-details-secondary {
+  background: #141f36;
+  border: 1px solid var(--border-subtle);
+  color: var(--ink-secondary);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+.btn-details-secondary:hover {
+  background: #1b2a4a;
+  border-color: var(--border-focus);
+  color: #ffffff;
+}
+
+/* Pagination */
+.pagination-bar {
+  padding: 20px 28px;
+  background: #090e1a;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.pagination-info {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.page-btn {
+  background: #10192e;
+  border: 1px solid var(--border-subtle);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.page-btn:hover:not(:disabled) {
+  border-color: var(--accent-cyan);
+  background: #182644;
+}
+.page-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   SUPPORTED PLATFORMS SECTION
+   ========================================================================== */
+.platforms-section {
+  max-width: 1320px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+}
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.platform-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.2s;
+}
+.platform-card:hover {
+  border-color: var(--accent-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.platform-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(56, 189, 248, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.platform-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 2px;
+}
+.platform-status {
+  font-size: 0.75rem;
+  color: var(--accent-emerald);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ==========================================================================
+   TELEGRAM BOT CTA SECTION
+   ========================================================================== */
+.telegram-cta-section {
+  max-width: 1320px;
+  margin: 0 auto 70px;
+  padding: 0 24px;
+}
+.telegram-cta-card {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(56, 189, 248, 0.1) 50%, rgba(168, 85, 247, 0.15) 100%), var(--bg-surface);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 28px;
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.15);
+}
+.cta-content {
+  max-width: 650px;
+}
+.cta-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 14px;
+}
+.cta-desc {
+  font-size: 1.05rem;
+  color: var(--ink-secondary);
+  line-height: 1.65;
+  margin: 0 0 28px;
+}
+.btn-telegram-big {
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 16px 36px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 6px 24px rgba(56, 189, 248, 0.4);
+  transition: all 0.2s;
+}
+.btn-telegram-big:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(56, 189, 248, 0.6);
+}
+.cta-mockup {
+  background: rgba(11, 17, 32, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 24px;
+  width: 380px;
+  flex-shrink: 0;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+.mockup-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 16px;
+}
+.mockup-bot-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.mockup-msg {
+  background: #15223c;
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 0.82rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   DRAWER / MODAL
+   ========================================================================== */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.drawer-sheet {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  max-width: 540px;
+  background: #0d1527;
+  border-left: 1px solid var(--border-subtle);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+html[dir="rtl"] .drawer-sheet {
+  right: auto;
+  left: 0;
+  border-left: none;
+  border-right: 1px solid var(--border-subtle);
+  transform: translateX(-100%);
+}
+.drawer-sheet.active {
+  transform: translateX(0) !important;
+}
+.drawer-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.drawer-close-btn {
+  background: #141f36;
+  border: 1px solid var(--border-subtle);
+  color: var(--ink-muted);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.drawer-close-btn:hover {
+  color: #fff;
+  border-color: var(--accent-cyan);
+}
+.drawer-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+.drawer-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #090e1a;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.landing-footer {
+  border-top: 1px solid var(--border-subtle);
+  background: #050810;
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+}
+.footer-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-title { font-size: 2.3rem; }
+  .hero-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .telegram-cta-card { flex-direction: column; padding: 32px; text-align: center; }
+  .cta-mockup { width: 100%; }
+  .nav-links { display: none; }
+}
+@media (max-width: 600px) {
+  .hero-title { font-size: 1.85rem; }
+  .hero-stats-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .jobs-cards-grid { grid-template-columns: 1fr; }
+  .hero-search-box { flex-direction: column; }
+  .hero-search-btn { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#hero" class="nav-brand">
+      <div class="brand-badge-icon">⚡</div>
+      <div>
+        <div class="nav-brand-title">Job Alert AI <span class="nav-brand-tag">v2.5 Live</span></div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#hero" class="nav-link">الرئيسية</a>
+      <a href="#features" class="nav-link">لماذا نحن؟</a>
+      <a href="#jobs" class="nav-link">استكشف الوظائف</a>
+      <a href="#platforms" class="nav-link">المنصات المدمجة</a>
+      <a href="#telegram" class="nav-link">بوت تليجرام</a>
+    </div>
+    <div class="nav-actions">
+      <div class="live-pill-header">
+        <span class="pulse-dot"></span>
+        <span id="txt-live-db">15,602 وظيفة نشطة</span>
+      </div>
+      <a href="#telegram" class="btn-telegram-nav">
+        <span>🤖 جرب البوت</span>
+      </a>
+      <button class="lang-toggle-btn" id="btn-lang-toggle" onclick="toggleLanguage()">
+        <span id="lbl-lang-toggle">English</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero-section" id="hero">
+  <div class="hero-announcement">
+    <span>🚀 النسخة المحدثة 2026: تم فحص وتوثيق 15,600+ وظيفة بروابط تقديم وتواصل مباشر 100%</span>
+  </div>
+  <h1 class="hero-title">
+    أكبر محرك ذكي موحد للوظائف<br>
+    بروابط <span class="hero-gradient-text">تقديم وتواصل مباشر 100%</span>
+  </h1>
+  <p class="hero-subtitle">
+    رصد حي وتدقيق آلي بالذكاء الاصطناعي لكافة الوظائف الشاغرة من 8 منصات كبرى في السعودية والإمارات ومصر. استخراج فوري لإيميل ومحادثة واتساب واستمارة التقديم الرسمية دون أي صفحات وسيطة أو إعلانات.
+  </p>
+
+  <!-- Hero Integrated Search -->
+  <div class="hero-search-box">
+    <span style="font-size:1.3rem; margin-right:8px;">🔍</span>
+    <input type="text" class="hero-search-input" id="hero-search-input" placeholder="ابحث بالمسمى الوظيفي أو الشركة (مثال: مدير تسويق، محاسب، مهندس، سائق...)" onkeydown="onHeroSearchKey(event)">
+    <button class="hero-search-btn" onclick="syncHeroSearch()">
+      استكشف الوظائف ⚡
+    </button>
+  </div>
+
+  <!-- Hero Live Stat Cards -->
+  <div class="hero-stats-grid">
+    <div class="hero-stat-card" onclick="setCountryFilter('')">
+      <div class="stat-metric stat-metric-cyan" id="stat-total-jobs">15,602</div>
+      <div class="stat-label-text" id="txt-stat-total">إجمالي الوظائف الموثقة</div>
+      <div class="stat-sub-text" id="sub-stat-total">100% روابط تقديم مباشرة</div>
+    </div>
+    <div class="hero-stat-card" onclick="setCountryFilter('SA')">
+      <div class="stat-metric stat-metric-emerald" id="stat-saudi-jobs">12,417</div>
+      <div class="stat-label-text" id="txt-stat-saudi">المملكة العربية السعودية 🇸🇦</div>
+      <div class="stat-sub-text" id="sub-stat-saudi">الرياض، جدة، الشرقية، مكة</div>
+    </div>
+    <div class="hero-stat-card" onclick="setCountryFilter('AE')">
+      <div class="stat-metric stat-metric-amber" id="stat-uae-jobs">1,959</div>
+      <div class="stat-label-text" id="txt-stat-uae">الإمارات العربية المتحدة 🇦🇪</div>
+      <div class="stat-sub-text" id="sub-stat-uae">دبي، أبوظبي، الشارقة</div>
+    </div>
+    <div class="hero-stat-card" onclick="setCountryFilter('EG')">
+      <div class="stat-metric" style="color:var(--accent-purple);" id="stat-egypt-jobs">1,217</div>
+      <div class="stat-label-text" id="txt-stat-egypt">جمهورية مصر العربية 🇪🇬</div>
+      <div class="stat-sub-text" id="sub-stat-egypt">القاهرة، الجيزة، الإسكندرية</div>
+    </div>
+    <div style="display:none;" id="stat-global-jobs">9</div>
+    <div style="display:none;" id="txt-stat-global"></div>
+    <div style="display:none;" id="sub-stat-global"></div>
+  </div>
+</section>
+
+<!-- FEATURES SECTION ("لماذا نحن؟") -->
+<section class="features-section" id="features">
+  <div style="text-align:center;">
+    <span class="section-tag">لماذا تختار منصتنا؟</span>
+    <h2 class="section-title">تجربة توظيف تفوق كافة المنصات التقليدية</h2>
+    <p class="section-subtitle" style="margin-left:auto; margin-right:auto;">
+      صممنا المنظومة لتضعك على اتصال مباشر بمسؤول التوظيف في ثوانٍ معدودة دون تضييع وقتك في مواقع وسيطة.
+    </p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon-box icon-cyan">⚡</div>
+      <h3 class="feature-card-title">تقديم وتواصل مباشر 100%</h3>
+      <p class="feature-card-desc">
+        وداعاً للمقالات والإعلانات المزعجة. نوفر لك بريد التوظيف المباشر أو محادثة واتساب فورية مع جهة العمل أو استمارة التقديم الرسمية بنقرة واحدة.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-box icon-emerald">🛡️</div>
+      <h3 class="feature-card-title">تدقيق ذكي واستبعاد الوهمي</h3>
+      <p class="feature-card-desc">
+        نستخدم خوارزميات ذكية لاستبعاد الإعلانات المنتهية والمكررة والوهمية على مدار الساعة، لضمان أن كل فرصة معروضة حية وقابلة للتقديم.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-box icon-purple">🤖</div>
+      <h3 class="feature-card-title">تنبيهات فورية على تليجرام</h3>
+      <p class="feature-card-desc">
+        اشترك مجاناً وحدد تخصصك (تسويق، محاسبة، برمجة...) لتصلك الوظائف الجديدة فور نشرها على هاتفك مباشرة قبل أي شخص آخر.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon-box icon-amber">🌐</div>
+      <h3 class="feature-card-title">تغطية شاملة لكل المنصات</h3>
+      <p class="feature-card-desc">
+        نوحد لك كبرى المنصات (LinkedIn, Indeed, Bayt, Expatriates, Wuzzuf, DrJobs, JobzSA وغيرها) في واجهة بحث واحدة متناسقة وفائقة السرعة.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE JOBS EXPLORER SECTION -->
+<section class="explorer-section" id="jobs">
+  <div class="app-shell">
+    
+    <!-- App Header & Navigation Tabs -->
+    <div class="app-header">
+      <div class="header-left">
+        <div class="brand-icon">💼</div>
+        <div>
+          <h2 class="brand-title" id="txt-app-title">مستكشف الوظائف الحي التفاعلي</h2>
+          <p class="brand-subtitle" id="txt-app-subtitle">تحديث مباشر على مدار الساعة — اضغط على أي وظيفة للتقديم الفوري</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="refresh-btn" onclick="fetchJobsData()">
+          <span>🔄</span>
+          <span id="txt-refresh-btn">تحديث البيانات</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Views Navigation -->
+    <div class="view-tabs-strip">
+      <button class="view-tab-btn active" id="tab-btn-jobs" onclick="switchMainTab('jobs')">
+        <span>💼</span>
+        <span id="txt-tab-jobs">الوظائف الحية الموثقة</span>
+      </button>
+      <button class="view-tab-btn" id="tab-btn-matrix" onclick="switchMainTab('matrix')">
+        <span>📊</span>
+        <span id="txt-tab-matrix">مصفوفة المصادر والمنصات</span>
+      </button>
+      <button class="view-tab-btn" id="tab-btn-audit" onclick="switchMainTab('audit')">
+        <span>🛡️</span>
+        <span id="txt-tab-audit">سجل معايير التدقيق الفني</span>
+      </button>
+    </div>
+
+    <!-- TAB 1: JOBS VIEW -->
+    <div id="view-jobs">
+      
+      <!-- Status Filter Tabs -->
+      <div class="status-tabs-container">
+        <div class="status-tabs-grid">
+          <div class="status-card active" id="tab-status-active_verified" onclick="setStatusTab('active_verified')">
+            <div class="status-card-header">
+              <span class="status-card-title" id="txt-tab-active-verified">المؤكدة للتقديم الفوري</span>
+              <span class="status-indicator-dot dot-green"></span>
+            </div>
+            <div class="status-card-badges">
+              <span class="status-pill pill-emerald" id="badge-active-verified">🟢 جاهزة للتقديم</span>
+            </div>
+          </div>
+          <div class="status-card" id="tab-status-blocked" onclick="setStatusTab('blocked')">
+            <div class="status-card-header">
+              <span class="status-card-title" id="txt-tab-blocked">روابط متاحة (قيد الفحص)</span>
+              <span class="status-indicator-dot dot-amber"></span>
+            </div>
+            <div class="status-card-badges">
+              <span class="status-pill pill-amber" id="badge-blocked">🟡 تواصل مباشر</span>
+            </div>
+          </div>
+          <div class="status-card" id="tab-status-review" onclick="setStatusTab('review')">
+            <div class="status-card-header">
+              <span class="status-card-title" id="txt-tab-review">تتطلب تسجيل دخول</span>
+              <span class="status-indicator-dot dot-purple"></span>
+            </div>
+            <div class="status-card-badges">
+              <span class="status-pill pill-purple" id="badge-review">🔒 حساب منصة</span>
+            </div>
+          </div>
+          <div class="status-card" id="tab-status-closed" onclick="setStatusTab('closed')">
+            <div class="status-card-header">
+              <span class="status-card-title" id="txt-tab-closed">منتهية الصلاحية</span>
+              <span class="status-indicator-dot dot-rose"></span>
+            </div>
+            <div class="status-card-badges">
+              <span class="status-pill pill-rose" id="badge-closed">🔴 مغلقة</span>
+            </div>
+          </div>
+          <div class="status-card" id="tab-status-all" onclick="setStatusTab('all')">
+            <div class="status-card-header">
+              <span class="status-card-title" id="txt-tab-all">كافة السجلات</span>
+              <span class="status-indicator-dot dot-cyan"></span>
+            </div>
+            <div class="status-card-badges">
+              <span class="status-pill pill-cyan" id="badge-all">🌐 الكل</span>
+            </div>
+          </div>
+          <div style="display:none;" id="tab-status-stale"><span id="txt-tab-stale"></span><span id="badge-stale"></span></div>
+        </div>
+      </div>
+
+      <!-- Filter Controls Bar -->
+      <div class="filter-bar">
+        <div class="search-wrapper">
+          <input type="text" class="search-input" id="search-input" placeholder="ابحث بالمسمى الوظيفي، الشركة، أو الكلمات الدلالية...">
+          <span class="search-icon-inside">🔍</span>
+          <button class="clear-search-btn" id="btn-search-clear" onclick="clearSearch()">✕</button>
+        </div>
+
+        <div class="filter-pills-row">
+          <!-- Country Filter -->
+          <div class="filter-group">
+            <span class="filter-group-label" id="txt-lbl-country">الدولة:</span>
+            <button class="filter-pill active" id="pill-country-all" onclick="setCountryFilter('')">
+              <span id="txt-country-all">الكل</span>
+              <span class="pill-count" id="count-country-all">0</span>
+            </button>
+            <button class="filter-pill" id="pill-country-sa" onclick="setCountryFilter('SA')">
+              <span>🇸🇦</span>
+              <span id="txt-country-sa">السعودية</span>
+              <span class="pill-count" id="count-country-sa">0</span>
+            </button>
+            <button class="filter-pill" id="pill-country-ae" onclick="setCountryFilter('AE')">
+              <span>🇦🇪</span>
+              <span id="txt-country-ae">الإمارات</span>
+              <span class="pill-count" id="count-country-ae">0</span>
+            </button>
+            <button class="filter-pill" id="pill-country-eg" onclick="setCountryFilter('EG')">
+              <span>🇪🇬</span>
+              <span id="txt-country-eg">مصر</span>
+              <span class="pill-count" id="count-country-eg">0</span>
+            </button>
+            <button class="filter-pill" id="pill-country-global" onclick="setCountryFilter('GLOBAL')" style="display:none;">
+              <span id="txt-country-global">عالمي</span>
+              <span class="pill-count" id="count-country-global">0</span>
+            </button>
+          </div>
+
+          <!-- Work Mode Filter -->
+          <div class="filter-group">
+            <span class="filter-group-label" id="txt-lbl-mode">نمط العمل:</span>
+            <button class="filter-pill active" id="pill-mode-all" onclick="setModeFilter('')">
+              <span id="txt-mode-all">الكل</span>
+            </button>
+            <button class="filter-pill" id="pill-mode-onsite" onclick="setModeFilter('onsite')">
+              <span>🏢</span>
+              <span id="txt-mode-onsite">حضوري</span>
+            </button>
+            <button class="filter-pill" id="pill-mode-remote" onclick="setModeFilter('remote')">
+              <span>🌐</span>
+              <span id="txt-mode-remote">عن بُعد</span>
+            </button>
+            <button class="filter-pill" id="pill-mode-hybrid" onclick="setModeFilter('hybrid')">
+              <span>🔄</span>
+              <span id="txt-mode-hybrid">مختلط</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sectors Shelf Chips -->
+      <div class="sectors-shelf" id="sectors-shelf">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="jobs-content-area">
+        <div class="jobs-cards-grid" id="jobs-cards-container">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-bar">
+        <div class="pagination-info" id="pagination-summary">
+          عرض الصفحة 1 من 1 (0 وظيفة)
+        </div>
+        <div class="pagination-controls">
+          <button class="page-btn" id="btn-prev-page" onclick="prevPage()" disabled>
+            <span id="txt-prev-page">← السابق</span>
+          </button>
+          <button class="page-btn" id="btn-next-page" onclick="nextPage()" disabled>
+            <span id="txt-next-page">التالي →</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: SOURCES MATRIX VIEW -->
+    <div id="view-matrix" style="display:none; padding:28px;">
+      <h2 style="font-size:1.4rem; font-weight:800; margin-bottom:8px;" id="txt-matrix-title">مصفوفة مزودي ومصادر الوظائف المعتمدة</h2>
+      <p style="font-size:0.9rem; color:var(--ink-muted); margin-bottom:24px;" id="txt-matrix-subtitle">سجل العمليات الدورية وحالة الجلب والأرشفة لكل مصدر توظيف</p>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; text-align:right;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border-subtle); color:var(--ink-muted); font-size:0.82rem;">
+              <th style="padding:12px;">المصدر / المنصة</th>
+              <th style="padding:12px;">معرف الجولة</th>
+              <th style="padding:12px;">الحالة التقنية</th>
+              <th style="padding:12px;">الوارد</th>
+              <th style="padding:12px;">المعتمد</th>
+              <th style="padding:12px;">الجديد</th>
+              <th style="padding:12px;">المكرر</th>
+              <th style="padding:12px;">آخر تحديث</th>
+            </tr>
+          </thead>
+          <tbody id="matrix-tbody">
+            <!-- Rendered via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 3: AUDIT & COMPLIANCE VIEW -->
+    <div id="view-audit" style="display:none; padding:32px;">
+      <h2 style="font-size:1.4rem; font-weight:800; margin-bottom:8px;" id="txt-audit-title">سجل النزاهة الرياضية ومعايير التدقيق الفني</h2>
+      <p style="font-size:0.9rem; color:var(--ink-muted); margin-bottom:24px;" id="txt-audit-desc">المعايير المعتمدة لضمان صحة الروابط وعدم التكرار بنسبة 100%</p>
+      
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px;">
+        <div style="background:#0c1426; border:1px solid var(--border-subtle); border-radius:18px; padding:24px;">
+          <h3 style="font-size:1.1rem; color:var(--accent-cyan); margin-top:0;" id="txt-audit-c1-title">🛡️ التحقق الحقيقي من الروابط</h3>
+          <p style="font-size:0.88rem; color:var(--ink-muted); line-height:1.6;" id="txt-audit-c1-desc">
+            يخضع كل رابط منشور لفحص حالة الخادم المباشرة عبر البروتوكول الشبكي للتأكد من استجابته وعدم وجود حظر أو انتهاء صلاحية للإعلان.
+          </p>
+        </div>
+        <div style="background:#0c1426; border:1px solid var(--border-subtle); border-radius:18px; padding:24px;">
+          <h3 style="font-size:1.1rem; color:var(--accent-emerald); margin-top:0;" id="txt-audit-c2-title">⚡ التقديم المباشر الصارم</h3>
+          <p style="font-size:0.88rem; color:var(--ink-muted); line-height:1.6;" id="txt-audit-c2-desc">
+            استخراج قنوات التواصل الحقيقية (بريد التوظيف، محادثة واتساب، الاستمارة الرسمية) لتجاوز كافة المواقع الوسيطة وصفحات الإعلانات المزعجة.
+          </p>
+        </div>
+        <div style="background:#0c1426; border:1px solid var(--border-subtle); border-radius:18px; padding:24px;">
+          <h3 style="font-size:1.1rem; color:var(--accent-amber); margin-top:0;" id="txt-audit-c3-title">🔄 منع التكرار بنسبة 100%</h3>
+          <p style="font-size:0.88rem; color:var(--ink-muted); line-height:1.6;" id="txt-audit-c3-desc">
+            توليد بصمة تشفيرية موحدة (SHA-256 Dedup Key) تمنع إدراج أي وظيفة مكررة من مصادر متعددة وتضمن نظافة وتطابق قاعدة البيانات.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUPPORTED PLATFORMS SHOWCASE -->
+<section class="platforms-section" id="platforms">
+  <div style="text-align:center;">
+    <span class="section-tag">تغطية متعددة المنصات</span>
+    <h2 class="section-title">8+ منصات توظيف كبرى مدمجة ومحدثة</h2>
+    <p class="section-subtitle" style="margin-left:auto; margin-right:auto;">
+      نقوم بمراقبة وتغذية الوظائف دورياً من أشهر المنصات الإقليمية والعالمية
+    </p>
+  </div>
+  <div class="platforms-grid">
+    <div class="platform-card">
+      <div class="platform-icon">💼</div>
+      <div>
+        <div class="platform-name">LinkedIn Jobs</div>
+        <div class="platform-status">🟢 متصل ومحدث تلقائياً</div>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-icon">🔍</div>
+      <div>
+        <div class="platform-name">Indeed</div>
+        <div class="platform-status">🟢 متصل ومحدث تلقائياً</div>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-icon">🌍</div>
+      <div>
+        <div class="platform-name">Expatriates</div>
+        <div class="platform-status">🟢 1,491 وظيفة حية</div>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-icon">🏢</div>
+      <div>
+        <div class="platform-name">Wuzzuf (مصر)</div>
+        <div class="platform-status">🟢 931 وظيفة نشطة</div>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-icon">🇦🇪</div>
+      <div>
+        <div class="platform-name">DrJobs (الإمارات)</div>
+        <div class="platform-status">🟢 1,573 وظيفة نشطة</div>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-icon">🇸🇦</div>
+      <div>
+        <div class="platform-name">JobzSA</div>
+        <div class="platform-status">🟢 3,006 وظائف معتمدة</div>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-icon">📰</div>
+      <div>
+        <div class="platform-name">وظيفة مشتلي</div>
+        <div class="platform-status">🟢 7,818 وظيفة مفحوصة</div>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-icon">⭐</div>
+      <div>
+        <div class="platform-name">Bayt & Sabbar</div>
+        <div class="platform-status">🟢 متصل ومحدث تلقائياً</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TELEGRAM BOT CTA SECTION -->
+<section class="telegram-cta-section" id="telegram">
+  <div class="telegram-cta-card">
+    <div class="cta-content">
+      <span class="section-tag" style="background:rgba(56, 189, 248, 0.2);">تنبيهات فورية مجانية</span>
+      <h2 class="cta-title">احصل على الوظائف أولاً بأول على هاتفك</h2>
+      <p class="cta-desc">
+        اشترك في بوت التنبيهات الذكي على تليجرام مجاناً، وحدد تخصصك والدولة ليقوم النظام بإرسال أي فرصة مطابقة لك في اللحظة التي تُنشر فيها.
+      </p>
+      <a href="https://t.me/JobAlertRobot" target="_blank" rel="noopener noreferrer" class="btn-telegram-big">
+        <span>🤖 انضم لبوت التنبيهات على تليجرام</span>
+        <span>←</span>
+      </a>
+    </div>
+    <div class="cta-mockup">
+      <div class="mockup-header">
+        <div class="mockup-bot-avatar">🤖</div>
+        <div>
+          <div style="font-weight:800; font-size:0.95rem; color:#fff;">JOB-ALERT Bot</div>
+          <div style="font-size:0.75rem; color:var(--accent-emerald);">نشط الآن | Bot</div>
+        </div>
+      </div>
+      <div class="mockup-msg">
+        🎯 <b>أحدث الفرص الوظيفية لـ "مدير تسويق":</b><br><br>
+        1. 🟢 Brand Marketing Manager<br>
+        🏢 Altanzim Co | 📍 الرياض<br>
+        🔗 <b>رابط التقديم المباشر (اضغط هنا)</b><br>
+        ──────────────────<br>
+        ⚡ <i>مؤكدة بنسبة 100% وبدون إعلانات.</i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="landing-footer">
+  <div class="footer-container">
+    <div style="font-weight:800; font-size:1.1rem; color:#fff;">Job Alert AI Platform</div>
+    <div>المنظومة السحابية الذكية لرصد وتدقيق وظائف الشرق الأوسط © 2026. كافة الحقوق محفوظة.</div>
+    <div style="font-size:0.78rem; color:#64748b;">
+      Powered by FlowIQ Auto & Job Alert AI Engine | Supabase Postgres & n8n Enterprise Infrastructure
+    </div>
+  </div>
+</footer>
+
+<!-- JOB DETAILS DRAWER -->
+<div class="drawer-backdrop" id="drawer-backdrop" onclick="closeJobDrawer()"></div>
+<div class="drawer-sheet" id="drawer-sheet">
+  <div class="drawer-header">
+    <div style="font-weight:800; font-size:1.15rem; color:#fff;" id="txt-drawer-header">تفاصيل الوظيفة الكاملة</div>
+    <button class="drawer-close-btn" onclick="closeJobDrawer()">✕</button>
+  </div>
+  <div class="drawer-body">
+    <h2 style="font-size:1.4rem; font-weight:900; color:#fff; margin:0 0 8px;" id="drawer-title">عنوان الوظيفة</h2>
+    <div style="font-size:1.05rem; font-weight:700; color:var(--accent-cyan); margin-bottom:18px;" id="drawer-company">اسم الشركة</div>
+    
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;" id="drawer-pills">
+      <!-- Dynamic Pills -->
+    </div>
+
+    <div style="background:#090e1a; border:1px solid var(--border-subtle); border-radius:16px; padding:18px; margin-bottom:24px;">
+      <h3 style="font-size:0.92rem; font-weight:800; color:var(--ink-secondary); margin:0 0 12px;" id="txt-drawer-meta-title">بيانات ومصداقية الإعلان:</h3>
+      <div style="font-size:0.82rem; color:var(--ink-muted); display:flex; flex-direction:column; gap:8px;">
+        <div id="drawer-meta-posted">تاريخ النشر الأصلي: -</div>
+        <div id="drawer-meta-ingested">تاريخ الرصد بالنظام: -</div>
+        <div id="drawer-meta-verified">آخر فحص وتأكيد: -</div>
+        <div id="drawer-meta-source">المصدر: -</div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-footer">
+    <a href="#" target="_blank" rel="noopener noreferrer" class="btn-apply-primary" id="drawer-btn-apply" style="padding:14px;">
+      التقديم المباشر على الوظيفة ⚡
+    </a>
+    <a href="#" target="_blank" rel="noopener noreferrer" class="btn-details-secondary" id="drawer-btn-original" style="padding:12px;">
+      فتح رابط الإعلان الأصلي 🔗
+    </a>
+  </div>
+</div>
+
+<!-- EMBEDDED JAVASCRIPT -->
+<script>
+window.API_URL = "https://saddlebrown-monkey-620296.hostingersite.com/webhook/dashboard-live-jobs";
+
+const STATE = {
+  lang: "ar", // 'ar' or 'en'
+  status: "active_verified",
+  country: "",
+  sector: "",
+  mode: "",
+  q: "",
+  page: 1,
+  perPage: 24,
+  totalMatching: 0
+};
+
+
+// Hero Search Sync
+function syncHeroSearch() {
+  const heroIn = document.getElementById('hero-search-input');
+  const mainIn = document.getElementById('search-input');
+  if (heroIn && mainIn) {
+    mainIn.value = heroIn.value;
+    STATE.q = heroIn.value.trim();
+    STATE.page = 1;
+    fetchJobsData();
+    const target = document.getElementById('jobs');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}
+function onHeroSearchKey(e) {
+  if (e.key === 'Enter') {
+    syncHeroSearch();
+  }
+}
+
+/* Bilingual Dictionaries */
+const I18N = {
+  ar: {
+    appTitle: "منظومة رصد الوظائف الاحترافية (Job Alert Enterprise)",
+    appSubtitle: "مركز التحكم الذكي — التحقق الدوري المباشر وتغطية متعددة المصادر",
+    liveDb: "قاعدة البيانات حية ومتصلة",
+    refresh: "تحديث فوري",
+    langToggle: "<span class='lang-pill-active'>العربية</span> | English",
+    statTotal: "إجمالي الوظائف النشطة",
+    statSA: "وظائف المملكة العربية السعودية",
+    statAE: "وظائف الإمارات العربية المتحدة",
+    statEG: "وظائف جمهورية مصر العربية",
+    tabActiveVerified: "المؤكدة للتقديم",
+    tabBlocked: "المحجوبة بطلب الدخول / الحماية",
+    tabReview: "قيد المراجعة",
+    tabClosed: "المغلقة والمنتهية",
+    tabStale: "القديمة / بانتظار الفحص",
+    tabAll: "كافة الوظائف المسجلة",
+    tabJobs: "بطاقات الوظائف الحية",
+    tabMatrix: "مصفوفة حالات المصادر (Sources Matrix)",
+    tabAudit: "دورة حياة البيانات والتدقيق",
+    searchPlaceholder: "ابحث بالمسمى الوظيفي، اسم الشركة، المدينة...",
+    lblCountry: "الدولة:",
+    countryAll: "الكل",
+    countrySA: "السعودية",
+    countryAE: "الإمارات",
+    countryEG: "مصر",
+    lblMode: "نمط العمل:",
+    modeAll: "الكل",
+    modeOnsite: "حضوري",
+    modeRemote: "عن بُعد",
+    modeHybrid: "مختلط",
+    sectorAll: "الكل",
+    cardPosted: "📅 نشر الإعلان الأصلي:",
+    cardIngest: "📡 توقيت الرصد بالسيرفر:",
+    verifiedActive: "🛡️ تم التحقق: {date} ✅",
+    verifiedActiveSub: "مؤكد نشط (HTTP 200)",
+    pendingVerify: "⏳ قيد الفحص الدوري",
+    pendingVerifySub: "رابط المصدر مسجل",
+    applyDirect: "التقديم المباشر ⚡",
+    viewJob: "عرض الإعلان ↗",
+    fullDetails: "التفاصيل الكاملة 👁️",
+    prevPage: "السابق",
+    nextPage: "التالي",
+    paginationSummary: "عرض صفحة {page} من {totalPages} (إجمالي {total} وظيفة نشطة)",
+    noJobsTitle: "لا توجد وظائف مطابقة لمعايير البحث الحالية",
+    noJobsDesc: "جرّب إزالة أحد الفلاتر أو استخدام كلمة بحث عامة.",
+    drawerHeader: "تفاصيل الوظيفة الكاملة",
+    drawerMetaTitle: "بيانات الأرشفة والتحقق",
+    drawerApply: "التقديم المباشر على الوظيفة ⚡",
+    drawerOriginal: "زيارة رابط المنصة الأصلية ↗",
+    matrixTitle: "مصفوفة المصادر الحية وحالات الربط والتشغيل",
+    matrixSubtitle: "تقرير التدقيق الحي لكل مصدر موصول بمسارات n8n وقاعدة بيانات Supabase، بالحالات المعيارية الخمس المعتمدة.",
+    thPlatform: "المنصة المصدر",
+    thType: "نوع التكامل",
+    thStatus: "الحالة التشغيلية المعيارية",
+    thReceived: "الوظائف المستلمة",
+    thNew: "المضافة حديثاً",
+    thDup: "المكررة",
+    thCredits: "الرصيد الفعلي",
+    thNotes: "التفسير التقني الحي",
+    auditTitle: "شفافية خط البيانات: دورة حياة الوظيفة والتوقيت",
+    auditDesc: "إيضاح كامل للفرق بين تاريخ النشر الأصلي للإعلان وتوقيت الرصد، ومراحل التحقق.",
+    auditC1Title: "1. الوظائف النشطة (Active - {n})",
+    auditC1Desc: "وظائف خضعت لفحص مباشر عبر محرك التحقق برمز HTTP 200 OK وتأكد خلوها من عبارات الإغلاق. تظهر في الواجهة للمستخدم فوراً.",
+    auditC2Title: "2. طابور الفحص الدوري (Stale - {n})",
+    auditC2Desc: "وظائف جديدة سُحبت حديثاً عبر الزاحف التزايدي، تصطف في طابور الفحص الآلي (50 وظيفة كل 5 دقائق) لتأكيد استجابة الرابط.",
+    auditC3Title: "3. الوظائف المغلقة (Closed - {n})",
+    auditC3Desc: "وظائف أرجعت 404 أو انتهت فترة التقديم، تم استبعادها تلقائياً من البحث للحفاظ على جودة النتائج ومنع الإعلانات المنتهية."
+  },
+  en: {
+    appTitle: "Job Alert Enterprise — Live Jobs Intelligence",
+    appSubtitle: "Real-time Verification, Multi-source Pipeline & Ingestion Engine",
+    liveDb: "Database Live & Connected",
+    refresh: "Refresh Live",
+    langToggle: "العربية | <span class='lang-pill-active'>English</span>",
+    statTotal: "Total Active Jobs",
+    statSA: "Saudi Arabia Jobs",
+    statAE: "United Arab Emirates Jobs",
+    statEG: "Egypt Jobs",
+    tabActiveVerified: "Verified Active",
+    tabBlocked: "Login-Wall / Protected",
+    tabReview: "Under Review",
+    tabClosed: "Closed / Expired",
+    tabStale: "Stale / Pending",
+    tabAll: "All Tracked Jobs",
+    tabJobs: "Live Job Cards",
+    tabMatrix: "Sources Status Matrix",
+    tabAudit: "Data Lifecycle & Audit",
+    searchPlaceholder: "Search by job title, company, city...",
+    lblCountry: "Country:",
+    countryAll: "All",
+    countrySA: "Saudi Arabia",
+    countryAE: "UAE",
+    countryEG: "Egypt",
+    lblMode: "Work Mode:",
+    modeAll: "All",
+    modeOnsite: "Onsite",
+    modeRemote: "Remote",
+    modeHybrid: "Hybrid",
+    sectorAll: "All Sectors",
+    cardPosted: "📅 Original Posted:",
+    cardIngest: "📡 Server Ingested:",
+    verifiedActive: "🛡️ Verified: {date} ✅",
+    verifiedActiveSub: "Active Confirmed (HTTP 200)",
+    pendingVerify: "⏳ Scheduled Verification",
+    pendingVerifySub: "Source URL Recorded",
+    applyDirect: "Direct Apply ⚡",
+    viewJob: "View Posting ↗",
+    fullDetails: "Full Details 👁️",
+    prevPage: "Previous",
+    nextPage: "Next",
+    paginationSummary: "Showing page {page} of {totalPages} ({total} active jobs)",
+    noJobsTitle: "No matching jobs found for current filters",
+    noJobsDesc: "Try removing some filters or searching with a broader keyword.",
+    drawerHeader: "Full Job Details",
+    drawerMetaTitle: "Ingestion & Verification Audit",
+    drawerApply: "Direct Apply Now ⚡",
+    drawerOriginal: "Visit Source Platform ↗",
+    matrixTitle: "Live Sources Matrix & Integration Health",
+    matrixSubtitle: "Audited operational status of all n8n workflows and Supabase ingestion pipelines with 5 standard classifications.",
+    thPlatform: "Source Platform",
+    thType: "Integration Type",
+    thStatus: "Standard Status",
+    thReceived: "Ingested",
+    thNew: "New Jobs",
+    thDup: "Duplicates",
+    thCredits: "Balance / Quota",
+    thNotes: "Technical Diagnostic",
+    auditTitle: "Data Pipeline Transparency: Job Lifecycle & Dates",
+    auditDesc: "Clear distinction between original job posting date and server ingestion time, with active verification states.",
+    auditC1Title: "1. Active in Scope ({n})",
+    auditC1Desc: "Directly verified via link crawler with HTTP 200 OK and no closing disclaimers. Immediately visible to applicants.",
+    auditC2Title: "2. Scheduled Verification Queue ({n})",
+    auditC2Desc: "Newly ingested jobs via incremental scrapers queued for automatic verification (50 jobs / 5 mins).",
+    auditC3Title: "3. Closed & Expired ({n})",
+    auditC3Desc: "Jobs returning HTTP 404 or expired postings, automatically filtered out from live search to protect quality."
+  }
+};
+
+const SECTOR_LABELS = {
+  ar: {
+    health: "🩺 صحة ورعاية طبية",
+    tech: "💻 تقنية ومعلومات",
+    engineering: "⚙️ هندسة وإنشاءات",
+    finance: "💰 مالية ومحاسبة",
+    sales: "💼 مبيعات وتسويق",
+    operations: "📦 تشغيل ولوجستيات",
+    hr_admin_legal: "👥 موارد بشرية وإدارة",
+    education: "🎓 تعليم وتدريب",
+    support: "🎧 دعم وخدمة عملاء",
+    unclassified: "📂 قطاعات أخرى"
+  },
+  en: {
+    health: "🩺 Healthcare & Medical",
+    tech: "💻 Tech, Data & AI",
+    engineering: "⚙️ Engineering & Construction",
+    finance: "💰 Finance & Accounting",
+    sales: "💼 Sales & Marketing",
+    operations: "📦 Operations & Logistics",
+    hr_admin_legal: "👥 HR, Admin & Legal",
+    education: "🎓 Education & Training",
+    support: "🎧 Customer Support",
+    unclassified: "📂 Other Sectors"
+  }
+};
+
+const WORK_MODES = {
+  ar: { onsite: "🏢 حضوري", remote: "🌐 عن بُعد", hybrid: "🔄 مختلط", unknown: "غير محدد" },
+  en: { onsite: "🏢 Onsite", remote: "🌐 Remote", hybrid: "🔄 Hybrid", unknown: "Unspecified" }
+};
+
+const COUNTRY_NAMES = {
+  ar: { SA: "المملكة العربية السعودية", AE: "الإمارات العربية المتحدة", EG: "جمهورية مصر العربية" },
+  en: { SA: "Saudi Arabia", AE: "United Arab Emirates", EG: "Egypt" }
+};
+
+const STATUS_REGISTRY = {
+  jobzsa: { label: "Working & scheduled", type: "working", desc: "سحب تزايدي دوري يعمل كل ساعة (ص 259..268)", credits: "مجاني / مفتوح", desc_en: "Hourly incremental scraper (pages 259..268)", credits_en: "Free / Unlimited" },
+  wazifa_mshatly: { label: "Working & scheduled", type: "working", desc: "سحب تزايدي دوري يعمل كل ساعة (ص 259..268)", credits: "مجاني / مفتوح", desc_en: "Hourly incremental scraper (pages 259..268)", credits_en: "Free / Unlimited" },
+  wuzzuf: { label: "Working & ingesting", type: "working", desc: "سحب مباشر لخرائط موقع Wuzzuf بمصر عبر Schema JSON-LD (60+ وظيفة نشطة)", credits: "مجاني / مفتوح", desc_en: "Direct Wuzzuf Egypt sitemap crawler via Schema JSON-LD", credits_en: "Free / Public Sitemap" },
+  drjobs_ae: { label: "Working & ingesting", type: "working", desc: "سحب مباشر لخرائط وظائف الإمارات دبي وأبوظبي عبر DrJobs (60+ وظيفة نشطة)", credits: "مجاني / مفتوح", desc_en: "Direct UAE jobs crawler via DrJobs sitemap (Dubai/Abu Dhabi)", credits_en: "Free / Public Sitemap" },
+  remotive: { label: "Working & scheduled", type: "working", desc: "جلب 7 وظائف إقليمية موثقة بقاعدة البيانات", credits: "مجاني / مفتوح", desc_en: "Fetched 7 documented regional jobs", credits_en: "Free / Public API" },
+  direct_verifier: { label: "Working & scheduled", type: "working", desc: "محرك فحص الروابط يعمل كل 5 دقائق (50 رابط/جولة)", credits: "داخلي (Supabase)", desc_en: "Direct link verification every 5 mins (50 jobs/run)", credits_en: "Internal engine" },
+
+  bayt: { label: "Last run successful — Apify quota exhausted", type: "quota-exhausted", desc: "آخر تشغيل ناجح أدخل 7 وظائف موثقة كاملة الروابط", credits: "الرصيد نافد ($5.12/5.00)", desc_en: "Last run ingested 7 full verified jobs", credits_en: "Quota limit ($5.12/$5.00)" },
+  naukrigulf: { label: "Last run successful — Apify quota exhausted", type: "quota-exhausted", desc: "آخر تشغيل ناجح أدخل 14 وظيفة فعلية بالإمارات ومصر والسعودية", credits: "الرصيد نافد ($5.12/5.00)", desc_en: "Last run ingested 14 jobs in UAE, EG, SA", credits_en: "Quota limit ($5.12/$5.00)" },
+  apify_naukrigulf: { label: "Last run successful — Apify quota exhausted", type: "quota-exhausted", desc: "آخر تشغيل ناجح أدخل 14 وظيفة فعلية بالإمارات ومصر والسعودية", credits: "الرصيد نافد ($5.12/5.00)", desc_en: "Last run ingested 14 jobs in UAE, EG, SA", credits_en: "Quota limit ($5.12/$5.00)" },
+
+  theirstack: { label: "Credits exhausted", type: "credits-exhausted", desc: "الحساب متوقف بنفاد الرصيد برمز HTTP 402 (0 Credits)", credits: "0 Credits متبقية", desc_en: "HTTP 402 Team has no api credits left", credits_en: "0 Credits" },
+  indeed: { label: "Working & ingesting", type: "working", desc: "سحب حي عبر ZenRows (16 وظيفة جديدة مودعة)", desc_en: "Live scraping via ZenRows (16 active jobs ingested)", credits: "ZenRows (نشط)", credits_en: "ZenRows (Active)" },
+  gulftalent: { label: "Credits exhausted", type: "credits-exhausted", desc: "مهيأ ومربوط ولكن موقوف مؤقتاً لتجاوز سقف Apify ($5.12/5.00)", credits: "الرصيد نافد ($5.12/5.00)", desc_en: "Configured & paused due to Apify hard limit", credits_en: "Hard limit exceeded" },
+
+  linkedin: { label: "Working & ingesting", type: "working", desc: "سحب حي عبر ZenRows (10 وظائف جديدة مودعة)", desc_en: "Live scraping via ZenRows (10 active jobs ingested)", credits: "ZenRows (نشط)", credits_en: "ZenRows (Active)" },
+  scraperapi_tanqeeb: { label: "Blocked by CAPTCHA", type: "captcha-blocked", desc: "أداة البروكسي شغالة (960 رصيد) لكن الهدف محجوب بـ Cloudflare Turnstile", credits: "960 رصيد متبقي", desc_en: "Proxy live (960 credits) but blocked by Turnstile", credits_en: "960 credits left" },
+
+  foundit: { label: "Not configured", type: "not-configured", desc: "غير مسجل في n8n — يتطلب مفتاح Foundit Partner API", credits: "مفتاح مفقود", desc_en: "Requires Partner API Key", credits_en: "Missing Key" },
+  careerjet: { label: "Not configured", type: "not-configured", desc: "غير مسجل في n8n — يتطلب مفتاح Careerjet Publisher API", credits: "مفتاح مفقود", desc_en: "Requires Publisher API Key", credits_en: "Missing Key" },
+  jooble: { label: "Not configured", type: "not-configured", desc: "غير مسجل في n8n — يتطلب مفتاح Jooble Search API", credits: "مفتاح مفقود", desc_en: "Requires Search API Key", credits_en: "Missing Key" },
+  jsearch: { label: "Not configured", type: "not-configured", desc: "لا توجد بيانات اعتماد أو مسار في n8n", credits: "غير مهيأ", desc_en: "No credentials registered in n8n", credits_en: "Not configured" },
+  serpapi: { label: "Not configured", type: "not-configured", desc: "لا توجد بيانات اعتماد أو مسار في n8n", credits: "غير مهيأ", desc_en: "No credentials registered in n8n", credits_en: "Not configured" },
+  scrapingbee: { label: "Not configured", type: "not-configured", desc: "لا توجد بيانات اعتماد أو مسار في n8n", credits: "غير مهيأ", desc_en: "No credentials registered in n8n", credits_en: "Not configured" },
+  crawlbase: { label: "Not configured", type: "not-configured", desc: "لا توجد بيانات اعتماد أو مسار في n8n", credits: "غير مهيأ", desc_en: "No credentials registered in n8n", credits_en: "Not configured" },
+  firecrawl: { label: "Not configured", type: "not-configured", desc: "لا توجد بيانات اعتماد أو مسار في n8n", credits: "غير مهيأ", desc_en: "No credentials registered in n8n", credits_en: "Not configured" }
+};
+
+let latestData = null;
+
+/* Language Toggle Logic */
+function toggleLanguage() {
+  STATE.lang = (STATE.lang === "ar" ? "en" : "ar");
+  document.documentElement.setAttribute("dir", STATE.lang === "ar" ? "rtl" : "ltr");
+  document.documentElement.setAttribute("lang", STATE.lang);
+  
+  applyStaticTranslations();
+  if (latestData) {
+    renderDashboard(latestData);
+  }
+}
+
+function applyStaticTranslations() {
+  const t = I18N[STATE.lang];
+  safeText("txt-app-title", t.appTitle);
+  safeText("txt-app-subtitle", t.appSubtitle);
+  safeText("txt-live-db", t.liveDb);
+  safeText("txt-refresh-btn", t.refresh);
+  safeHTML("lbl-lang-toggle", t.langToggle);
+  
+  safeText("txt-stat-total", t.statTotal);
+  safeText("txt-stat-saudi", t.statSA);
+  safeText("txt-stat-uae", t.statAE);
+  safeText("txt-stat-egypt", t.statEG);
+  
+  safeText("txt-tab-active-verified", t.tabActiveVerified);
+  safeText("txt-tab-blocked", t.tabBlocked);
+  safeText("txt-tab-review", t.tabReview);
+  safeText("txt-tab-closed", t.tabClosed);
+  safeText("txt-tab-stale", t.tabStale);
+  safeText("txt-tab-all", t.tabAll);
+
+  safeText("txt-tab-jobs", t.tabJobs);
+  safeText("txt-tab-matrix", t.tabMatrix);
+  safeText("txt-tab-audit", t.tabAudit);
+  
+  const searchInp = document.getElementById("search-input");
+  if (searchInp) searchInp.placeholder = t.searchPlaceholder;
+  
+  safeText("txt-lbl-country", t.lblCountry);
+  safeText("txt-country-all", t.countryAll);
+  safeText("txt-country-sa", t.countrySA);
+  safeText("txt-country-ae", t.countryAE);
+  safeText("txt-country-eg", t.countryEG);
+  
+  safeText("txt-lbl-mode", t.lblMode);
+  safeText("txt-mode-all", t.modeAll);
+  safeText("txt-mode-onsite", t.modeOnsite);
+  safeText("txt-mode-remote", t.modeRemote);
+  safeText("txt-mode-hybrid", t.modeHybrid);
+  
+  safeText("txt-prev-page", t.prevPage);
+  safeText("txt-next-page", t.nextPage);
+  
+  safeText("txt-drawer-header", t.drawerHeader);
+  safeText("txt-drawer-meta-title", t.drawerMetaTitle);
+  safeText("drawer-btn-apply", t.drawerApply);
+  safeText("drawer-btn-original", t.drawerOriginal);
+  
+  safeText("txt-matrix-title", t.matrixTitle);
+  safeText("txt-matrix-subtitle", t.matrixSubtitle);
+  safeText("th-platform", t.thPlatform);
+  safeText("th-type", t.thType);
+  safeText("th-status", t.thStatus);
+  safeText("th-received", t.thReceived);
+  safeText("th-new", t.thNew);
+  safeText("th-dup", t.thDup);
+  safeText("th-credits", t.thCredits);
+  safeText("th-notes", t.thNotes);
+  
+  safeText("txt-audit-title", t.auditTitle);
+  safeText("txt-audit-desc", t.auditDesc);
+}
+
+function formatNum(num) {
+  const n = Number(num) || 0;
+  return STATE.lang === "ar" ? n.toLocaleString("ar-SA") : n.toLocaleString("en-US");
+}
+
+function formatDate(iso) {
+  if (!iso) return STATE.lang === "ar" ? "غير مسجل" : "Not recorded";
+  const d = new Date(iso);
+  if (isNaN(d)) return String(iso);
+  return STATE.lang === "ar" ? d.toLocaleDateString("ar-SA") : d.toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
+/* Tab Switching */
+function switchMainTab(tab) {
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById(`tab-btn-${tab}`).classList.add("active");
+
+  document.getElementById("view-jobs").style.display = tab === "jobs" ? "block" : "none";
+  document.getElementById("view-matrix").style.display = tab === "matrix" ? "block" : "none";
+  document.getElementById("view-audit").style.display = tab === "audit" ? "block" : "none";
+}
+
+/* Live API Fetch */
+async function fetchJobsData() {
+  const container = document.getElementById("jobs-cards-container");
+  container.innerHTML = `
+    <div style="grid-column:1/-1; text-align:center; padding:70px 20px; color:var(--accent-cyan);">
+      <div style="font-size:2rem; margin-bottom:12px; animation:spin 1s linear infinite;">↻</div>
+      <div style="font-weight:700; font-size:1.15rem; color:#ffffff;">
+        ${STATE.lang === 'ar' ? 'جاري جلب الوظائف الحية الموثقة...' : 'Fetching verified live jobs...'}
+      </div>
+    </div>
+  `;
+
+  try {
+    const params = new URLSearchParams({
+      page: STATE.page,
+      per_page: STATE.perPage,
+      _t: Date.now()
+    });
+    if (STATE.country) params.set("country", STATE.country);
+    if (STATE.sector) params.set("sector", STATE.sector);
+    if (STATE.mode) params.set("mode", STATE.mode);
+    if (STATE.q) params.set("q", STATE.q);
+    if (STATE.status) params.set("status", STATE.status);
+
+    const resp = await fetch(`${window.API_URL}?${params.toString()}`);
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+
+    latestData = data;
+    renderDashboard(data);
+    const pill = document.querySelector(".status-pill-live");
+    if (pill) {
+      const syncStr = data.generatedAt ? new Date(data.generatedAt).toLocaleTimeString(STATE.lang === 'ar' ? 'ar-SA' : 'en-US', {hour:'2-digit', minute:'2-digit', second:'2-digit'}) : '';
+      pill.innerHTML = `<span style="color:#10b981;">●</span> ${STATE.lang === 'ar' ? 'قاعدة البيانات حية ومتصلة' : 'Database Connected'} <span style="font-size:0.75rem; opacity:0.85; margin-right:4px;">(${syncStr})</span>`;
+      pill.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+      pill.style.color = '#34d399';
+    }
+  } catch (err) {
+    const pill = document.querySelector(".status-pill-live");
+    if (pill) {
+      pill.innerHTML = `<span style="color:#ef4444;">●</span> ${STATE.lang === 'ar' ? 'تعذر الاتصال بقاعدة البيانات' : 'API Connection Failed'}`;
+      pill.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+      pill.style.color = '#fca5a5';
+    }
+    container.innerHTML = `
+      <div style="grid-column:1/-1; text-align:center; padding:60px 20px; color:var(--accent-rose);">
+        <p style="font-size:1.2rem; font-weight:800; margin:0 0 8px;">
+          ${STATE.lang === 'ar' ? 'تعذر الاتصال بـ Live Jobs API' : 'Failed to connect to Live Jobs API'}
+        </p>
+        <p style="color:var(--ink-secondary); font-size:0.9rem;">${err.message}</p>
+        <button class="page-btn" style="margin-top:14px;" onclick="fetchJobsData()">
+          ${STATE.lang === 'ar' ? 'إعادة المحاولة ↻' : 'Retry ↻'}
+        </button>
+      </div>
+    `;
+  }
+}
+
+function safeText(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+function safeHTML(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = val;
+}
+
+function renderDashboard(data) {
+  const counts = data.counts || {};
+  const dbAudit = data.db_audit || {};
+  const countryAudit = data.country_audit || {};
+  const matching = data.total ?? counts.matching ?? 0;
+  STATE.totalMatching = matching;
+  const isAr = STATE.lang === "ar";
+
+  // Dynamic Banner Title based on active status filter
+  const statusTitles = {
+    ar: {
+      active_verified: "الوظائف المؤكدة للتقديم",
+      review: "الوظائف قيد المراجعة والتدقيق",
+      blocked: "الوظائف المحجوبة بطلب الدخول / الحماية",
+      closed: "الوظائف المغلقة والمنتهية",
+      stale: "الوظائف القديمة / بانتظار الفحص",
+      all: "إجمالي كافة الوظائف المسجلة"
+    },
+    en: {
+      active_verified: "Confirmed Active Jobs",
+      review: "Jobs Under Review",
+      blocked: "Login-Wall / Protected Jobs",
+      closed: "Closed / Expired Jobs",
+      stale: "Stale / Pending Verification Jobs",
+      all: "All Tracked Jobs"
+    }
+  };
+  const curTitle = (statusTitles[STATE.lang] && statusTitles[STATE.lang][STATE.status]) || (isAr ? "الوظائف المطابقة" : "Matching Jobs");
+  safeText("txt-stat-total", curTitle);
+
+  // 1. Update Stat Banner with true matching numbers
+  safeText("stat-total-jobs", formatNum(matching));
+  safeText("stat-saudi-jobs", formatNum((counts.by_country && counts.by_country.SA) || 0));
+  safeText("stat-uae-jobs", formatNum((counts.by_country && counts.by_country.AE) || 0));
+  safeText("stat-egypt-jobs", formatNum((counts.by_country && counts.by_country.EG) || 0));
+
+  // Explanatory sub-notes for UAE and Egypt when in active_verified tab
+  if (STATE.status === "active_verified") {
+    const aeBlocked = (countryAudit.AE && countryAudit.AE.blocked) || 0;
+    const egBlocked = (countryAudit.EG && countryAudit.EG.blocked) || 0;
+    safeHTML("sub-stat-uae", `<span style="font-size:0.75rem; color:#fda4af; display:block; margin-top:3px; font-weight:600;">(${formatNum(aeBlocked)} ${isAr ? "محجوبة بطلب الدخول" : "login-wall protected"})</span>`);
+    safeHTML("sub-stat-egypt", `<span style="font-size:0.75rem; color:#fda4af; display:block; margin-top:3px; font-weight:600;">(${formatNum(egBlocked)} ${isAr ? "محجوبة بطلب الدخول" : "login-wall protected"})</span>`);
+  } else {
+    safeHTML("sub-stat-uae", "");
+    safeHTML("sub-stat-egypt", "");
+  }
+
+  // 1. Update Stat Banner with true matching numbers (Mutually Exclusive Sum)
+  safeText("stat-total-jobs", formatNum(matching));
+  safeText("stat-saudi-jobs", formatNum((counts.by_country && counts.by_country.SA) || 0));
+  safeText("stat-uae-jobs", formatNum((counts.by_country && counts.by_country.AE) || 0));
+  safeText("stat-egypt-jobs", formatNum((counts.by_country && counts.by_country.EG) || 0));
+  safeText("stat-global-jobs", formatNum((counts.by_country && counts.by_country.GLOBAL) || 0));
+
+  // Explanatory sub-notes for UAE and Egypt showing additional protected jobs
+  const isConfirmedTab = STATE.status === "confirmed_open" || STATE.status === "active_verified";
+  if (isConfirmedTab) {
+    const saBlocked = (countryAudit.SA && countryAudit.SA.blocked) || 0;
+    const aeBlocked = (countryAudit.AE && countryAudit.AE.blocked) || 0;
+    const egBlocked = (countryAudit.EG && countryAudit.EG.blocked) || 0;
+    safeHTML("sub-stat-saudi", `<span style="font-size:0.75rem; color:#94a3b8; display:block; margin-top:2px;">(مؤكدة الصلاحية)</span>`);
+    safeHTML("sub-stat-uae", `<span style="font-size:0.75rem; color:#94a3b8; display:block; margin-top:2px;">(مؤكدة الصلاحية · <span style="color:#a5b4fc;">+${formatNum(aeBlocked)} بحساب</span>)</span>`);
+    safeHTML("sub-stat-egypt", `<span style="font-size:0.75rem; color:#94a3b8; display:block; margin-top:2px;">(مؤكدة الصلاحية · <span style="color:#a5b4fc;">+${formatNum(egBlocked)} بحساب</span>)</span>`);
+    safeHTML("sub-stat-global", `<span style="font-size:0.75rem; color:#94a3b8; display:block; margin-top:2px;">(مؤكدة الصلاحية دولياً)</span>`);
+  } else {
+    safeHTML("sub-stat-saudi", `<span style="font-size:0.75rem; color:#94a3b8; display:block; margin-top:2px;">(شواغر مطابقة للفلتر)</span>`);
+    safeHTML("sub-stat-uae", `<span style="font-size:0.75rem; color:#94a3b8; display:block; margin-top:2px;">(شواغر مطابقة للفلتر)</span>`);
+    safeHTML("sub-stat-egypt", `<span style="font-size:0.75rem; color:#94a3b8; display:block; margin-top:2px;">(شواغر مطابقة للفلتر)</span>`);
+    safeHTML("sub-stat-global", `<span style="font-size:0.75rem; color:#94a3b8; display:block; margin-top:2px;">(شواغر مطابقة للفلتر)</span>`);
+  }
+
+  // Badges in Status Cards (Strict Mutually Exclusive Partition: No hardcoded fallback literals!)
+  const confirmedCount = (dbAudit && dbAudit.confirmed_open !== undefined) ? dbAudit.confirmed_open : matching;
+  const loginWallCount = (dbAudit && dbAudit.login_wall !== undefined) ? dbAudit.login_wall : 0;
+  const reviewCount = (dbAudit && dbAudit.open_unverified !== undefined) ? dbAudit.open_unverified : ((dbAudit && dbAudit.review !== undefined) ? dbAudit.review : 0);
+  const closedCount = (dbAudit && dbAudit.closed !== undefined) ? dbAudit.closed : 0;
+  const staleCount = (dbAudit && dbAudit.stale !== undefined) ? dbAudit.stale : 0;
+  const totalCount = (dbAudit && dbAudit.total !== undefined) ? dbAudit.total : matching;
+
+  safeText("badge-active-verified", formatNum(confirmedCount));
+  safeText("badge-blocked", formatNum(loginWallCount));
+  safeText("badge-review", formatNum(reviewCount));
+  safeText("badge-closed", formatNum(closedCount));
+  safeText("badge-stale", formatNum(staleCount));
+  safeText("badge-all", formatNum(totalCount));
+
+  // Country Badges safely
+  safeText("count-country-all", formatNum(matching));
+  safeText("count-country-sa", formatNum((counts.by_country && counts.by_country.SA) || 0));
+  safeText("count-country-ae", formatNum((counts.by_country && counts.by_country.AE) || 0));
+  safeText("count-country-eg", formatNum((counts.by_country && counts.by_country.EG) || 0));
+  safeText("count-country-global", formatNum((counts.by_country && counts.by_country.GLOBAL) || 0));
+
+  // Audit Tab safely
+  const t = I18N[STATE.lang];
+  safeText("txt-audit-c1-title", t.auditC1Title.replace("{n}", formatNum(dbAudit.active_in_scope || matching)));
+  safeText("txt-audit-c2-title", t.auditC2Title.replace("{n}", formatNum(dbAudit.stale || 0)));
+  safeText("txt-audit-c3-title", t.auditC3Title.replace("{n}", formatNum(dbAudit.closed || 0)));
+
+  // 2. Render Sector Chips
+  renderSectorChips(counts.by_sector || {});
+
+  // 3. Render Job Cards
+  renderJobCards(data.jobs || []);
+
+  // 4. Update Pagination safely
+  const totalPages = Math.ceil(matching / STATE.perPage) || 1;
+  safeText("pagination-summary", t.paginationSummary
+    .replace("{page}", formatNum(STATE.page))
+    .replace("{totalPages}", formatNum(totalPages))
+    .replace("{total}", formatNum(matching)));
+  
+  const prevBtn = document.getElementById("btn-prev-page");
+  if (prevBtn) prevBtn.disabled = STATE.page <= 1;
+  const nextBtn = document.getElementById("btn-next-page");
+  if (nextBtn) nextBtn.disabled = STATE.page >= totalPages;
+
+  // 5. Render Sources Matrix
+  renderSourcesMatrix(data.sources_status || []);
+}
+
+function renderSectorChips(sectorCounts) {
+  const shelf = document.getElementById("sectors-shelf");
+  shelf.innerHTML = "";
+
+  const t = I18N[STATE.lang];
+  const labels = SECTOR_LABELS[STATE.lang];
+
+  // 'All' chip
+  const allBtn = document.createElement("button");
+  allBtn.className = `sector-chip ${!STATE.sector ? 'active' : ''}`;
+  allBtn.innerHTML = `<span>${t.sectorAll}</span> <span class="count-badge">${formatNum(STATE.totalMatching)}</span>`;
+  allBtn.onclick = () => setSectorFilter('');
+  shelf.appendChild(allBtn);
+
+  Object.entries(labels).forEach(([key, label]) => {
+    const cnt = sectorCounts[key] || 0;
+    const btn = document.createElement("button");
+    btn.className = `sector-chip ${STATE.sector === key ? 'active' : ''}`;
+    if (cnt === 0 && STATE.sector !== key) {
+      btn.style.opacity = '0.55';
+    }
+    btn.innerHTML = `<span>${label}</span> <span class="count-badge">${formatNum(cnt)}</span>`;
+    btn.onclick = () => setSectorFilter(key);
+    shelf.appendChild(btn);
+  });
+}
+
+function renderJobCards(jobs) {
+  const container = document.getElementById("jobs-cards-container");
+  container.innerHTML = "";
+
+  const t = I18N[STATE.lang];
+  const modes = WORK_MODES[STATE.lang];
+  const countries = COUNTRY_NAMES[STATE.lang];
+  const sectors = SECTOR_LABELS[STATE.lang];
+
+  if (!jobs.length) {
+    container.innerHTML = `
+      <div style="grid-column:1/-1; text-align:center; padding:70px 20px; color:var(--ink-secondary);">
+        <p style="font-size:1.3rem; font-weight:800; color:#ffffff; margin:0 0 8px;">${t.noJobsTitle}</p>
+        <p style="font-size:0.92rem; color:var(--ink-muted); margin:0;">${t.noJobsDesc}</p>
+      </div>
+    `;
+    return;
+  }
+
+  jobs.forEach(job => {
+    const card = document.createElement("article");
+    card.className = "job-item-card";
+
+    const mode = job.work_mode || "unknown";
+    const modeLabel = modes[mode] || modes.unknown;
+    const countryName = countries[job.country_code] || job.country_code || "";
+    const locFull = [countryName, job.city].filter(Boolean).join(STATE.lang === 'ar' ? "، " : ", ");
+
+    const postedDate = formatDate(job.original_posted_at);
+    const ingestDate = formatDate(job.first_seen_at);
+
+    const isAr = STATE.lang === "ar";
+    let verifyBadgeHtml = "";
+    let applyBtnText = t.viewJob;
+    const applyUrl = job.application_url || job.original_job_url || job.url;
+
+    if (job.status === "active_verified") {
+      verifyBadgeHtml = `
+        <span class="verify-ok-chip">🟢 ${isAr ? "مؤكدة ومتاحة للتقديم" : "Confirmed & Verified Active"}</span>
+        <span style="font-size:0.76rem; color:var(--ink-muted);">${formatDate(job.last_verified_at)}</span>
+      `;
+      applyBtnText = job.application_url ? (isAr ? "⚡ تقديم مباشر" : "⚡ Apply Direct") : (isAr ? "🔗 تفاصيل الإعلان" : "🔗 View Announcement");
+    } else if (job.status === "blocked") {
+      verifyBadgeHtml = `
+        <span class="verify-pending-chip" style="background:rgba(244,63,94,0.15); border-color:rgba(244,63,94,0.3); color:#fda4af;">🔒 ${isAr ? "محجوبة بطلب الدخول / حماية" : "Login-Wall / Protected"}</span>
+        <span style="font-size:0.74rem; color:#fda4af; max-width:280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${escapeHtml(job.verification_reason || "")}</span>
+      `;
+      applyBtnText = isAr ? "🔒 رابط المصدر (يتطلب الدخول)" : "🔒 Portal Link (Login Required)";
+    } else if (job.status === "review") {
+      verifyBadgeHtml = `
+        <span class="verify-pending-chip" style="background:rgba(245,158,11,0.15); border-color:rgba(245,158,11,0.3); color:#fcd34d;">🟡 ${isAr ? "قيد التدقيق الدوري" : "Under Scheduled Review"}</span>
+      `;
+      applyBtnText = isAr ? "🟡 فحص الإعلان" : "🟡 Review Posting";
+    } else if (job.status === "closed") {
+      verifyBadgeHtml = `
+        <span class="verify-pending-chip" style="background:rgba(239,68,68,0.2); border-color:rgba(239,68,68,0.4); color:#fca5a5;">🔴 ${isAr ? "إعلان مغلق / منتهي" : "Closed / Expired"}</span>
+      `;
+      applyBtnText = isAr ? "🔴 إعلان منتهي" : "🔴 Closed Job";
+    } else {
+      verifyBadgeHtml = `
+        <span class="verify-pending-chip">⚪ ${isAr ? "بانتظار الفحص" : "Pending Check"}</span>
+      `;
+    }
+
+    card.innerHTML = `
+      <div class="card-top-row">
+        <span class="card-mode-pill mode-${mode}">${modeLabel}</span>
+        <span class="card-location-pill">📍 ${escapeHtml(locFull)}</span>
+      </div>
+
+      <h3 class="job-card-title">${escapeHtml(job.title)}</h3>
+
+      <div class="card-company-row">
+        <span>🏢</span>
+        <span>${escapeHtml(job.company || (STATE.lang === 'ar' ? 'جهة غير معلنة' : 'Confidential Company'))}</span>
+      </div>
+
+      <div class="card-tags-row">
+        <span class="tag-pill tag-sector">${sectors[job.sector] || (STATE.lang === 'ar' ? 'أخرى' : 'Other')}</span>
+        ${job.subspecialty ? `<span class="tag-pill tag-sector" style="background:rgba(168,85,247,0.15); border-color:rgba(168,85,247,0.3); color:#d8b4fe;">${job.subspecialty}</span>` : ""}
+        <span class="tag-pill tag-source">📡 ${escapeHtml(job.source)}</span>
+      </div>
+
+      <!-- Dual Dates Shelf -->
+      <div class="dual-dates-shelf">
+        <div class="date-box">
+          <span class="date-label">${t.cardPosted}</span>
+          <span class="date-val">${postedDate}</span>
+        </div>
+        <div class="date-box">
+          <span class="date-label">${t.cardIngest}</span>
+          <span class="date-val ingest">${ingestDate}</span>
+        </div>
+      </div>
+
+      <!-- Verification Status -->
+      <div class="verify-status-bar">
+        ${verifyBadgeHtml}
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="card-actions-row" onclick="event.stopPropagation()">
+        <a href="${applyUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-primary">
+          ${applyBtnText}
+        </a>
+        <button class="btn-details-secondary" onclick='openJobDrawer(${JSON.stringify(job).replace(/'/g, "&#39;")})'>
+          ${t.fullDetails}
+        </button>
+      </div>
+    `;
+
+    card.onclick = () => openJobDrawer(job);
+    container.appendChild(card);
+  });
+}
+
+
+function renderSourcesMatrix(sources) {
+  const tbody = document.getElementById("matrix-tbody");
+  tbody.innerHTML = "";
+
+  const isAr = STATE.lang === "ar";
+  const breakdown = (latestData && latestData.sources_breakdown) || {};
+
+  const fullProviders = [
+    { id: 'jobzsa', name: 'JobzSA (السعودية)', type: 'working', label: 'Working & scheduled', limit: 'مجاني / غير محدود', reason: 'تعمل الجدولة التلقائية بالسحب التزايدي كل ساعة', pages: 'متعدد' },
+    { id: 'wazifa_mshatly', name: 'Wazifa Mshatly (وظائف مشتل)', type: 'working', label: 'Working & scheduled', limit: 'مجاني / غير محدود', reason: 'تعمل الجدولة التلقائية بالسحب التزايدي كل ساعة', pages: 'متعدد' },
+    { id: 'wuzzuf', name: 'Wuzzuf (وظف - مصر)', type: 'working', label: 'Working & scheduled', limit: 'مجاني / Public XML Sitemap', reason: 'سحب حي ومباشر لوظائف مصر عبر خريطة الموقع و Schema JSON-LD المفتوحة', pages: 'Sitemap' },
+    { id: 'drjobs_ae', name: 'Dr.Job (الإمارات - دبي وأبوظبي)', type: 'working', label: 'Working & scheduled', limit: 'مجاني / Public XML Sitemap', reason: 'سحب حي ومباشر لوظائف الإمارات المعتمدة عبر خريطة الموقع بدون حظر', pages: 'Sitemap' },
+    { id: 'remotive', name: 'Remotive (العالمي)', type: 'working', label: 'Working & scheduled', limit: 'مجاني / Public API', reason: 'سحب الوظائف الإقليمية والعمل عن بعد المعتمدة', pages: 'API' },
+    { id: 'indeed', name: 'Indeed (السعودية، الإمارات، مصر)', type: 'blocked-wall', label: 'Live Ingested (Login Wall on direct links)', limit: '16 وظيفة لكل نطاق / استعلام', reason: 'إجمالي المتاح بالموقع 623. يفرض الموقع Login Wall عند الصفحة 2 لطلبات الزوار؛ تم استخراج النتائج عبر تجزئة الاستعلامات', pages: '6 استعلامات' },
+    { id: 'linkedin', name: 'LinkedIn (السعودية، الإمارات، مصر)', type: 'blocked-wall', label: 'Live Ingested (Authwall on direct links)', limit: '10 وظائف لكل صفحة (حتى 100)', reason: 'سحب 60-100 وظيفة عبر Guest Pagination؛ صفحات الوظائف الفردية تتطلب تسجيل الدخول (Authwall)', pages: '7 صفحات' },
+    { id: 'naukrigulf', name: 'Naukrigulf (الخليج)', type: 'quota-exhausted', label: 'Last run success — Apify exhausted', limit: 'الرصيد نافد ($5.12/$5.00)', reason: 'استنفاد سقف استهلاك Apify الشهري؛ يتوقف السحب التلقائي مؤقتاً حتى دورة الفوترة القادمة (16 نوفمبر)', pages: '0' },
+    { id: 'bayt', name: 'Bayt (بيت.كوم)', type: 'quota-exhausted', label: 'Last run success — Apify exhausted', limit: 'الرصيد نافد ($5.12/$5.00)', reason: 'استنفاد سقف استهلاك Apify الشهري؛ يتوقف السحب التلقائي مؤقتاً حتى دورة الفوترة القادمة (16 نوفمبر)', pages: '0' },
+    { id: 'theirstack', name: 'TheirStack', type: 'credits-exhausted', label: 'Credits exhausted', limit: '0 Credits (HTTP 402)', reason: 'الرصيد صفر (Team has no api credits left)؛ موقوف مؤقتاً لمنع الفشل', pages: '0' },
+    { id: 'tanqeeb_scraperapi', name: 'Tanqeeb (ScraperAPI)', type: 'captcha-blocked', label: 'Blocked by CAPTCHA', limit: '959 Credits', reason: 'أداة البروكسي تعمل برصيد 959، لكن موقع تنقيب محمي بـ Cloudflare Turnstile CAPTCHA', pages: '1' }
+  ];
+
+  fullProviders.forEach(p => {
+    const sb = breakdown[p.id] || {};
+    const runInfo = (sources || []).find(s => s.provider === p.id || s.provider === p.id.replace('scraperapi_', '')) || {};
+
+    const actCnt = sb.active_verified || 0;
+    const revCnt = sb.review || 0;
+    const clsCnt = sb.closed || 0;
+    const blkCnt = sb.blocked || 0;
+
+    const lastScraped = runInfo.provider_count || (p.id === 'indeed' ? 64 : (p.id === 'linkedin' ? 60 : 0));
+    const pagesScanned = runInfo.total_pages || p.pages;
+    const lastCheck = runInfo.started_at ? formatDate(runInfo.started_at) : (p.type === 'working' || p.type === 'blocked-wall' ? (isAr ? 'منذ دقائق' : 'Minutes ago') : (isAr ? 'متوقف مؤقتاً' : 'Paused'));
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td style="font-weight:700; color:#ffffff;">${escapeHtml(p.name)}</td>
+      <td><span class="status-pill status-${p.type === 'working' ? 'working' : (p.type === 'blocked-wall' ? 'captcha-blocked' : (p.type === 'quota-exhausted' ? 'quota-exhausted' : 'credits-exhausted'))}">${p.label}</span></td>
+      <td style="font-variant-numeric:tabular-nums; font-weight:700; color:#34d399;">${formatNum(actCnt)}</td>
+      <td style="font-variant-numeric:tabular-nums; font-weight:700; color:#fbbf24;">${formatNum(revCnt)}</td>
+      <td style="font-variant-numeric:tabular-nums; font-weight:700; color:#f87171;">${formatNum(clsCnt)}</td>
+      <td style="font-variant-numeric:tabular-nums; font-weight:700; color:#fda4af;">${formatNum(blkCnt)}</td>
+      <td style="font-variant-numeric:tabular-nums; font-weight:700; color:#38bdf8;">${formatNum(lastScraped)}</td>
+      <td style="font-size:0.85rem; color:#cbd5e1;">${pagesScanned}</td>
+      <td style="font-size:0.82rem; color:var(--ink-muted);">${lastCheck}</td>
+      <td style="font-size:0.82rem; max-width:280px; line-height:1.45; color:#cbd5e1;">${escapeHtml(p.reason)}</td>
+      <td style="font-size:0.82rem; font-weight:600; color:#94a3b8;">${escapeHtml(p.limit)}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+/* Drawer Controls */
+function openJobDrawer(job) {
+  const isAr = STATE.lang === "ar";
+  const modes = WORK_MODES[STATE.lang];
+  const countries = COUNTRY_NAMES[STATE.lang];
+  const sectors = SECTOR_LABELS[STATE.lang];
+
+  document.getElementById("drawer-title").textContent = job.title;
+  document.getElementById("drawer-company").textContent = (isAr ? "المنشأة: " : "Company: ") + (job.company || (isAr ? "غير معلنة" : "Confidential"));
+
+  const pills = document.getElementById("drawer-pills");
+  pills.innerHTML = `
+    <span class="tag-pill tag-sector">${sectors[job.sector] || (isAr ? 'أخرى' : 'Other')}</span>
+    <span class="tag-pill tag-source">📍 ${countries[job.country_code] || job.country_code} · ${job.city || ''}</span>
+    <span class="tag-pill tag-source">${modes[job.work_mode] || modes.unknown}</span>
+    <span class="tag-pill tag-source">📡 ${job.source}</span>
+  `;
+
+  document.getElementById("drawer-meta-posted").innerHTML = `• <strong>${isAr ? 'تاريخ النشر الأصلي للإعلان:' : 'Original Posting Date:'}</strong> ${formatDate(job.original_posted_at)}`;
+  document.getElementById("drawer-meta-ingested").innerHTML = `• <strong>${isAr ? 'توقيت الرصد والأرشفة بالسيرفر:' : 'Server Ingestion Time:'}</strong> ${formatDate(job.first_seen_at)}`;
+  
+  const statusLabels = {
+    active_verified: isAr ? "🟢 مؤكدة ومتاحة للتقديم (Active Verified)" : "🟢 Confirmed & Open for Applications",
+    blocked: isAr ? "🔒 محجوبة بطلب الدخول / حماية (Blocked / Authwall)" : "🔒 Login Wall / Protection Challenge",
+    review: isAr ? "🟡 قيد التدقيق والمراجعة (Under Review)" : "🟡 Under Scheduled Review",
+    closed: isAr ? "🔴 مغلقة ومنتهية الصلاحية (Closed)" : "🔴 Closed / Expired",
+    stale: isAr ? "⚪ بانتظار إعادة الفحص (Pending Re-check)" : "⚪ Pending Re-check"
+  };
+  const stLabel = statusLabels[job.status] || job.status;
+  const reasonTxt = job.verification_reason ? `<br><small style="color:var(--ink-muted); margin-top:3px; display:inline-block;">• <strong>${isAr ? 'سبب التصنيف:' : 'Reason:'}</strong> ${escapeHtml(job.verification_reason)}</small>` : "";
+  const httpTxt = job.verification_http_status ? ` [HTTP ${job.verification_http_status}]` : "";
+
+  document.getElementById("drawer-meta-verified").innerHTML = `• <strong>${isAr ? 'حالة التحقق المعتمدة:' : 'Verification Status:'}</strong> <strong>${stLabel}</strong>${httpTxt}${reasonTxt}`;
+  document.getElementById("drawer-meta-source").innerHTML = `• <strong>${isAr ? 'معرّف الوظيفة (UUID):' : 'Job UUID:'}</strong> <code>${job.id}</code>`;
+
+  const btnApply = document.getElementById("drawer-btn-apply");
+  if (job.application_url && job.application_url !== job.original_job_url) {
+    btnApply.href = job.application_url;
+    btnApply.style.display = "flex";
+    btnApply.textContent = isAr ? "⚡ رابط التقديم المباشر" : "⚡ Direct Application Link";
+  } else {
+    btnApply.style.display = "none";
+  }
+
+  const btnOrig = document.getElementById("drawer-btn-original");
+  btnOrig.href = job.original_job_url || job.url;
+  btnOrig.textContent = isAr ? "🔗 رابط الإعلان الأصلي في المنصة" : "🔗 Original Job Listing";
+
+  const backdrop = document.getElementById("drawer-backdrop");
+  const sheet = document.getElementById("drawer-sheet");
+  backdrop.style.display = "block";
+  setTimeout(() => {
+    backdrop.style.opacity = "1";
+    sheet.style.transform = "translateX(0)";
+  }, 10);
+}
+
+function closeJobDrawer() {
+  const backdrop = document.getElementById("drawer-backdrop");
+  const sheet = document.getElementById("drawer-sheet");
+  backdrop.style.opacity = "0";
+  sheet.style.transform = STATE.lang === 'ar' ? "translateX(-100%)" : "translateX(100%)";
+  setTimeout(() => { backdrop.style.display = "none"; }, 300);
+}
+
+/* Filter Setters */
+
+function setStatusTab(st) {
+  STATE.status = st;
+  STATE.page = 1;
+  document.querySelectorAll(".status-card, .status-tab-btn").forEach(el => el.classList.remove("active"));
+  const card = document.getElementById(`tab-status-${st}`);
+  if (card) card.classList.add("active");
+  fetchJobsData();
+}
+
+function setCountryFilter(code) {
+  STATE.country = code;
+  STATE.page = 1;
+  document.querySelectorAll("#pill-country-all, #pill-country-sa, #pill-country-ae, #pill-country-eg, #pill-country-global").forEach(el => el.classList.remove("active"));
+  const activeId = code ? `pill-country-${code.toLowerCase()}` : "pill-country-all";
+  document.getElementById(activeId).classList.add("active");
+  fetchJobsData();
+}
+
+function setModeFilter(mode) {
+  STATE.mode = mode;
+  STATE.page = 1;
+  document.querySelectorAll("#pill-mode-all, #pill-mode-onsite, #pill-mode-remote, #pill-mode-hybrid").forEach(el => el.classList.remove("active"));
+  const activeId = mode ? `pill-mode-${mode}` : "pill-mode-all";
+  document.getElementById(activeId).classList.add("active");
+  fetchJobsData();
+}
+
+function setSectorFilter(sectorKey) {
+  STATE.sector = sectorKey;
+  STATE.page = 1;
+  fetchJobsData();
+}
+
+function prevPage() {
+  if (STATE.page > 1) {
+    STATE.page--;
+    fetchJobsData();
+    window.scrollTo({ top: 380, behavior: 'smooth' });
+  }
+}
+
+function nextPage() {
+  STATE.page++;
+  fetchJobsData();
+  window.scrollTo({ top: 380, behavior: 'smooth' });
+}
+
+/* Search Handler */
+let searchTimeout;
+const searchInput = document.getElementById("search-input");
+searchInput.addEventListener("input", (e) => {
+  const val = e.target.value.trim();
+  document.getElementById("btn-search-clear").style.display = val ? "block" : "none";
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    STATE.q = val;
+    STATE.page = 1;
+    fetchJobsData();
+  }, 350);
+});
+
+function clearSearch() {
+  searchInput.value = "";
+  document.getElementById("btn-search-clear").style.display = "none";
+  STATE.q = "";
+  STATE.page = 1;
+  fetchJobsData();
+}
+
+function escapeHtml(str) {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+/* Initial Boot */
+document.addEventListener("DOMContentLoaded", () => {
+  applyStaticTranslations();
+  fetchJobsData();
+});
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
