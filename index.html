@@ -96,66 +96,7 @@ body {
   0%, 100% { opacity: 0.4; transform: scale(1); }
   50% { opacity: 0.8; transform: scale(1.05); }
 }
-@keyframes toastSlideIn {
-  from { transform: translateX(120%) scale(0.9); opacity: 0; }
-  to { transform: translateX(0) scale(1); opacity: 1; }
-}
-@keyframes toastSlideOut {
-  from { transform: translateX(0) scale(1); opacity: 1; }
-  to { transform: translateX(120%) scale(0.9); opacity: 0; }
-}
 
-/* ==========================================================================
-   LIVE ACTIVITY TOAST (SOCIAL PROOF IN BOTTOM CORNER)
-   ========================================================================== */
-.activity-toast-container {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
-  z-index: 999;
-  max-width: 380px;
-  pointer-events: none;
-}
-.activity-toast {
-  background: rgba(13, 19, 34, 0.92);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: var(--radius-md);
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.15);
-  animation: toastSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  pointer-events: auto;
-  transition: all 0.3s ease;
-}
-.toast-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--accent-emerald);
-  flex-shrink: 0;
-}
-.toast-content {
-  font-size: 0.84rem;
-  line-height: 1.4;
-  color: #fff;
-}
-.toast-title {
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #fff;
-}
-.toast-sub {
-  font-size: 0.74rem;
-  color: var(--ink-muted);
-  margin-top: 2px;
-}
 
 /* ==========================================================================
    STICKY NAVBAR
@@ -1124,19 +1065,6 @@ body {
 
 <body>
 
-<!-- LIVE ACTIVITY TOAST NOTIFICATION (BOTTOM LEFT) -->
-<div class="activity-toast-container" id="toast-container">
-  <div class="activity-toast" id="live-toast">
-    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces&q=80" class="toast-avatar" id="toast-avatar" alt="User">
-    <div class="toast-content">
-      <div class="toast-title" id="toast-title">
-        <span>🎉 أحمد المنصوري قدّم للتو!</span>
-      </div>
-      <div class="toast-sub" id="toast-sub">تواصل مباشر عبر واتساب • وظيفة مهندس مشاريع (الرياض)</div>
-    </div>
-  </div>
-</div>
-
 <!-- STICKY NAVBAR -->
 <nav class="navbar">
   <div class="nav-container">
@@ -1145,11 +1073,11 @@ body {
       <div>
         <div class="brand-name">Job Alert</div>
       </div>
-      <div class="brand-human-tag">روابط تواصل مباشرة 100%</div>
+      <div class="brand-human-tag">منظومة التوظيف المباشر 100%</div>
     </a>
     <div class="nav-links">
       <a href="#why-us" class="nav-link">ليه تختارنا؟</a>
-      <a href="#stories" class="nav-link">قصص ناس وصلوا</a>
+      <a href="#verification" class="nav-link">آلية التحقق المباشر</a>
       <a href="#calculator" class="nav-link">حاسبة الوقت</a>
       <a href="#jobs" class="nav-link">استكشف الوظائف</a>
     </div>
@@ -1202,41 +1130,68 @@ body {
       </div>
     </div>
 
-    <!-- Right Column: Human Character Showcase & Floating Proof -->
+    <!-- Right Column: Enterprise Real-Time Engine Card & Platform Health -->
     <div class="hero-visual-collage reveal reveal-delay-1">
-      <div class="central-hero-card">
-        <div class="central-card-header">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=faces&q=80" class="central-avatar" alt="Sara">
-          <div class="central-header-info">
-            <h4>سارة العتيبي</h4>
-            <span>🟢 تم قبولها في وظيفة أخصائية موارد بشرية</span>
+      <div class="central-hero-card" style="padding: 28px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:1.6rem;">🛡️</span>
+            <div>
+              <div style="font-weight:900; color:#fff; font-size:1.05rem;">لوحة التحقق والتدقيق المباشر</div>
+              <div style="font-size:0.75rem; color:var(--accent-emerald); font-weight:700;">🟢 محرك الرصد الآلي نشط وفوري</div>
+            </div>
+          </div>
+          <span style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:var(--accent-emerald); padding:3px 10px; border-radius:999px; font-size:0.72rem; font-weight:800;">LIVE API</span>
+        </div>
+
+        <!-- Metric Bars -->
+        <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; margin-bottom:18px;">
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:10px;">
+            <span style="color:var(--ink-muted);">دقة روابط التقديم المباشر:</span>
+            <span style="font-weight:900; color:var(--accent-emerald);">100% بدون وسطاء</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:10px;">
+            <span style="color:var(--ink-muted);">حظر الإعلانات والمدونات:</span>
+            <span style="font-weight:900; color:var(--accent-cyan);">مُفعّل بالكامل 🛡️</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
+            <span style="color:var(--ink-muted);">قاعدة البيانات المفحوصة:</span>
+            <span style="font-weight:900; color:#fff;">17,770+ وظيفة نشطة</span>
           </div>
         </div>
-        <div class="central-chat-bubble">
-          "والله العظيم كنت فاقدة الأمل من كتر الروابط اللي تفتح إعلانات وألعاب.. في Job Alert ضغطت على الزر فتحلي محادثة واتساب مع مديرة الشركة، العصر كنت مخلصة المقابلة!"
+
+        <!-- Channels Breakdown -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:18px;">
+          <div style="background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); border-radius:10px; padding:10px; text-align:center;">
+            <div style="font-size:1.1rem; font-weight:900; color:var(--accent-cyan);">واتساب فوري</div>
+            <div style="font-size:0.72rem; color:var(--ink-muted); margin-top:2px;">wa.me بنقرة واحدة</div>
+          </div>
+          <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2); border-radius:10px; padding:10px; text-align:center;">
+            <div style="font-size:1.1rem; font-weight:900; color:var(--accent-emerald);">إيميل مباشر</div>
+            <div style="font-size:0.72rem; color:var(--ink-muted); margin-top:2px;">mailto لفرق الـ HR</div>
+          </div>
         </div>
-        <div class="central-card-actions">
-          <a href="#jobs" class="btn-card-direct">
-            <span>قدم على وظائف مماثلة</span>
-            <span>⚡</span>
-          </a>
+
+        <a href="#jobs" class="btn-card-direct">
+          <span>استكشف الوظائف الحالية</span>
+          <span>⚡</span>
+        </a>
+      </div>
+
+      <!-- Floating Factual Badges -->
+      <div class="floating-badge float-1" style="border-color: rgba(56,189,248,0.3);">
+        <span style="font-size:1.4rem;">🇸🇦</span>
+        <div>
+          <div class="float-text-bold">14,330+ وظيفة بالسعودية</div>
+          <div class="float-text-sub" style="color:var(--accent-cyan);">محدثة لحظياً بتواصل مباشر</div>
         </div>
       </div>
 
-      <!-- Floating Badges with other Characters -->
-      <div class="floating-badge float-1">
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces&q=80" class="float-avatar-sm" alt="Faisal">
+      <div class="floating-badge float-2" style="border-color: rgba(16,185,129,0.3);">
+        <span style="font-size:1.4rem;">🇦🇪</span>
         <div>
-          <div class="float-text-bold">فيصل المطيري</div>
-          <div class="float-text-sub">💬 تواصل مباشر عبر واتساب (الرياض)</div>
-        </div>
-      </div>
-
-      <div class="floating-badge float-2">
-        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=faces&q=80" class="float-avatar-sm" alt="Nour">
-        <div>
-          <div class="float-text-bold">نور المهدي</div>
-          <div class="float-text-sub">✉️ إيميل مباشر لـ HR شركة استشارات</div>
+          <div class="float-text-bold">2,140+ وظيفة بالإمارات</div>
+          <div class="float-text-sub">دبي • أبوظبي • الشارقة</div>
         </div>
       </div>
     </div>
@@ -1247,7 +1202,7 @@ body {
 <section class="stats-section reveal">
   <div class="stats-grid">
     <div class="stat-box">
-      <div class="stat-num" id="stat-total">15,602</div>
+      <div class="stat-num" id="stat-total">17,773</div>
       <div class="stat-lbl">وظيفة نشطة وموثقة</div>
       <div class="stat-sub">100% روابط تقديم مباشرة</div>
     </div>
@@ -1365,69 +1320,69 @@ body {
   </div>
 </section>
 
-<!-- REAL SUCCESS STORIES SECTION -->
-<section class="stories-section reveal" id="stories">
+<!-- VERIFIED DIRECT APPLICATION PIPELINE SECTION -->
+<section class="stories-section reveal" id="verification">
   <div class="section-header-centered">
-    <div class="section-badge-pill">حكايات حقيقية</div>
-    <h2 class="section-title">ناس كانت بتعاني زيك.. ولقوا فرصتهم هنا</h2>
-    <p class="section-desc">قصص حقيقية من شباب وبنات في السعودية ومصر والإمارات تواصلوا مباشرة مع أصحاب العمل.</p>
+    <div class="section-badge-pill">منظومة التدقيق الذكية</div>
+    <h2 class="section-title">كيف نضمن لك روابط تقديم وتواصل مباشرة 100%؟</h2>
+    <p class="section-desc">خوارزميات مخصصة تفحص كل إعلان وظيفي وتستبعد المواقع الوسيطة وصفحات المقالات الإعلانية.</p>
   </div>
 
   <div class="stories-grid">
-    <!-- Story 1 -->
+    <!-- Channel 1 -->
     <div class="story-card">
-      <div class="story-badge">تم القبول خلال 3 أيام 🎉</div>
+      <div class="story-badge" style="color:var(--accent-cyan); border-color:rgba(56,189,248,0.3); background:rgba(56,189,248,0.1);">قناة فورية 💬</div>
       <div class="story-user">
-        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=faces&q=80" class="story-avatar" alt="Faisal">
+        <div style="width:52px; height:52px; border-radius:14px; background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); display:flex; align-items:center; justify-content:center; font-size:1.6rem;">📱</div>
         <div class="story-info">
-          <h4>فيصل القحطاني</h4>
-          <p>مهندس كهرباء • الرياض</p>
+          <h4>محادثة واتساب مباشرة</h4>
+          <p>WhatsApp Direct API (wa.me)</p>
         </div>
       </div>
       <div class="story-quote">
-        "كنت بقضي 3 ساعات كل يوم ألف على جروبات الوظائف والمواقع، وكل رابط يوديني لصفحة مقال طويلة ومفيش أي إيميل. أول ما فتحت Job Alert لقيت رقم <b>واتساب مدير المشروعات في شركة مقاولات كبرى</b>.. بعتله السيرة الذاتية وبعد 48 ساعة كنت موقع العقد!"
+        يقوم محركنا باستخراج رقم هاتف مسؤول التوظيف المعتمد في المنشأة، وإنشاء رابط محادثة واتساب مباشر بنقرة واحدة، مع تعبئة رسالة تقديم أولية جاهزة للإرسال دون الحاجة لتسجيل أي حساب.
       </div>
       <div class="story-footer-metric">
-        <span>القناة المستخدمة:</span>
-        <span class="story-tag-channel">💬 واتساب مباشر للمدير</span>
+        <span>نوع الربط التقني:</span>
+        <span class="story-tag-channel">⚡ wa.me/direct-contact</span>
       </div>
     </div>
 
-    <!-- Story 2 -->
+    <!-- Channel 2 -->
     <div class="story-card">
-      <div class="story-badge">تم القبول خلال أسبوع 🚀</div>
+      <div class="story-badge" style="color:var(--accent-purple); border-color:rgba(168,85,247,0.3); background:rgba(168,85,247,0.1);">بريد رسمي ✉️</div>
       <div class="story-user">
-        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=150&h=150&fit=crop&crop=faces&q=80" class="story-avatar" alt="Maryam">
+        <div style="width:52px; height:52px; border-radius:14px; background:rgba(168,85,247,0.15); border:1px solid rgba(168,85,247,0.3); display:flex; align-items:center; justify-content:center; font-size:1.6rem;">📧</div>
         <div class="story-info">
-          <h4>مريم عبد الرحمن</h4>
-          <p>مديرة تسويق رقمي • دبي</p>
+          <h4>بريد الموارد البشرية الرسمي</h4>
+          <p>Pre-filled HR Direct Mailto</p>
         </div>
       </div>
       <div class="story-quote">
-        "الشركات في الإمارات بتستقبل آلاف السير الذاتية على LinkedIn ومحدش بيبص فيها. هنا لقيت <b>إيميل مديرة الـ HR الشخصي</b>، بعتلها بورتفوليو شغلي الصبح، العصر كانت متصلة بيا لمقابلة زووم. المنصة دي غيرت مفهوم التوظيف تماماً."
+        فلترة العناوين البريدية واستبعاد بريد الدعم الفني العام، واستخراج البريد المخصص لاستقبال السير الذاتية مع تعبئة خانة العنوان بالمسمى الوظيفي وكود الوظيفة لتصل فوراً لبريد مسؤول التوظيف.
       </div>
       <div class="story-footer-metric">
-        <span>القناة المستخدمة:</span>
-        <span class="story-tag-channel">✉️ بريد التوظيف الرسمي</span>
+        <span>نوع الربط التقني:</span>
+        <span class="story-tag-channel" style="color:var(--accent-cyan);">⚡ mailto:hr-team-direct</span>
       </div>
     </div>
 
-    <!-- Story 3 -->
+    <!-- Channel 3 -->
     <div class="story-card">
-      <div class="story-badge">عقد عمل عن بُعد 🌐</div>
+      <div class="story-badge" style="color:var(--accent-emerald); border-color:rgba(16,185,129,0.3); background:rgba(16,185,129,0.1);">بوابة معتمدة 🛡️</div>
       <div class="story-user">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces&q=80" class="story-avatar" alt="Khaled">
+        <div style="width:52px; height:52px; border-radius:14px; background:rgba(56,189,248,0.15); border:1px solid rgba(56,189,248,0.3); display:flex; align-items:center; justify-content:center; font-size:1.6rem;">🌐</div>
         <div class="story-info">
-          <h4>خالد الشربيني</h4>
-          <p>مطور برمجيات • القاهرة</p>
+          <h4>بوابات التوظيف الرسمية (ATS)</h4>
+          <p>Direct Verified Application Form</p>
         </div>
       </div>
       <div class="story-quote">
-        "كنت بدور على فرصة عمل عن بُعد مع شركات الخليج. اشتركت في بوت تليجرام، جالي تنبيه بوظيفة لسه نازلة من 5 دقايق.. قدمت على طول بالنموذج المباشر وكنت أول متقدم يتم فحصه والحمد لله اتقبلت."
+        حظر تام لأي روابط إعلانية أو مدونات وسيطة (JobzSA / مواقع مقالات). كل رابط يقودك مباشرة إما إلى بوابة التوظيف الرسمية للشركة أو صفحة الوظيفة الأصلية المؤكدة بنسبة 100%.
       </div>
       <div class="story-footer-metric">
-        <span>القناة المستخدمة:</span>
-        <span class="story-tag-channel">🤖 تنبيهات تليجرام الفورية</span>
+        <span>نوع الربط التقني:</span>
+        <span class="story-tag-channel">⚡ Verified ATS Endpoint</span>
       </div>
     </div>
   </div>
@@ -1560,56 +1515,6 @@ const STATE = {
   totalMatching: 0,
   jobs: []
 };
-
-/* Social Proof Activity Toasts Rotation */
-const RECENT_ACTIVITIES = [
-  {
-    name: "أحمد المنصوري قدّم للتو!",
-    sub: "تواصل مباشر عبر واتساب • وظيفة مهندس مشاريع (الرياض)",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces&q=80"
-  },
-  {
-    name: "سارة العتيبي تواصلت مع HR!",
-    sub: "إيميل مباشر لمديرة التوظيف • شركة تسويق رقمي (دبي)",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=faces&q=80"
-  },
-  {
-    name: "عمر فؤاد قدّم على وظيفة عن بُعد!",
-    sub: "استمارة تقديم رسمية • مطور برمجيات Full-stack (القاهرة)",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces&q=80"
-  },
-  {
-    name: "مها الشمري تواصلت مع المدير!",
-    sub: "محادثة واتساب فورية • أخصائية خدمة عملاء (جدة)",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=faces&q=80"
-  },
-  {
-    name: "خالد المطيري تلقى دعوة مقابلة!",
-    sub: "تقديم فوري عبر تنبيه تليجرام • محاسب مالي (الدمام)",
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&crop=faces&q=80"
-  }
-];
-
-let currentToastIdx = 0;
-function rotateActivityToast() {
-  const toast = document.getElementById('live-toast');
-  const avatar = document.getElementById('toast-avatar');
-  const title = document.getElementById('toast-title');
-  const sub = document.getElementById('toast-sub');
-  
-  if (!toast) return;
-  
-  toast.style.animation = 'toastSlideOut 0.4s ease forwards';
-  setTimeout(() => {
-    currentToastIdx = (currentToastIdx + 1) % RECENT_ACTIVITIES.length;
-    const act = RECENT_ACTIVITIES[currentToastIdx];
-    avatar.src = act.avatar;
-    title.innerHTML = `<span>🎉 ${act.name}</span>`;
-    sub.textContent = act.sub;
-    toast.style.animation = 'toastSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards';
-  }, 450);
-}
-setInterval(rotateActivityToast, 6000);
 
 /* Time Lost Calculator */
 function updateCalculator(val) {
