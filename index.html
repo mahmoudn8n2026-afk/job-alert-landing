@@ -1,9 +1,12 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-<title>Job Alert Enterprise — طريقك المباشر لوظيفتك القادمة | بدون وسطاء أو إعلانات</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Job Alert — طريقك المباشر لوظيفتك القادمة | بدون وسطاء أو إعلانات</title>
 
 <!-- Cairo & Plus Jakarta Sans Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,48 +15,77 @@
 
 <style>
 /* ==========================================================================
-   ENTERPRISE MODERN DESIGN SYSTEM (HIGH-CONTRAST, HUMAN-CRAFTED, NO AI WASH)
+   HUMAN-CRAFTED DESIGN SYSTEM (HIGH CLARITY, NO AI WASH, LIGHT & DARK MODES)
    ========================================================================== */
 :root {
   --font-ar: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-en: 'Plus Jakarta Sans', sans-serif;
   
-  /* Solid, Crisp Dark Backgrounds */
-  --bg-deep: #07090e;
-  --bg-surface: #0e1320;
-  --bg-card: #121929;
-  --bg-card-hover: #172033;
-  --bg-glass: rgba(18, 25, 41, 0.85);
+  /* LIGHT MODE (DEFAULT: CRYSTAL CLEAR, HIGH CONTRAST, ZERO AI NEON) */
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f1f5f9;
+  --bg-header: rgba(255, 255, 255, 0.94);
   
-  /* Razor-sharp Borders (No blurry AI neon) */
+  --border-subtle: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --border-accent: #2563eb;
+  
+  --ink-primary: #0f172a;
+  --ink-secondary: #334155;
+  --ink-muted: #64748b;
+  
+  --accent-primary: #2563eb;
+  --accent-primary-hover: #1d4ed8;
+  --accent-emerald: #059669;
+  --accent-emerald-light: #ecfdf5;
+  --accent-emerald-border: #a7f3d0;
+  --accent-cyan: #0284c7;
+  --accent-amber: #d97706;
+  --accent-rose: #e11d48;
+  --accent-purple: #7c3aed;
+  
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-elevated: 0 20px 35px -10px rgba(15, 23, 42, 0.1), 0 10px 15px -5px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 12px 28px -4px rgba(37, 99, 235, 0.12);
+  
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 9999px;
+}
+
+[data-theme="dark"] {
+  --bg-page: #080c14;
+  --bg-surface: #0f1624;
+  --bg-card: #131b2e;
+  --bg-card-subtle: #192339;
+  --bg-header: rgba(8, 12, 20, 0.94);
+  
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.16);
-  --border-accent: #0ea5e9;
+  --border-accent: #38bdf8;
   
-  /* High-Contrast Accessible Typography */
   --ink-primary: #ffffff;
   --ink-secondary: #cbd5e1;
   --ink-muted: #8493a8;
   
-  /* Purposeful Accent Palette */
-  --accent-cyan: #0ea5e9;
-  --accent-cyan-hover: #38bdf8;
+  --accent-primary: #0ea5e9;
+  --accent-primary-hover: #38bdf8;
   --accent-emerald: #10b981;
-  --accent-emerald-dark: #059669;
+  --accent-emerald-light: rgba(16, 185, 129, 0.12);
+  --accent-emerald-border: rgba(16, 185, 129, 0.3);
+  --accent-cyan: #38bdf8;
   --accent-amber: #f59e0b;
   --accent-rose: #f43f5e;
-  --accent-purple: #8b5cf6;
+  --accent-purple: #a855f7;
   
-  /* Crisp Shadows & Radius */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.5);
   --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
-  --shadow-elevated: 0 20px 45px -10px rgba(0, 0, 0, 0.75);
-  --shadow-glow-cyan: 0 0 25px rgba(14, 165, 233, 0.25);
-  --shadow-glow-emerald: 0 0 25px rgba(16, 185, 129, 0.25);
-  
-  --radius-lg: 20px;
-  --radius-md: 14px;
-  --radius-sm: 10px;
-  --radius-pill: 9999px;
+  --shadow-elevated: 0 20px 45px -10px rgba(0, 0, 0, 0.8);
+  --shadow-hover: 0 12px 28px -4px rgba(14, 165, 233, 0.2);
 }
 
 *, *::before, *::after {
@@ -67,24 +99,25 @@ html, body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  background-color: var(--bg-deep);
+  background-color: var(--bg-page);
   color: var(--ink-primary);
   font-family: var(--font-ar);
   line-height: 1.6;
   scroll-behavior: smooth;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Background Atmosphere (Subtle & Crisp, Not Washed Out) */
-body::before {
-  content: '';
+/* Scroll Progress Bar at very top of screen */
+#scroll-progress-bar {
   position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 600px;
-  background: radial-gradient(circle at 50% -100px, rgba(14, 165, 233, 0.12) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-emerald), var(--accent-primary));
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s ease-out;
 }
 
 /* ==========================================================================
@@ -92,8 +125,8 @@ body::before {
    ========================================================================== */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 .reveal-active {
@@ -101,25 +134,25 @@ body::before {
   transform: translateY(0);
 }
 .reveal-delay-1 { transition-delay: 0.12s; }
-.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-2 { transition-delay: 0.22s; }
 
 @keyframes floatGentle {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
 }
 @keyframes pulseDot {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+  50% { opacity: 0.4; transform: scale(0.8); }
 }
 
 /* ==========================================================================
-   STICKY NAVBAR (RESPONSIVE & TOUCH-FRIENDLY)
+   STICKY NAVBAR (RESPONSIVE, HIGH-CONTRAST & THEME TOGGLE)
    ========================================================================== */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(8, 11, 18, 0.92);
+  background: var(--bg-header);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
@@ -127,7 +160,7 @@ body::before {
   width: 100%;
 }
 .nav-container {
-  max-width: 1320px;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -139,32 +172,33 @@ body::before {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: #fff;
+  color: var(--ink-primary);
   flex-shrink: 0;
 }
 .brand-icon {
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 .brand-name {
-  font-size: 1.22rem;
+  font-size: 1.25rem;
   font-weight: 900;
-  color: #fff;
+  color: var(--ink-primary);
   letter-spacing: -0.02em;
 }
 .brand-badge {
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  background: rgba(16, 185, 129, 0.12);
+  background: var(--accent-emerald-light);
   color: var(--accent-emerald);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  border: 1px solid var(--accent-emerald-border);
   padding: 3px 8px;
   border-radius: var(--radius-pill);
 }
@@ -181,14 +215,33 @@ body::before {
   font-weight: 600;
   transition: color 0.2s;
 }
-.nav-link:hover { color: var(--accent-cyan); }
+.nav-link:hover { color: var(--accent-primary); }
 
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-shrink: 0;
 }
+.theme-toggle-btn {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-strong);
+  color: var(--ink-primary);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.theme-toggle-btn:hover {
+  background: var(--border-subtle);
+  transform: rotate(15deg);
+}
+
 .btn-telegram-nav {
   background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
   color: #fff;
@@ -201,13 +254,13 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
   transition: all 0.25s ease;
   white-space: nowrap;
 }
 .btn-telegram-nav:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.45);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
 }
 
 @media (max-width: 860px) {
@@ -221,10 +274,10 @@ body::before {
 }
 
 /* ==========================================================================
-   HERO SECTION — HUMAN, EMOTIONAL & RESPONSIVE
+   HERO SECTION — WARM, HUMAN, INSPIRING & RESPONSIVE
    ========================================================================== */
 .hero-section {
-  max-width: 1320px;
+  max-width: 1280px;
   margin: 30px auto 40px;
   padding: 0 20px;
   position: relative;
@@ -251,18 +304,16 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(14, 165, 233, 0.1);
-  border: 1px solid rgba(14, 165, 233, 0.25);
+  background: var(--accent-emerald-light);
+  border: 1px solid var(--accent-emerald-border);
   padding: 6px 14px;
   border-radius: var(--radius-pill);
-  color: var(--accent-cyan);
+  color: var(--accent-emerald);
   font-size: 0.82rem;
   font-weight: 700;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   align-self: flex-start;
   max-width: 100%;
-  white-space: normal;
-  line-height: 1.4;
 }
 @media (max-width: 600px) {
   .hero-badge-pill {
@@ -283,15 +334,15 @@ body::before {
 }
 
 .hero-title {
-  font-size: clamp(2rem, 5.2vw, 3.3rem);
+  font-size: clamp(2rem, 5.2vw, 3.4rem);
   font-weight: 900;
   line-height: 1.25;
-  color: #ffffff;
+  color: var(--ink-primary);
   margin: 0 0 16px;
   letter-spacing: -0.02em;
 }
 .hero-title-highlight {
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
   position: relative;
   display: inline-block;
 }
@@ -303,14 +354,14 @@ body::before {
   max-width: 620px;
 }
 .hero-subtitle b {
-  color: #fff;
+  color: var(--ink-primary);
   font-weight: 700;
 }
 
-/* Hero Search Console */
+/* Modern High-Contrast Search Console */
 .hero-search-wrapper {
-  background: var(--bg-card);
-  border: 1px solid var(--border-strong);
+  background: var(--bg-surface);
+  border: 2px solid var(--border-strong);
   border-radius: var(--radius-md);
   padding: 8px;
   display: flex;
@@ -321,8 +372,8 @@ body::before {
   max-width: 640px;
 }
 .hero-search-wrapper:focus-within {
-  border-color: var(--accent-cyan);
-  box-shadow: var(--shadow-glow-cyan);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-hover);
 }
 .search-icon-box {
   padding-right: 12px;
@@ -335,18 +386,20 @@ body::before {
   flex: 1;
   background: transparent;
   border: none;
-  color: #fff;
+  color: var(--ink-primary);
   font-family: var(--font-ar);
   font-size: 1rem;
+  font-weight: 600;
   outline: none;
   min-width: 0;
 }
 .hero-search-input::placeholder {
   color: var(--ink-muted);
   font-size: 0.92rem;
+  font-weight: 400;
 }
 .hero-search-btn {
-  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
   color: #fff;
   border: none;
   border-radius: var(--radius-sm);
@@ -361,9 +414,10 @@ body::before {
   white-space: nowrap;
   transition: all 0.2s ease;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 .hero-search-btn:hover {
-  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
   transform: translateY(-1px);
 }
 
@@ -398,18 +452,18 @@ body::before {
   color: var(--ink-muted);
 }
 .quick-tag-pill {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-card-subtle);
   border: 1px solid var(--border-subtle);
   color: var(--ink-secondary);
-  padding: 4px 12px;
+  padding: 5px 12px;
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition: all 0.2s;
   font-weight: 600;
 }
 .quick-tag-pill:hover {
-  background: rgba(14, 165, 233, 0.15);
-  border-color: var(--accent-cyan);
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
   color: #fff;
 }
 
@@ -423,22 +477,21 @@ body::before {
   align-items: center;
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
 }
 .character-main-card {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--bg-card);
+  background: var(--bg-surface);
   border: 1px solid var(--border-strong);
   box-shadow: var(--shadow-elevated);
 }
 .character-image-container {
   position: relative;
   width: 100%;
-  height: 380px;
+  height: 400px;
   overflow: hidden;
 }
 .character-img {
@@ -454,19 +507,24 @@ body::before {
 .character-gradient-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(8, 11, 18, 0.1) 0%, rgba(8, 11, 18, 0.4) 60%, rgba(8, 11, 18, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 50%, rgba(15, 23, 42, 0.95) 100%);
 }
 .character-status-overlay {
   position: absolute;
   bottom: 16px;
   left: 16px;
   right: 16px;
-  background: rgba(14, 19, 32, 0.88);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: var(--radius-md);
   padding: 14px 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+[data-theme="dark"] .character-status-overlay {
+  background: rgba(19, 27, 46, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .character-badge-title {
   display: flex;
@@ -478,11 +536,14 @@ body::before {
   margin: 0;
   font-size: 1rem;
   font-weight: 800;
+  color: #0f172a;
+}
+[data-theme="dark"] .character-badge-title h4 {
   color: #fff;
 }
 .character-live-chip {
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: var(--accent-emerald-light);
+  border: 1px solid var(--accent-emerald-border);
   color: var(--accent-emerald);
   font-size: 0.72rem;
   font-weight: 700;
@@ -494,16 +555,18 @@ body::before {
 }
 .character-quote-desc {
   font-size: 0.82rem;
-  color: var(--ink-secondary);
+  color: #475569;
   line-height: 1.5;
   margin: 0;
 }
+[data-theme="dark"] .character-quote-desc {
+  color: var(--ink-secondary);
+}
 
-/* Floating Metric Badges on Character Card */
+/* Floating Badges on Desktop */
 .character-floating-badge {
   position: absolute;
-  background: rgba(14, 19, 32, 0.94);
-  backdrop-filter: blur(14px);
+  background: var(--bg-surface);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-md);
   padding: 10px 14px;
@@ -529,7 +592,7 @@ body::before {
 .char-float-title {
   font-size: 0.82rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--ink-primary);
 }
 .char-float-sub {
   font-size: 0.72rem;
@@ -540,14 +603,14 @@ body::before {
 @media (max-width: 992px) {
   .character-floating-badge { display: none; }
   .character-main-card { max-width: 100%; }
-  .character-image-container { height: 300px; }
+  .character-image-container { height: 320px; }
 }
 
 /* ==========================================================================
-   METRICS COUNTER SECTION (ANIMATED ON SCROLL)
+   METRICS COUNTER SECTION (ANIMATED ON SCROLL, HIGH CLARITY)
    ========================================================================== */
 .stats-section {
-  max-width: 1320px;
+  max-width: 1280px;
   margin: 10px auto 50px;
   padding: 0 20px;
 }
@@ -564,31 +627,32 @@ body::before {
 }
 
 .stat-card {
-  background: var(--bg-card);
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 22px 18px;
+  padding: 24px 18px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: transform 0.25s, border-color 0.25s;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
 }
 .stat-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(14, 165, 233, 0.4);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-hover);
 }
 .stat-card::after {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-emerald));
-  opacity: 0.8;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-emerald));
 }
 .stat-number {
   font-size: clamp(1.8rem, 3.8vw, 2.6rem);
   font-weight: 900;
-  color: #fff;
+  color: var(--ink-primary);
   line-height: 1.1;
   margin-bottom: 4px;
   font-variant-numeric: tabular-nums;
@@ -600,17 +664,17 @@ body::before {
   color: var(--ink-secondary);
 }
 .stat-subtext {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   color: var(--accent-emerald);
   margin-top: 4px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ==========================================================================
    PAIN VS SOLUTION SECTION (HIGH CONTRAST & AUTHENTIC)
    ========================================================================== */
 .comparison-section {
-  max-width: 1320px;
+  max-width: 1280px;
   margin: 60px auto;
   padding: 0 20px;
 }
@@ -621,11 +685,11 @@ body::before {
 }
 .section-badge {
   display: inline-block;
-  background: rgba(14, 165, 233, 0.1);
-  border: 1px solid rgba(14, 165, 233, 0.25);
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
   padding: 5px 14px;
   border-radius: var(--radius-pill);
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
   font-size: 0.8rem;
   font-weight: 800;
   margin-bottom: 12px;
@@ -633,7 +697,7 @@ body::before {
 .section-title {
   font-size: clamp(1.6rem, 3.5vw, 2.3rem);
   font-weight: 900;
-  color: #fff;
+  color: var(--ink-primary);
   margin: 0 0 10px;
 }
 .section-desc {
@@ -653,18 +717,29 @@ body::before {
 }
 
 .compare-card-pain {
-  background: rgba(26, 14, 20, 0.7);
-  border: 1px solid rgba(244, 63, 94, 0.25);
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
   border-radius: var(--radius-lg);
   padding: 28px;
+  box-shadow: var(--shadow-card);
 }
+[data-theme="dark"] .compare-card-pain {
+  background: rgba(225, 29, 72, 0.08);
+  border-color: rgba(225, 29, 72, 0.25);
+}
+
 .compare-card-solution {
-  background: rgba(10, 28, 26, 0.75);
-  border: 1px solid rgba(16, 185, 129, 0.35);
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
   border-radius: var(--radius-lg);
   padding: 28px;
-  box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.1);
 }
+[data-theme="dark"] .compare-card-solution {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
 .compare-header {
   display: flex;
   align-items: center;
@@ -681,18 +756,26 @@ body::before {
   font-size: 22px;
 }
 .icon-pain {
-  background: rgba(244, 63, 94, 0.15);
-  border: 1px solid rgba(244, 63, 94, 0.3);
+  background: #ffe4e6;
+  border: 1px solid #fecdd3;
+}
+[data-theme="dark"] .icon-pain {
+  background: rgba(225, 29, 72, 0.2);
+  border-color: rgba(225, 29, 72, 0.35);
 }
 .icon-sol {
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+}
+[data-theme="dark"] .icon-sol {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.35);
 }
 .compare-header h3 {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--ink-primary);
 }
 .compare-header p {
   margin: 2px 0 0;
@@ -714,6 +797,7 @@ body::before {
   gap: 10px;
   font-size: 0.92rem;
   line-height: 1.5;
+  color: var(--ink-secondary);
 }
 .compare-bullet {
   font-size: 1.1rem;
@@ -729,7 +813,7 @@ body::before {
   padding: 0 20px;
 }
 .calculator-box {
-  background: var(--bg-card);
+  background: var(--bg-surface);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
   padding: 36px 30px;
@@ -761,15 +845,15 @@ body::before {
   width: 100%;
   height: 8px;
   border-radius: 4px;
-  background: #1e293b;
+  background: var(--border-strong);
   outline: none;
   -webkit-appearance: none;
-  accent-color: var(--accent-cyan);
+  accent-color: var(--accent-primary);
   cursor: pointer;
 }
 .calc-result-card {
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 24px 20px;
   text-align: center;
@@ -777,27 +861,27 @@ body::before {
 .calc-hours-value {
   font-size: 3.5rem;
   font-weight: 900;
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
   line-height: 1;
   font-family: var(--font-en), var(--font-ar);
 }
 .calc-hours-title {
   font-size: 1.05rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--ink-primary);
   margin: 6px 0 8px;
 }
 .calc-hours-footer {
   font-size: 0.82rem;
   color: var(--accent-emerald);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ==========================================================================
    DIRECT VERIFICATION PIPELINE SECTION (100% FACTUAL & TECHNICAL)
    ========================================================================== */
 .pipeline-section {
-  max-width: 1320px;
+  max-width: 1280px;
   margin: 60px auto;
   padding: 0 20px;
 }
@@ -811,18 +895,20 @@ body::before {
 }
 
 .pipeline-card {
-  background: var(--bg-card);
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 26px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.25s, border-color 0.25s;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 .pipeline-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(14, 165, 233, 0.4);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-hover);
 }
 .pipeline-card-badge {
   display: inline-block;
@@ -834,20 +920,31 @@ body::before {
   align-self: flex-start;
 }
 .badge-whatsapp {
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: var(--accent-emerald-light);
+  border: 1px solid var(--accent-emerald-border);
   color: var(--accent-emerald);
 }
 .badge-email {
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  color: var(--accent-purple);
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  color: #7c3aed;
+}
+[data-theme="dark"] .badge-email {
+  background: rgba(124, 58, 237, 0.12);
+  border-color: rgba(124, 58, 237, 0.3);
+  color: #c084fc;
 }
 .badge-portal {
-  background: rgba(14, 165, 233, 0.12);
-  border: 1px solid rgba(14, 165, 233, 0.3);
-  color: var(--accent-cyan);
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #2563eb;
 }
+[data-theme="dark"] .badge-portal {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.3);
+  color: #60a5fa;
+}
+
 .pipeline-card-header {
   display: flex;
   align-items: center;
@@ -862,7 +959,7 @@ body::before {
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-card-subtle);
   border: 1px solid var(--border-subtle);
   flex-shrink: 0;
 }
@@ -870,7 +967,7 @@ body::before {
   margin: 0;
   font-size: 1.08rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--ink-primary);
 }
 .pipeline-card-header p {
   margin: 2px 0 0;
@@ -898,16 +995,17 @@ body::before {
    LIVE JOBS EXPLORER SECTION (THE CORE ENGINE)
    ========================================================================== */
 .jobs-explorer-section {
-  max-width: 1320px;
+  max-width: 1280px;
   margin: 60px auto;
   padding: 0 20px;
 }
 .explorer-header-box {
   background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
   padding: 24px;
   margin-bottom: 24px;
+  box-shadow: var(--shadow-card);
 }
 @media (max-width: 600px) {
   .explorer-header-box { padding: 16px; }
@@ -934,7 +1032,7 @@ body::before {
   margin-left: 4px;
 }
 .filter-pill {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-card-subtle);
   border: 1px solid var(--border-subtle);
   color: var(--ink-secondary);
   border-radius: var(--radius-pill);
@@ -947,14 +1045,14 @@ body::before {
   white-space: nowrap;
 }
 .filter-pill:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--border-strong);
+  color: var(--ink-primary);
 }
 .filter-pill.active {
-  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
-  border-color: #38bdf8;
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  border-color: #2563eb;
   color: #fff;
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
 /* Jobs Grid */
@@ -971,20 +1069,21 @@ body::before {
 }
 
 .job-card {
-  background: var(--bg-card);
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 22px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: var(--shadow-card);
   transition: all 0.25s ease;
   position: relative;
 }
 .job-card:hover {
-  border-color: rgba(14, 165, 233, 0.35);
+  border-color: var(--accent-primary);
   transform: translateY(-3px);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-hover);
 }
 .job-card-top {
   display: flex;
@@ -996,9 +1095,9 @@ body::before {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(14, 165, 233, 0.12);
-  border: 1px solid rgba(14, 165, 233, 0.25);
-  color: var(--accent-cyan);
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  color: var(--accent-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1012,26 +1111,36 @@ body::before {
   border-radius: var(--radius-pill);
 }
 .channel-whatsapp {
-  background: rgba(16, 185, 129, 0.15);
+  background: var(--accent-emerald-light);
   color: var(--accent-emerald);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  border: 1px solid var(--accent-emerald-border);
 }
 .channel-email {
-  background: rgba(139, 92, 246, 0.15);
+  background: #f5f3ff;
+  color: #7c3aed;
+  border: 1px solid #ddd6fe;
+}
+[data-theme="dark"] .channel-email {
+  background: rgba(124, 58, 237, 0.15);
   color: #c084fc;
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-color: rgba(124, 58, 237, 0.3);
 }
 .channel-portal {
-  background: rgba(14, 165, 233, 0.15);
-  color: var(--accent-cyan);
-  border: 1px solid rgba(14, 165, 233, 0.3);
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+[data-theme="dark"] .channel-portal {
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
+  border-color: rgba(37, 99, 235, 0.3);
 }
 
 .job-title {
   margin: 0 0 6px;
   font-size: 1.05rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--ink-primary);
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -1040,8 +1149,8 @@ body::before {
 }
 .job-company {
   font-size: 0.84rem;
-  color: var(--accent-cyan);
-  font-weight: 600;
+  color: var(--accent-primary);
+  font-weight: 700;
   margin-bottom: 14px;
 }
 .job-tags-row {
@@ -1052,7 +1161,7 @@ body::before {
   margin-bottom: 18px;
 }
 .job-tag {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--bg-card-subtle);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 3px 8px;
@@ -1088,9 +1197,9 @@ body::before {
   transform: translateY(-1px);
 }
 .btn-details {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border-subtle);
-  color: #fff;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-strong);
+  color: var(--ink-primary);
   border-radius: 10px;
   padding: 10px 14px;
   font-family: var(--font-ar);
@@ -1100,7 +1209,7 @@ body::before {
   transition: all 0.2s;
 }
 .btn-details:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--border-subtle);
 }
 
 /* Pagination Row */
@@ -1112,9 +1221,9 @@ body::before {
   margin-top: 36px;
 }
 .page-btn {
-  background: var(--bg-card);
+  background: var(--bg-surface);
   border: 1px solid var(--border-strong);
-  color: #fff;
+  color: var(--ink-primary);
   border-radius: var(--radius-sm);
   padding: 10px 20px;
   font-family: var(--font-ar);
@@ -1124,8 +1233,8 @@ body::before {
   transition: all 0.2s;
 }
 .page-btn:hover:not(:disabled) {
-  border-color: var(--accent-cyan);
-  background: var(--bg-card-hover);
+  border-color: var(--accent-primary);
+  background: var(--bg-card-subtle);
 }
 .page-btn:disabled {
   opacity: 0.35;
@@ -1143,7 +1252,7 @@ body::before {
 .drawer-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
   z-index: 1000;
   opacity: 0;
@@ -1157,7 +1266,7 @@ body::before {
   left: 0;
   width: 100%;
   max-width: 520px;
-  background: #0f1523;
+  background: var(--bg-surface);
   border-right: 1px solid var(--border-strong);
   z-index: 1001;
   padding: 28px 24px;
@@ -1202,7 +1311,7 @@ body.drawer-open .drawer-sheet {
    ========================================================================== */
 .site-footer {
   border-top: 1px solid var(--border-subtle);
-  background: #05070b;
+  background: var(--bg-surface);
   padding: 40px 20px;
   text-align: center;
   color: var(--ink-muted);
@@ -1211,13 +1320,16 @@ body.drawer-open .drawer-sheet {
 .footer-brand {
   font-size: 1.25rem;
   font-weight: 900;
-  color: #fff;
+  color: var(--ink-primary);
   margin-bottom: 8px;
 }
 </style>
 </head>
 
 <body>
+
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress-bar"></div>
 
 <!-- STICKY NAVBAR -->
 <nav class="navbar">
@@ -1238,6 +1350,11 @@ body.drawer-open .drawer-sheet {
     </div>
 
     <div class="nav-actions">
+      <!-- Theme Switcher Button -->
+      <button class="theme-toggle-btn" id="theme-btn" onclick="toggleTheme()" title="تبديل الوضع الليلي / النهاري">
+        🌙
+      </button>
+
       <a href="https://t.me/job_alert_sa_bot" target="_blank" class="btn-telegram-nav">
         <span>🤖</span>
         <span>تنبيهات تليجرام مجاناً</span>
@@ -1268,7 +1385,7 @@ body.drawer-open .drawer-sheet {
       <!-- Instant Search Console -->
       <div class="hero-search-wrapper">
         <div class="search-icon-box">🔍</div>
-        <input type="text" id="hero-search-input" class="hero-search-input" placeholder="اكتب المسمى الوظيفي (مثال: مدير تسويق، محاسب، مهندس، خدمة عملاء...)" onkeydown="onHeroKey(event)">
+        <input type="text" id="hero-search-input" class="hero-search-input" placeholder="اكتب المسمى الوظيفي..." onkeydown="onHeroKey(event)">
         <button class="hero-search-btn" onclick="triggerHeroSearch()">
           <span>ابحث الآن</span>
           <span>⚡</span>
@@ -1429,13 +1546,13 @@ body.drawer-open .drawer-sheet {
   <div class="calculator-box">
     <div>
       <div class="section-badge">حاسبة التوفير الذكية</div>
-      <h2 style="font-size:1.6rem; font-weight:900; color:#fff; margin:8px 0 10px;">احسب الوقت اللي بتضيعه في البحث التقليدي</h2>
+      <h2 style="font-size:1.6rem; font-weight:900; color:var(--ink-primary); margin:8px 0 10px;">احسب الوقت اللي بتضيعه في البحث التقليدي</h2>
       <p style="color:var(--ink-muted); font-size:0.92rem; margin:0 0 20px;">حرّك المؤشر وشوف إحنا هنوفرلك كام ساعة شهرياً كانت بتضيع في الإعلانات وتخطي الصفحات:</p>
 
       <div class="calc-slider-wrap">
         <div class="calc-slider-header">
           <span>عدد الوظائف اللي بتقدم عليها أسبوعياً:</span>
-          <span id="slider-val-text" style="color:var(--accent-cyan); font-weight:800; font-size:1.1rem;">15 وظيفة</span>
+          <span id="slider-val-text" style="color:var(--accent-primary); font-weight:800; font-size:1.1rem;">15 وظيفة</span>
         </div>
         <input type="range" min="3" max="50" value="15" class="calc-slider" id="jobs-slider" oninput="updateCalculator(this.value)">
       </div>
@@ -1517,7 +1634,7 @@ body.drawer-open .drawer-sheet {
       </div>
       <div class="pipeline-footer">
         <span>نوع الربط التقني:</span>
-        <span style="color:var(--accent-cyan); font-weight:700;">⚡ Verified ATS Endpoint</span>
+        <span style="color:var(--accent-primary); font-weight:700;">⚡ Verified ATS Endpoint</span>
       </div>
     </div>
   </div>
@@ -1580,7 +1697,7 @@ body.drawer-open .drawer-sheet {
 <footer class="site-footer">
   <div class="footer-brand">Job Alert Enterprise</div>
   <p style="margin:0 0 10px;">المنظومة الإنسانية الذكية لرصد وتدقيق الوظائف المباشرة في الشرق الأوسط © 2026</p>
-  <p style="font-size:0.78rem; color:#475569; margin:0;">
+  <p style="font-size:0.78rem; color:var(--ink-muted); margin:0;">
     مبنية بالحب لكل باحث عن فرصة عمل حقيقية بدون وسيط أو إعلانات ربحية.
   </p>
 </footer>
@@ -1589,8 +1706,8 @@ body.drawer-open .drawer-sheet {
 <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeJobDrawer()"></div>
 <div class="drawer-sheet" id="drawer-sheet">
   <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
-    <h3 style="margin:0; font-size:1.15rem; font-weight:800; color:#fff;">تفاصيل الوظيفة</h3>
-    <button onclick="closeJobDrawer()" style="background:transparent; border:none; color:#fff; font-size:1.4rem; cursor:pointer; padding:4px 8px;">✕</button>
+    <h3 style="margin:0; font-size:1.15rem; font-weight:800; color:var(--ink-primary);">تفاصيل الوظيفة</h3>
+    <button onclick="closeJobDrawer()" style="background:transparent; border:none; color:var(--ink-primary); font-size:1.4rem; cursor:pointer; padding:4px 8px;">✕</button>
   </div>
   <div id="drawer-body" style="flex:1;">
     <!-- Injected Details -->
@@ -1616,6 +1733,71 @@ const STATE = {
   totalMatching: 0,
   jobs: []
 };
+
+/* Scroll Progress Bar Tracking */
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  const bar = document.getElementById('scroll-progress-bar');
+  if (bar) bar.style.width = progress + '%';
+});
+
+/* Theme Toggle (Light / Dark) */
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const next = current === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  const btn = document.getElementById('theme-btn');
+  if (btn) btn.textContent = next === 'light' ? '🌙' : '☀️';
+  try { localStorage.setItem('job_theme', next); } catch(e){}
+}
+
+// Load saved theme if any
+try {
+  const saved = localStorage.getItem('job_theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    const btn = document.getElementById('theme-btn');
+    if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
+  }
+} catch(e){}
+
+/* Typewriter animated placeholder in Search Input */
+const PLACEHOLDERS = [
+  "اكتب المسمى الوظيفي (مثال: مدير تسويق في الرياض)...",
+  "ابحث عن: مهندس مدني في دبي...",
+  "ابحث عن: محاسب عام في القاهرة...",
+  "ابحث عن: خدمة عملاء عن بُعد 🌐...",
+  "ابحث عن: أخصائي موارد بشرية HR..."
+];
+let phIdx = 0, charIdx = 0, isDeleting = false;
+function typePlaceholder() {
+  const input = document.getElementById('hero-search-input');
+  if (!input || document.activeElement === input) {
+    setTimeout(typePlaceholder, 1500);
+    return;
+  }
+  const currentPhrase = PLACEHOLDERS[phIdx];
+  if (!isDeleting) {
+    input.setAttribute('placeholder', currentPhrase.substring(0, charIdx + 1));
+    charIdx++;
+    if (charIdx === currentPhrase.length) {
+      isDeleting = true;
+      setTimeout(typePlaceholder, 2000);
+      return;
+    }
+  } else {
+    input.setAttribute('placeholder', currentPhrase.substring(0, charIdx - 1));
+    charIdx--;
+    if (charIdx === 0) {
+      isDeleting = false;
+      phIdx = (phIdx + 1) % PLACEHOLDERS.length;
+    }
+  }
+  setTimeout(typePlaceholder, isDeleting ? 40 : 80);
+}
+setTimeout(typePlaceholder, 1000);
 
 /* Scroll Reveal Intersection Observer */
 function setupScrollReveal() {
@@ -1656,7 +1838,6 @@ function animateCounters() {
     function updateCount(currentTime) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // easeOutCubic
       const ease = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(ease * target);
       counter.textContent = current.toLocaleString('en-US');
@@ -1673,7 +1854,6 @@ function animateCounters() {
 /* Time Lost Calculator */
 function updateCalculator(val) {
   document.getElementById('slider-val-text').textContent = val + " وظيفة";
-  // Every job application on traditional ad sites wastes ~18 minutes
   const hoursPerMonth = Math.round((val * 18 * 4.3) / 60);
   document.getElementById('calc-hours').textContent = hoursPerMonth;
 }
@@ -1721,7 +1901,7 @@ function setModeFilter(mode, el) {
 /* Fetch Jobs from Live Webhook */
 async function fetchJobsData() {
   const container = document.getElementById('jobs-container');
-  container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:50px 0; font-size:1.1rem; color:var(--accent-cyan); font-weight:700;">جاري جلب أحدث الوظائف المباشرة... ⚡</div>';
+  container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:50px 0; font-size:1.1rem; color:var(--accent-primary); font-weight:700;">جاري جلب أحدث الوظائف المباشرة... ⚡</div>';
 
   try {
     const params = new URLSearchParams({
@@ -1763,7 +1943,7 @@ async function fetchJobsData() {
     renderPagination();
   } catch (err) {
     console.error(err);
-    container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:40px; color:#f87171; font-weight:700;">تعذر جلب البيانات لحظياً. جاري إعادة المحاولة...</div>';
+    container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:40px; color:#e11d48; font-weight:700;">تعذر جلب البيانات لحظياً. جاري إعادة المحاولة...</div>';
   }
 }
 
@@ -1772,9 +1952,9 @@ function renderJobsGrid() {
   const container = document.getElementById('jobs-container');
   if (!STATE.jobs.length) {
     container.innerHTML = `
-      <div style="grid-column: 1/-1; text-align:center; padding:60px 20px; background:var(--bg-card); border-radius:var(--radius-lg); border:1px solid var(--border-subtle);">
+      <div style="grid-column: 1/-1; text-align:center; padding:60px 20px; background:var(--bg-surface); border-radius:var(--radius-lg); border:1px solid var(--border-subtle);">
         <div style="font-size:3rem; margin-bottom:12px;">🔍</div>
-        <h3 style="font-size:1.25rem; font-weight:800; color:#fff; margin:0 0 6px;">لا توجد وظائف مطابقة لمعايير البحث الحالية</h3>
+        <h3 style="font-size:1.25rem; font-weight:800; color:var(--ink-primary); margin:0 0 6px;">لا توجد وظائف مطابقة لمعايير البحث الحالية</h3>
         <p style="color:var(--ink-muted); margin:0;">جرّب كلمة بحث أعمّ أو أزل فلاتر الدولة.</p>
       </div>
     `;
@@ -1847,10 +2027,10 @@ function openJobDrawer(idx) {
   const applyBtn = document.getElementById('drawer-apply-btn');
   
   body.innerHTML = `
-    <h2 style="font-size:1.25rem; font-weight:900; color:#fff; margin:0 0 6px;">${job.title}</h2>
-    <div style="font-size:0.95rem; font-weight:700; color:var(--accent-cyan); margin-bottom:16px;">${job.company || 'جهة توظيف معتمدة'}</div>
+    <h2 style="font-size:1.25rem; font-weight:900; color:var(--ink-primary); margin:0 0 6px;">${job.title}</h2>
+    <div style="font-size:0.95rem; font-weight:700; color:var(--accent-primary); margin-bottom:16px;">${job.company || 'جهة توظيف معتمدة'}</div>
     
-    <div style="background:rgba(255,255,255,0.04); border:1px solid var(--border-subtle); border-radius:12px; padding:14px; margin-bottom:18px; font-size:0.85rem; line-height:1.6;">
+    <div style="background:var(--bg-card-subtle); border:1px solid var(--border-subtle); border-radius:12px; padding:14px; margin-bottom:18px; font-size:0.85rem; line-height:1.6;">
       <div><b>الدولة:</b> ${job.country_code} | <b>المدينة:</b> ${job.city || 'غير محدد'}</div>
       <div><b>المصدر:</b> ${job.source || 'شبكة التوظيف المعتمدة'}</div>
       <div><b>حالة الرابط:</b> 100% رابط تواصل مباشر ومفحوص</div>
