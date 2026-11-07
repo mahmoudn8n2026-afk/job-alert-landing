@@ -154,7 +154,7 @@ button {
 }
 
 /* ==========================================================================
-   ANIMATIONS & DYNAMIC MICRO-INTERACTIONS
+   ANIMATIONS & SCROLL-TRIGGERED ENTRANCES (LEFT, RIGHT, STAGGER)
    ========================================================================== */
 @keyframes floatBadge1 {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -172,14 +172,20 @@ button {
   100% { transform: scale(2.3); opacity: 0; }
 }
 
-@keyframes shimmerGlow {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+@keyframes jobCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-@keyframes pulseBorder {
-  0%, 100% { border-color: var(--border-accent); box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); }
-  50% { border-color: var(--accent-cyan); box-shadow: 0 0 25px rgba(56, 189, 248, 0.4); }
+@keyframes pulsePill {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 /* Top Reading Scroll Progress Bar */
@@ -195,19 +201,91 @@ button {
   transition: width 0.1s ease-out;
 }
 
-/* Reveal on Scroll */
+/* DIRECTIONAL SCROLL REVEAL (LEFT, RIGHT, UP) */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
-.reveal-active {
-  opacity: 1;
-  transform: translateY(0);
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
-.reveal-delay-1 { transition-delay: 0.15s; }
-.reveal-delay-2 { transition-delay: 0.3s; }
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-active {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
+.delay-1 { transition-delay: 0.12s; }
+.delay-2 { transition-delay: 0.24s; }
+.delay-3 { transition-delay: 0.36s; }
+
+/* ==========================================================================
+   DYNAMIC SIDE SLIDE-IN NOTIFICATION BADGES
+   ========================================================================== */
+.side-toast {
+  position: fixed;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
+  box-shadow: var(--shadow-elevated);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+  pointer-events: auto;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.side-toast-right {
+  top: 100px;
+  right: 20px;
+  transform: translateX(140%);
+  opacity: 0;
+}
+.side-toast-right.toast-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.side-toast-left {
+  bottom: 25px;
+  left: 20px;
+  transform: translateX(-140%);
+  opacity: 0;
+}
+.side-toast-left.toast-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.toast-close {
+  background: transparent;
+  border: none;
+  color: var(--ink-muted);
+  font-size: 14px;
+  cursor: pointer;
+  margin-inline-start: 6px;
+}
+.toast-close:hover {
+  color: var(--ink-primary);
+}
 
 /* ==========================================================================
    STICKY NAVBAR
@@ -560,7 +638,7 @@ button {
 .character-image-container {
   position: relative;
   width: 100%;
-  height: 420px;
+  height: 400px;
   overflow: hidden;
 }
 
@@ -704,7 +782,7 @@ button {
 }
 .stat-card:hover {
   border-color: var(--border-card-hover);
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-hover);
 }
 
@@ -799,6 +877,10 @@ button {
   display: flex;
   flex-direction: column;
   position: relative;
+  transition: all 0.3s ease;
+}
+.comp-card:hover {
+  transform: translateY(-4px);
 }
 
 .comp-card-bad {
@@ -881,6 +963,10 @@ button {
   padding: 36px;
   box-shadow: var(--shadow-card);
   text-align: center;
+  transition: all 0.3s ease;
+}
+.calculator-card:hover {
+  transform: translateY(-4px);
 }
 
 .calculator-slider {
@@ -951,7 +1037,8 @@ button {
 }
 .pipe-card:hover {
   border-color: var(--border-card-hover);
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card);
 }
 
 .pipe-step-num {
@@ -1037,19 +1124,21 @@ button {
   color: var(--ink-secondary);
   font-size: 0.82rem;
   font-weight: 700;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .filter-chip-btn:hover {
   background: var(--bg-surface);
   color: var(--ink-primary);
+  transform: translateY(-2px);
 }
 .filter-chip-btn.active {
   background: var(--accent-primary);
   color: #ffffff;
   border-color: var(--accent-primary);
+  transform: scale(1.03);
 }
 
-/* Job Cards Grid */
+/* Job Cards Grid with Cascading Staggered Animation */
 .jobs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -1065,11 +1154,12 @@ button {
   flex-direction: column;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  animation: jobCardEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 .job-card:hover {
   border-color: var(--border-card-hover);
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-card);
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: var(--shadow-hover);
 }
 
 .job-card-top {
@@ -1192,47 +1282,52 @@ button {
 }
 
 /* ==========================================================================
-   JOB DETAILS DRAWER & BACKDROP
+   JOB DETAILS DRAWER & BACKDROP (100% BUG-FREE OFF-SCREEN HIDING)
    ========================================================================== */
 .drawer-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(8px);
-  z-index: 2000;
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9998;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .drawer-panel {
   position: fixed;
   top: 0;
   bottom: 0;
-  inset-inline-end: 0;
+  right: 0;
   width: 100%;
   max-width: 480px;
   background: var(--bg-surface);
-  border-inline-start: 1px solid var(--border-strong);
-  z-index: 2001;
+  border-left: 1px solid var(--border-strong);
+  z-index: 9999;
   padding: 28px;
   display: flex;
   flex-direction: column;
-  transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
-}
-
-html[dir="ltr"] .drawer-panel {
-  transform: translateX(100%);
+  transform: translateX(110%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.4s ease;
+  box-shadow: -15px 0 50px rgba(0, 0, 0, 0.6);
 }
 
 .drawer-open .drawer-backdrop {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 .drawer-open .drawer-panel {
   transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* ==========================================================================
@@ -1313,7 +1408,7 @@ html[dir="ltr"] .drawer-panel {
     font-size: 0.95rem;
   }
   .character-image-container {
-    height: 340px;
+    height: 350px;
   }
   .char-float-top {
     top: 10px;
@@ -1332,6 +1427,9 @@ html[dir="ltr"] .drawer-panel {
   }
   .char-float-sub {
     font-size: 0.62rem;
+  }
+  .side-toast {
+    display: none;
   }
 }
 
@@ -1384,6 +1482,25 @@ html[dir="ltr"] .drawer-panel {
 <!-- Reading Progress Bar -->
 <div id="scroll-progress-bar"></div>
 
+<!-- DYNAMIC SIDE SLIDE-IN TOASTS (تظهر له حاجات من الجنب يمين وشمال) -->
+<div class="side-toast side-toast-right" id="toast-right">
+  <span style="font-size:18px;">🔔</span>
+  <div>
+    <div>تم التحقق الآن: وظيفة مدير تسويق بالرياض</div>
+    <div style="font-size:0.7rem; color:var(--accent-primary);">تقديم فوري عبر واتساب مباشر</div>
+  </div>
+  <button class="toast-close" onclick="closeToast('toast-right')">✕</button>
+</div>
+
+<div class="side-toast side-toast-left" id="toast-left">
+  <span style="font-size:18px;">🛡️</span>
+  <div>
+    <div>فحص الروابط اللحظي: 100% صالحة</div>
+    <div style="font-size:0.7rem; color:var(--accent-cyan);">استبعاد كامل للوسطاء والروابط الميتة</div>
+  </div>
+  <button class="toast-close" onclick="closeToast('toast-left')">✕</button>
+</div>
+
 <!-- STICKY NAVBAR -->
 <nav class="navbar">
   <div class="nav-container">
@@ -1432,7 +1549,7 @@ html[dir="ltr"] .drawer-panel {
   <div class="hero-grid">
     
     <!-- Left Column: Emotional Value Proposition & Instant Search -->
-    <div class="hero-content reveal">
+    <div class="hero-content reveal-right">
       
       <div class="hero-badge-pill">
         <div class="live-dot-wrap">
@@ -1474,7 +1591,7 @@ html[dir="ltr"] .drawer-panel {
     </div>
 
     <!-- Right Column: Human Character Showcase (Ambitious Young Candidate) -->
-    <div class="hero-character-col reveal reveal-delay-1">
+    <div class="hero-character-col reveal-left delay-1">
       
       <div class="character-main-card">
         <div class="character-image-container">
@@ -1520,25 +1637,25 @@ html[dir="ltr"] .drawer-panel {
 <section class="stats-section reveal">
   <div class="stats-grid">
     
-    <div class="stat-card">
+    <div class="stat-card reveal-up">
       <div class="stat-number stat-num-val" data-target="17773">17,773</div>
       <div class="stat-label">وظيفة نشطة وموثقة</div>
       <div class="stat-subtext">100% روابط تقديم مباشرة ⚡</div>
     </div>
 
-    <div class="stat-card">
+    <div class="stat-card reveal-up delay-1">
       <div class="stat-number stat-num-val" data-target="14338">14,338</div>
       <div class="stat-label">المملكة العربية السعودية 🇸🇦</div>
       <div class="stat-subtext">الرياض، جدة، الشرقية، مكة، نيوم</div>
     </div>
 
-    <div class="stat-card">
+    <div class="stat-card reveal-up delay-2">
       <div class="stat-number stat-num-val" data-target="2149">2,149</div>
       <div class="stat-label">الإمارات العربية المتحدة 🇦🇪</div>
       <div class="stat-subtext">دبي، أبوظبي، الشارقة</div>
     </div>
 
-    <div class="stat-card">
+    <div class="stat-card reveal-up delay-3">
       <div class="stat-number stat-num-val" data-target="1277">1,277</div>
       <div class="stat-label">جمهورية مصر العربية 🇪🇬</div>
       <div class="stat-subtext">القاهرة، الجيزة، الإسكندرية</div>
@@ -1557,8 +1674,8 @@ html[dir="ltr"] .drawer-panel {
 
   <div class="comparison-grid">
     
-    <!-- Bad Traditional Way -->
-    <div class="comp-card comp-card-bad">
+    <!-- Bad Traditional Way (Slides in from Right) -->
+    <div class="comp-card comp-card-bad reveal-right">
       <div class="comp-header">
         <div class="comp-icon-box comp-icon-bad">✕</div>
         <h3 class="comp-title">مواقع التوظيف التقليدية</h3>
@@ -1583,8 +1700,8 @@ html[dir="ltr"] .drawer-panel {
       </ul>
     </div>
 
-    <!-- Good Direct Way -->
-    <div class="comp-card comp-card-good">
+    <!-- Good Direct Way (Slides in from Left) -->
+    <div class="comp-card comp-card-good reveal-left">
       <div class="comp-header">
         <div class="comp-icon-box comp-icon-good">✓</div>
         <h3 class="comp-title">منظومة Job Alert المباشرة</h3>
@@ -1613,7 +1730,7 @@ html[dir="ltr"] .drawer-panel {
 </section>
 
 <!-- TIME CALCULATOR SECTION -->
-<section class="calculator-section reveal" id="calculator">
+<section class="calculator-section reveal-up" id="calculator">
   <div class="calculator-card">
     <div class="section-badge">حاسبة الوقت المهدر</div>
     <h2 class="section-title">احسب الوقت اللي بتضيعه في البحث التقليدي</h2>
@@ -1647,25 +1764,25 @@ html[dir="ltr"] .drawer-panel {
 
   <div class="pipeline-grid">
     
-    <div class="pipe-card">
+    <div class="pipe-card reveal-right">
       <div class="pipe-step-num">01</div>
       <h3 class="pipe-card-title">كشط مستمر للمصادر</h3>
       <p class="pipe-card-desc">سحب لحظي من لينكد إن، بوابات الشركات الكبرى، ومواقع التوظيف المعتمدة بالسعودية والإمارات ومصر.</p>
     </div>
 
-    <div class="pipe-card">
+    <div class="pipe-card reveal-left delay-1">
       <div class="pipe-step-num">02</div>
       <h3 class="pipe-card-title">تنقية واستخراج مباشر</h3>
       <p class="pipe-card-desc">استخراج أرقام الواتساب وإيميلات الـ HR واستبعاد المقالات الإعلانية والروابط الربحية تماماً.</p>
     </div>
 
-    <div class="pipe-card">
+    <div class="pipe-card reveal-right delay-2">
       <div class="pipe-step-num">03</div>
       <h3 class="pipe-card-title">فحص الصلاحية كل 5 دقائق</h3>
       <p class="pipe-card-desc">أتمتة ذكية تفحص حالة الرابط واستجابة السيرفر، وأي رابط مغلق يتم حذفه فوراً من المنصة.</p>
     </div>
 
-    <div class="pipe-card">
+    <div class="pipe-card reveal-left delay-3">
       <div class="pipe-step-num">04</div>
       <h3 class="pipe-card-title">تواصل مباشر بضغطة زر</h3>
       <p class="pipe-card-desc">نقل فوري إلى تطبيق واتساب مع رسالة تقديم مهنية جاهزة أو فتح تطبيق الإيميل للتواصل المباشر.</p>
@@ -1717,7 +1834,7 @@ html[dir="ltr"] .drawer-panel {
 
   </div>
 
-  <!-- Jobs Grid -->
+  <!-- Jobs Grid (Cascading Stagger Animation) -->
   <div class="jobs-grid" id="jobs-container">
     <!-- Dynamically injected via JS -->
   </div>
@@ -1751,7 +1868,7 @@ html[dir="ltr"] .drawer-panel {
   </div>
 </footer>
 
-<!-- JOB DETAILS DRAWER -->
+<!-- JOB DETAILS DRAWER (100% BUG-FREE OFF-SCREEN HIDING) -->
 <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeJobDrawer()"></div>
 <div class="drawer-panel" id="drawer-panel">
   <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
@@ -1800,14 +1917,43 @@ try {
   setAppTheme(saved);
 } catch(e){}
 
-/* Scroll Progress Bar Tracking */
+/* Scroll Progress Bar & Dynamic Side Toasts */
+let toastRightShown = false;
+let toastLeftShown = false;
+
 window.addEventListener('scroll', () => {
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
   const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  
+  // Progress Bar
   const bar = document.getElementById('scroll-progress-bar');
   if (bar) bar.style.width = progress + '%';
+
+  // Dynamic Side Slide-ins (تظهر له حاجات من الجنب يمين وشمال)
+  if (scrollTop > 250 && !toastRightShown) {
+    toastRightShown = true;
+    const tr = document.getElementById('toast-right');
+    if (tr) tr.classList.add('toast-visible');
+    setTimeout(() => {
+      if (tr) tr.classList.remove('toast-visible');
+    }, 7000);
+  }
+
+  if (scrollTop > 800 && !toastLeftShown) {
+    toastLeftShown = true;
+    const tl = document.getElementById('toast-left');
+    if (tl) tl.classList.add('toast-visible');
+    setTimeout(() => {
+      if (tl) tl.classList.remove('toast-visible');
+    }, 8000);
+  }
 });
+
+function closeToast(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.remove('toast-visible');
+}
 
 /* Animated Typewriter in Search Placeholder */
 const PLACEHOLDERS = [
@@ -1845,16 +1991,16 @@ function typePlaceholder() {
 }
 setTimeout(typePlaceholder, 800);
 
-/* Scroll Reveal Intersection Observer */
+/* Scroll Reveal Intersection Observer (Multi-directional) */
 function setupScrollReveal() {
-  const elements = document.querySelectorAll('.reveal');
+  const elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-up');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('reveal-active');
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   elements.forEach(el => observer.observe(el));
 }
 
@@ -1944,7 +2090,7 @@ function setChannelFilter(channel, el) {
   filterAndRenderJobs();
 }
 
-/* Filter and Render Jobs */
+/* Filter and Render Jobs with Staggered Cascading Animation */
 function filterAndRenderJobs() {
   const qLower = STATE.q.toLowerCase();
   const filtered = STATE.jobs.filter(j => {
@@ -2002,8 +2148,11 @@ function filterAndRenderJobs() {
       btnText = "إرسال السيرة الذاتية";
     }
 
+    // Staggered delay for cascading entrance
+    const staggerDelay = (idx * 0.04).toFixed(2);
+
     return `
-      <div class="job-card">
+      <div class="job-card" style="animation-delay: ${staggerDelay}s;">
         <div class="job-card-top">
           <span class="channel-pill-tag ${channelClass}">${channelBadge}</span>
           <span style="font-size:0.7rem; color:var(--accent-primary); font-weight:700;">● موثقة 100%</span>
