@@ -1,169 +1,185 @@
 <!doctype html>
-<html lang="ar" dir="rtl" class="dark">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Job Alert — طريقك المباشر لوظيفتك القادمة | بدون وسطاء أو إعلانات</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<title>Job Alert Enterprise — طريقك المباشر لوظيفتك القادمة | بدون وسطاء أو إعلانات</title>
 
-<!-- Alexandria Google Font -->
+<!-- Cairo & Plus Jakarta Sans Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 /* ==========================================================================
-   DESIGN SYSTEM — WARM, HUMAN-FIRST, EMOTIONAL & AGENCY-GRADE
+   ENTERPRISE MODERN DESIGN SYSTEM (HIGH-CONTRAST, HUMAN-CRAFTED, NO AI WASH)
    ========================================================================== */
 :root {
-  --font-family: 'Alexandria', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-ar: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-en: 'Plus Jakarta Sans', sans-serif;
   
-  --bg-deep: #070a12;
-  --bg-surface: #0d1322;
-  --bg-card: rgba(16, 24, 43, 0.75);
-  --bg-card-hover: rgba(22, 34, 61, 0.95);
-  --bg-glass: rgba(255, 255, 255, 0.04);
+  /* Solid, Crisp Dark Backgrounds */
+  --bg-deep: #07090e;
+  --bg-surface: #0e1320;
+  --bg-card: #121929;
+  --bg-card-hover: #172033;
+  --bg-glass: rgba(18, 25, 41, 0.85);
   
+  /* Razor-sharp Borders (No blurry AI neon) */
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-glow: rgba(56, 189, 248, 0.35);
-  --border-accent: #38bdf8;
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-accent: #0ea5e9;
   
+  /* High-Contrast Accessible Typography */
   --ink-primary: #ffffff;
   --ink-secondary: #cbd5e1;
-  --ink-muted: #8494ab;
+  --ink-muted: #8493a8;
   
-  --accent-cyan: #38bdf8;
-  --accent-blue: #3b82f6;
+  /* Purposeful Accent Palette */
+  --accent-cyan: #0ea5e9;
+  --accent-cyan-hover: #38bdf8;
   --accent-emerald: #10b981;
-  --accent-emerald-glow: rgba(16, 185, 129, 0.25);
+  --accent-emerald-dark: #059669;
   --accent-amber: #f59e0b;
   --accent-rose: #f43f5e;
-  --accent-purple: #a855f7;
+  --accent-purple: #8b5cf6;
   
-  --shadow-glow: 0 10px 40px -10px rgba(56, 189, 248, 0.25);
-  --shadow-card: 0 12px 36px -8px rgba(0, 0, 0, 0.6);
-  --shadow-elevated: 0 24px 60px -12px rgba(0, 0, 0, 0.8);
+  /* Crisp Shadows & Radius */
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
+  --shadow-elevated: 0 20px 45px -10px rgba(0, 0, 0, 0.75);
+  --shadow-glow-cyan: 0 0 25px rgba(14, 165, 233, 0.25);
+  --shadow-glow-emerald: 0 0 25px rgba(16, 185, 129, 0.25);
   
-  --radius-lg: 24px;
-  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
   --radius-sm: 10px;
   --radius-pill: 9999px;
 }
 
-* { box-sizing: border-box; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
-body {
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
   margin: 0;
   padding: 0;
-  background: var(--bg-deep);
-  background-image: 
-    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 90% 25%, rgba(168, 85, 247, 0.1) 0%, transparent 45%),
-    radial-gradient(circle at 10% 60%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 80% 90%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
-  background-attachment: fixed;
-  color: var(--ink-primary);
-  font-family: var(--font-family);
-  line-height: 1.6;
-  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  background-color: var(--bg-deep);
+  color: var(--ink-primary);
+  font-family: var(--font-ar);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Background Atmosphere (Subtle & Crisp, Not Washed Out) */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 600px;
+  background: radial-gradient(circle at 50% -100px, rgba(14, 165, 233, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ==========================================================================
-   SCROLL REVEAL ANIMATIONS & KEYFRAMES
+   SCROLL REVEAL & MICRO-ANIMATIONS
    ========================================================================== */
 .reveal {
   opacity: 0;
-  transform: translateY(35px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 .reveal-active {
   opacity: 1;
   transform: translateY(0);
 }
-.reveal-delay-1 { transition-delay: 0.15s; }
-.reveal-delay-2 { transition-delay: 0.3s; }
-.reveal-delay-3 { transition-delay: 0.45s; }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
 
-@keyframes floatSlow {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(1deg); }
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
-@keyframes floatReverse {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(10px) rotate(-1deg); }
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
 }
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-}
-
 
 /* ==========================================================================
-   STICKY NAVBAR
+   STICKY NAVBAR (RESPONSIVE & TOUCH-FRIENDLY)
    ========================================================================== */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(7, 10, 18, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(8, 11, 18, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 14px 24px;
+  padding: 12px 20px;
+  width: 100%;
 }
 .nav-container {
-  max-width: 1360px;
+  max-width: 1320px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
 }
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   color: #fff;
+  flex-shrink: 0;
 }
-.brand-logo-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+.brand-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  box-shadow: 0 4px 18px var(--border-glow);
+  font-size: 20px;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
 }
 .brand-name {
-  font-size: 1.3rem;
+  font-size: 1.22rem;
   font-weight: 900;
   color: #fff;
   letter-spacing: -0.02em;
 }
-.brand-human-tag {
+.brand-badge {
   font-size: 0.68rem;
   font-weight: 700;
-  background: rgba(16, 185, 129, 0.15);
+  background: rgba(16, 185, 129, 0.12);
   color: var(--accent-emerald);
   border: 1px solid rgba(16, 185, 129, 0.3);
-  padding: 3px 10px;
+  padding: 3px 8px;
   border-radius: var(--radius-pill);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 22px;
 }
 .nav-link {
   color: var(--ink-secondary);
   text-decoration: none;
   font-size: 0.92rem;
   font-weight: 600;
-  transition: all 0.2s;
+  transition: color 0.2s;
 }
 .nav-link:hover { color: var(--accent-cyan); }
 
@@ -171,440 +187,537 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 .btn-telegram-nav {
-  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
   color: #fff;
   border: none;
   border-radius: var(--radius-pill);
-  padding: 9px 20px;
-  font-size: 0.88rem;
+  padding: 8px 18px;
+  font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
   transition: all 0.25s ease;
+  white-space: nowrap;
 }
 .btn-telegram-nav:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.5);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.45);
+}
+
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .brand-badge { display: none; }
+  .navbar { padding: 10px 14px; }
+  .brand-name { font-size: 1.05rem; }
+  .btn-telegram-nav span:nth-child(2) { display: none; }
+  .btn-telegram-nav::after { content: 'تليجرام ⚡'; font-size: 0.82rem; }
+  .btn-telegram-nav { padding: 6px 12px; }
 }
 
 /* ==========================================================================
-   HERO SECTION — HUMAN & EMOTIONAL
+   HERO SECTION — HUMAN, EMOTIONAL & RESPONSIVE
    ========================================================================== */
 .hero-section {
-  max-width: 1360px;
+  max-width: 1320px;
   margin: 30px auto 40px;
-  padding: 0 24px;
+  padding: 0 20px;
   position: relative;
+  z-index: 1;
 }
-.hero-wrapper {
+.hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
   gap: 40px;
 }
-@media (max-width: 1024px) {
-  .hero-wrapper { grid-template-columns: 1fr; text-align: center; }
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 }
 
-.hero-empathy-badge {
+.hero-content {
+  display: flex;
+  flex-direction: column;
+}
+.hero-badge-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(244, 63, 94, 0.12);
-  border: 1px solid rgba(244, 63, 94, 0.3);
-  padding: 6px 16px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  padding: 6px 14px;
   border-radius: var(--radius-pill);
-  color: #fda4af;
-  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  font-size: 0.82rem;
   font-weight: 700;
-  margin-bottom: 20px;
-  animation: floatSlow 4s ease-in-out infinite;
+  margin-bottom: 18px;
+  align-self: flex-start;
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.4;
 }
-.hero-main-title {
-  font-size: 3.2rem;
+@media (max-width: 600px) {
+  .hero-badge-pill {
+    font-size: 0.76rem;
+    padding: 6px 10px;
+    align-self: stretch;
+    justify-content: center;
+    text-align: center;
+  }
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  box-shadow: 0 0 8px var(--accent-emerald);
+  animation: pulseDot 2s infinite;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5.2vw, 3.3rem);
   font-weight: 900;
   line-height: 1.25;
   color: #ffffff;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   letter-spacing: -0.02em;
 }
-.text-gradient-warm {
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #f472b6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.hero-title-highlight {
+  color: var(--accent-cyan);
+  position: relative;
+  display: inline-block;
 }
-.hero-empathy-subtitle {
-  font-size: 1.18rem;
+.hero-subtitle {
+  font-size: clamp(0.96rem, 2.5vw, 1.15rem);
   line-height: 1.7;
   color: var(--ink-secondary);
-  margin-bottom: 30px;
-  max-width: 650px;
+  margin: 0 0 26px;
+  max-width: 620px;
 }
-@media (max-width: 1024px) {
-  .hero-empathy-subtitle { margin-left: auto; margin-right: auto; }
+.hero-subtitle b {
+  color: #fff;
+  font-weight: 700;
 }
 
 /* Hero Search Console */
-.hero-search-box {
-  background: rgba(13, 19, 34, 0.85);
-  border: 2px solid rgba(56, 189, 248, 0.3);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.15);
-  border-radius: 20px;
-  padding: 8px 10px 8px 18px;
+.hero-search-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 8px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  backdrop-filter: blur(16px);
-  margin-bottom: 20px;
-  transition: border-color 0.3s;
+  gap: 10px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.25s, box-shadow 0.25s;
+  max-width: 640px;
 }
-.hero-search-box:focus-within {
+.hero-search-wrapper:focus-within {
   border-color: var(--accent-cyan);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.35);
+  box-shadow: var(--shadow-glow-cyan);
+}
+.search-icon-box {
+  padding-right: 12px;
+  font-size: 1.2rem;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
 }
 .hero-search-input {
   flex: 1;
   background: transparent;
   border: none;
-  outline: none;
   color: #fff;
-  font-family: inherit;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-family: var(--font-ar);
+  font-size: 1rem;
+  outline: none;
+  min-width: 0;
 }
-.hero-search-input::placeholder { color: var(--ink-muted); }
+.hero-search-input::placeholder {
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+}
 .hero-search-btn {
-  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
   color: #fff;
   border: none;
-  border-radius: 14px;
-  padding: 14px 28px;
-  font-family: inherit;
-  font-size: 0.98rem;
+  border-radius: var(--radius-sm);
+  padding: 12px 24px;
+  font-family: var(--font-ar);
+  font-size: 0.95rem;
   font-weight: 800;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  transition: all 0.2s;
-  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+  gap: 6px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 .hero-search-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
+  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+  transform: translateY(-1px);
 }
 
+@media (max-width: 580px) {
+  .hero-search-wrapper {
+    flex-direction: column;
+    padding: 12px;
+    gap: 12px;
+  }
+  .search-icon-box { display: none; }
+  .hero-search-input {
+    width: 100%;
+    padding: 8px 4px;
+    font-size: 0.95rem;
+    text-align: right;
+  }
+  .hero-search-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px;
+  }
+}
+
+/* Quick Search Tag Pills */
 .hero-quick-tags {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-top: 14px;
   flex-wrap: wrap;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--ink-muted);
 }
-@media (max-width: 1024px) {
-  .hero-quick-tags { justify-content: center; }
-}
 .quick-tag-pill {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 5px 12px;
-  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
   color: var(--ink-secondary);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
   cursor: pointer;
   transition: all 0.2s;
   font-weight: 600;
 }
 .quick-tag-pill:hover {
-  background: rgba(56, 189, 248, 0.15);
+  background: rgba(14, 165, 233, 0.15);
   border-color: var(--accent-cyan);
   color: #fff;
 }
 
-/* Hero Interactive Character Showcase (Right Column) */
-.hero-visual-collage {
+/* ==========================================================================
+   HERO CHARACTER SHOWCASE (AMBITIOUS YOUNG JOB SEEKER)
+   ========================================================================== */
+.hero-character-col {
   position: relative;
-  min-height: 440px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
-.central-hero-card {
-  background: linear-gradient(145deg, rgba(22, 34, 61, 0.9), rgba(13, 19, 34, 0.95));
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-lg);
-  padding: 26px;
+.character-main-card {
+  position: relative;
   width: 100%;
   max-width: 420px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
   box-shadow: var(--shadow-elevated);
-  position: relative;
-  z-index: 2;
-  backdrop-filter: blur(20px);
 }
-.central-card-header {
+.character-image-container {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+}
+.character-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  transition: transform 0.6s ease;
+}
+.character-main-card:hover .character-img {
+  transform: scale(1.03);
+}
+.character-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 11, 18, 0.1) 0%, rgba(8, 11, 18, 0.4) 60%, rgba(8, 11, 18, 0.95) 100%);
+}
+.character-status-overlay {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(14, 19, 32, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+.character-badge-title {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 18px;
+  justify-content: space-between;
+  margin-bottom: 6px;
 }
-.central-avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--accent-cyan);
-}
-.central-header-info h4 {
+.character-badge-title h4 {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 800;
   color: #fff;
 }
-.central-header-info span {
-  font-size: 0.8rem;
+.character-live-chip {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
   color: var(--accent-emerald);
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
   display: flex;
   align-items: center;
   gap: 4px;
 }
-.central-chat-bubble {
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 14px 16px;
-  font-size: 0.88rem;
-  line-height: 1.5;
+.character-quote-desc {
+  font-size: 0.82rem;
   color: var(--ink-secondary);
-  margin-bottom: 18px;
-}
-.central-card-actions {
-  display: flex;
-  gap: 10px;
-}
-.btn-card-direct {
-  flex: 1;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  padding: 12px;
-  font-size: 0.88rem;
-  font-weight: 800;
-  text-align: center;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+  line-height: 1.5;
+  margin: 0;
 }
 
-/* Floating Character Badges Around Central Card */
-.floating-badge {
+/* Floating Metric Badges on Character Card */
+.character-floating-badge {
   position: absolute;
-  background: rgba(13, 19, 34, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
+  background: rgba(14, 19, 32, 0.94);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-md);
   padding: 10px 14px;
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  z-index: 3;
+  box-shadow: var(--shadow-card);
+  z-index: 2;
+  animation: floatGentle 5s ease-in-out infinite;
 }
-.float-1 {
-  top: 10px;
-  right: -20px;
-  animation: floatSlow 5s ease-in-out infinite;
+.char-float-top {
+  top: 14px;
+  right: 14px;
 }
-.float-2 {
+.char-float-bottom {
   bottom: 20px;
-  left: -25px;
-  animation: floatReverse 6s ease-in-out infinite;
+  left: 14px;
+  animation-delay: 2.5s;
 }
-.float-avatar-sm {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  object-fit: cover;
+.char-float-icon {
+  font-size: 1.4rem;
 }
-.float-text-bold { font-size: 0.82rem; font-weight: 800; color: #fff; }
-.float-text-sub { font-size: 0.72rem; color: var(--accent-emerald); }
+.char-float-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #fff;
+}
+.char-float-sub {
+  font-size: 0.72rem;
+  color: var(--accent-emerald);
+  font-weight: 600;
+}
 
-@media (max-width: 1024px) {
-  .floating-badge { display: none; }
+@media (max-width: 992px) {
+  .character-floating-badge { display: none; }
+  .character-main-card { max-width: 100%; }
+  .character-image-container { height: 300px; }
 }
 
 /* ==========================================================================
-   METRICS COUNTER SECTION
+   METRICS COUNTER SECTION (ANIMATED ON SCROLL)
    ========================================================================== */
 .stats-section {
-  max-width: 1360px;
-  margin: 0 auto 60px;
-  padding: 0 24px;
+  max-width: 1320px;
+  margin: 10px auto 50px;
+  padding: 0 20px;
 }
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 16px;
 }
 @media (max-width: 900px) {
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 }
-@media (max-width: 550px) {
-  .stats-grid { grid-template-columns: 1fr; }
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
 }
-.stat-box {
+
+.stat-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 22px 18px;
   text-align: center;
-  backdrop-filter: blur(14px);
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s, border-color 0.3s;
+  transition: transform 0.25s, border-color 0.25s;
 }
-.stat-box:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent-cyan);
+.stat-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(14, 165, 233, 0.4);
 }
-.stat-box::before {
+.stat-card::after {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-  opacity: 0.7;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-emerald));
+  opacity: 0.8;
 }
-.stat-num {
-  font-size: 2.5rem;
+.stat-number {
+  font-size: clamp(1.8rem, 3.8vw, 2.6rem);
   font-weight: 900;
   color: #fff;
   line-height: 1.1;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   font-variant-numeric: tabular-nums;
+  font-family: var(--font-en), var(--font-ar);
 }
-.stat-lbl {
-  font-size: 0.92rem;
+.stat-label {
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--ink-secondary);
 }
-.stat-sub {
-  font-size: 0.78rem;
-  color: var(--accent-cyan);
+.stat-subtext {
+  font-size: 0.72rem;
+  color: var(--accent-emerald);
   margin-top: 4px;
   font-weight: 600;
 }
 
 /* ==========================================================================
-   PAIN VS SOLUTION SECTION ("المعاناة قبلنا vs الراحة معانا")
+   PAIN VS SOLUTION SECTION (HIGH CONTRAST & AUTHENTIC)
    ========================================================================== */
 .comparison-section {
-  max-width: 1360px;
+  max-width: 1320px;
   margin: 60px auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 .section-header-centered {
   text-align: center;
-  max-width: 780px;
-  margin: 0 auto 40px;
+  max-width: 760px;
+  margin: 0 auto 36px;
 }
-.section-badge-pill {
+.section-badge {
   display: inline-block;
-  background: rgba(56, 189, 248, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  padding: 6px 18px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  padding: 5px 14px;
   border-radius: var(--radius-pill);
   color: var(--accent-cyan);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 800;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 .section-title {
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.3rem);
   font-weight: 900;
   color: #fff;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
 }
 .section-desc {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--ink-muted);
   line-height: 1.6;
+  margin: 0;
 }
 
 .comparison-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  gap: 24px;
 }
 @media (max-width: 768px) {
-  .comparison-grid { grid-template-columns: 1fr; }
+  .comparison-grid { grid-template-columns: 1fr; gap: 16px; }
 }
+
 .compare-card-pain {
-  background: rgba(30, 16, 25, 0.6);
+  background: rgba(26, 14, 20, 0.7);
   border: 1px solid rgba(244, 63, 94, 0.25);
   border-radius: var(--radius-lg);
-  padding: 32px;
-  position: relative;
+  padding: 28px;
 }
 .compare-card-solution {
-  background: rgba(14, 34, 36, 0.65);
+  background: rgba(10, 28, 26, 0.75);
   border: 1px solid rgba(16, 185, 129, 0.35);
   border-radius: var(--radius-lg);
-  padding: 32px;
-  box-shadow: 0 10px 40px -10px rgba(16, 185, 129, 0.2);
-  position: relative;
+  padding: 28px;
+  box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
 }
 .compare-header {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
-.compare-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+.compare-header-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 22px;
 }
-.compare-icon-pain {
+.icon-pain {
   background: rgba(244, 63, 94, 0.15);
   border: 1px solid rgba(244, 63, 94, 0.3);
 }
-.compare-icon-sol {
+.icon-sol {
   background: rgba(16, 185, 129, 0.15);
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
+.compare-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+}
+.compare-header p {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
 .compare-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 .compare-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  font-size: 0.95rem;
+  gap: 10px;
+  font-size: 0.92rem;
   line-height: 1.5;
 }
 .compare-bullet {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   flex-shrink: 0;
-  margin-top: -2px;
 }
 
 /* ==========================================================================
@@ -612,26 +725,37 @@ body {
    ========================================================================== */
 .calculator-section {
   max-width: 1100px;
-  margin: 70px auto;
-  padding: 0 24px;
+  margin: 50px auto;
+  padding: 0 20px;
 }
-.calculator-card {
-  background: linear-gradient(135deg, rgba(22, 34, 61, 0.85) 0%, rgba(13, 19, 34, 0.95) 100%);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+.calculator-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
-  padding: 40px;
+  padding: 36px 30px;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   align-items: center;
-  gap: 36px;
+  gap: 32px;
   box-shadow: var(--shadow-card);
-  backdrop-filter: blur(20px);
 }
-@media (max-width: 850px) {
-  .calculator-card { grid-template-columns: 1fr; text-align: center; }
+@media (max-width: 800px) {
+  .calculator-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 26px 20px;
+    gap: 24px;
+  }
 }
-.calc-slider-wrapper {
-  margin: 28px 0;
+.calc-slider-wrap {
+  margin: 22px 0;
+}
+.calc-slider-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
 }
 .calc-slider {
   width: 100%;
@@ -643,193 +767,206 @@ body {
   accent-color: var(--accent-cyan);
   cursor: pointer;
 }
-.calc-result-box {
-  background: rgba(0, 0, 0, 0.4);
+.calc-result-card {
+  background: rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 24px 20px;
   text-align: center;
 }
-.calc-hours-num {
-  font-size: 3.4rem;
+.calc-hours-value {
+  font-size: 3.5rem;
   font-weight: 900;
   color: var(--accent-cyan);
   line-height: 1;
+  font-family: var(--font-en), var(--font-ar);
 }
-.calc-hours-lbl {
-  font-size: 1rem;
-  font-weight: 700;
+.calc-hours-title {
+  font-size: 1.05rem;
+  font-weight: 800;
   color: #fff;
-  margin: 6px 0 10px;
+  margin: 6px 0 8px;
 }
-.calc-hours-desc {
+.calc-hours-footer {
   font-size: 0.82rem;
   color: var(--accent-emerald);
   font-weight: 600;
 }
 
 /* ==========================================================================
-   REAL SUCCESS STORIES & CHARACTERS SECTION
+   DIRECT VERIFICATION PIPELINE SECTION (100% FACTUAL & TECHNICAL)
    ========================================================================== */
-.stories-section {
-  max-width: 1360px;
-  margin: 80px auto;
-  padding: 0 24px;
+.pipeline-section {
+  max-width: 1320px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
-.stories-grid {
+.pipeline-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 20px;
 }
-@media (max-width: 950px) {
-  .stories-grid { grid-template-columns: 1fr; }
+@media (max-width: 860px) {
+  .pipeline-grid { grid-template-columns: 1fr; }
 }
-.story-card {
+
+.pipeline-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 28px;
+  padding: 26px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  backdrop-filter: blur(16px);
-  transition: all 0.3s ease;
-  position: relative;
+  transition: transform 0.25s, border-color 0.25s;
 }
-.story-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(56, 189, 248, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+.pipeline-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(14, 165, 233, 0.4);
 }
-.story-badge {
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  color: var(--accent-emerald);
+.pipeline-card-badge {
+  display: inline-block;
   padding: 4px 10px;
   border-radius: var(--radius-pill);
   font-size: 0.72rem;
   font-weight: 700;
-  display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   align-self: flex-start;
 }
-.story-user {
+.badge-whatsapp {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--accent-emerald);
+}
+.badge-email {
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--accent-purple);
+}
+.badge-portal {
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  color: var(--accent-cyan);
+}
+.pipeline-card-header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 14px;
 }
-.story-avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--accent-cyan);
+.pipeline-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  flex-shrink: 0;
 }
-.story-info h4 {
+.pipeline-card-header h4 {
   margin: 0;
   font-size: 1.08rem;
   font-weight: 800;
   color: #fff;
 }
-.story-info p {
-  margin: 3px 0 0;
-  font-size: 0.8rem;
-  color: var(--accent-cyan);
-  font-weight: 600;
-}
-.story-quote {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--ink-secondary);
-  font-style: normal;
-  margin: 0 0 20px;
-  flex-grow: 1;
-}
-.story-quote b { color: #fff; }
-.story-footer-metric {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.82rem;
+.pipeline-card-header p {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
   color: var(--ink-muted);
 }
-.story-tag-channel {
-  color: var(--accent-emerald);
-  font-weight: 700;
+.pipeline-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.pipeline-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 12px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 4px;
+  font-size: 0.78rem;
+  color: var(--ink-muted);
 }
 
 /* ==========================================================================
-   LIVE JOBS EXPLORER SECTION (THE REAL ENGINE)
+   LIVE JOBS EXPLORER SECTION (THE CORE ENGINE)
    ========================================================================== */
 .jobs-explorer-section {
-  max-width: 1360px;
+  max-width: 1320px;
   margin: 60px auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
-.explorer-header {
+.explorer-header-box {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 28px;
-  margin-bottom: 30px;
-  box-shadow: var(--shadow-card);
+  padding: 24px;
+  margin-bottom: 24px;
 }
-.explorer-filter-row {
+@media (max-width: 600px) {
+  .explorer-header-box { padding: 16px; }
+}
+
+.filters-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 18px;
 }
-.pill-group {
+.filter-group {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
 }
+.filter-label {
+  font-weight: 700;
+  font-size: 0.84rem;
+  color: var(--ink-muted);
+  margin-left: 4px;
+}
 .filter-pill {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-subtle);
   color: var(--ink-secondary);
-  padding: 8px 16px;
   border-radius: var(--radius-pill);
-  font-family: inherit;
-  font-size: 0.88rem;
+  padding: 7px 16px;
+  font-family: var(--font-ar);
+  font-size: 0.84rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
 .filter-pill:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
 .filter-pill.active {
-  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
   border-color: #38bdf8;
   color: #fff;
-  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
 }
 
 /* Jobs Grid */
 .jobs-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 18px;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
   .jobs-grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 650px) {
+@media (max-width: 720px) {
   .jobs-grid { grid-template-columns: 1fr; }
 }
 
@@ -842,186 +979,176 @@ body {
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.25s ease;
-  backdrop-filter: blur(12px);
   position: relative;
 }
 .job-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(56, 189, 248, 0.4);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  border-color: rgba(14, 165, 233, 0.35);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
 }
 .job-card-top {
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
+  align-items: center;
+  margin-bottom: 14px;
 }
-.job-company-badge {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+.job-company-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  color: var(--accent-cyan);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 900;
   font-size: 1.1rem;
-  font-weight: 800;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  flex-shrink: 0;
 }
+.job-channel-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+.channel-whatsapp {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.channel-email {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+.channel-portal {
+  background: rgba(14, 165, 233, 0.15);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
 .job-title {
-  font-size: 1.08rem;
+  margin: 0 0 6px;
+  font-size: 1.05rem;
   font-weight: 800;
   color: #fff;
-  margin: 0 0 6px;
-  line-height: 1.35;
+  line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 .job-company {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   color: var(--accent-cyan);
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .job-tags-row {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 6px;
-  margin-bottom: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
 }
 .job-tag {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 3px 10px;
-  border-radius: 6px;
-  font-size: 0.76rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+  font-size: 0.74rem;
   color: var(--ink-secondary);
-  font-weight: 600;
 }
-.job-tag-channel {
-  background: rgba(16, 185, 129, 0.12);
-  border-color: rgba(16, 185, 129, 0.25);
-  color: var(--accent-emerald);
-}
+
 .job-actions-row {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 14px;
   display: flex;
-  gap: 10px;
+  gap: 8px;
+  margin-top: auto;
 }
 .btn-apply-direct {
   flex: 1;
-  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
   color: #fff;
   border: none;
   border-radius: 10px;
-  padding: 10px;
-  font-family: inherit;
+  padding: 10px 14px;
+  font-family: var(--font-ar);
   font-size: 0.88rem;
   font-weight: 800;
-  text-align: center;
   text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 .btn-apply-direct:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.5);
+  background: linear-gradient(135deg, #047857 0%, #059669 100%);
+  transform: translateY(-1px);
 }
-.btn-view-details {
+.btn-details {
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--ink-secondary);
+  border: 1px solid var(--border-subtle);
+  color: #fff;
   border-radius: 10px;
   padding: 10px 14px;
-  font-family: inherit;
+  font-family: var(--font-ar);
   font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
 }
-.btn-view-details:hover {
+.btn-details:hover {
   background: rgba(255, 255, 255, 0.12);
-  color: #fff;
 }
 
-/* ==========================================================================
-   TELEGRAM BOT SECTION (WITH SMARTPHONE MOCKUP)
-   ========================================================================== */
-.telegram-section {
-  max-width: 1200px;
-  margin: 80px auto;
-  padding: 0 24px;
-}
-.telegram-card {
-  background: linear-gradient(145deg, #0a1122 0%, #060b14 100%);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  border-radius: var(--radius-lg);
-  padding: 48px;
-  display: grid;
-  grid-template-columns: 1fr 0.9fr;
+/* Pagination Row */
+.pagination-row {
+  display: flex;
   align-items: center;
-  gap: 40px;
-  box-shadow: var(--shadow-elevated);
-  position: relative;
-  overflow: hidden;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 36px;
 }
-@media (max-width: 850px) {
-  .telegram-card { grid-template-columns: 1fr; padding: 28px; text-align: center; }
-}
-.phone-mockup {
-  background: #0f172a;
-  border: 3px solid #334155;
-  border-radius: 36px;
-  padding: 18px 14px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
-  max-width: 340px;
-  margin: 0 auto;
-}
-.phone-notch {
-  width: 90px;
-  height: 16px;
-  background: #1e293b;
-  border-radius: 8px;
-  margin: 0 auto 14px;
-}
-.chat-bubble {
-  background: #1e293b;
-  border-radius: 14px;
-  padding: 12px 14px;
-  margin-bottom: 10px;
-  font-size: 0.82rem;
-  line-height: 1.45;
+.page-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
   color: #fff;
-  border-bottom-left-radius: 2px;
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  font-family: var(--font-ar);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
 }
-.chat-bubble-bot {
-  background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-  border: 1px solid rgba(56, 189, 248, 0.3);
+.page-btn:hover:not(:disabled) {
+  border-color: var(--accent-cyan);
+  background: var(--bg-card-hover);
+}
+.page-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.page-indicator {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--ink-secondary);
 }
 
 /* ==========================================================================
-   DRAWER & MODALS
+   JOB DETAILS DRAWER / SHEET
    ========================================================================== */
 .drawer-backdrop {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(8px);
-  z-index: 200;
+  z-index: 1000;
   opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 .drawer-sheet {
   position: fixed;
@@ -1029,32 +1156,59 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  max-width: 540px;
-  background: #0c1322;
-  border-right: 1px solid var(--border-subtle);
-  z-index: 201;
-  transform: translateX(-100%);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 520px;
+  background: #0f1523;
+  border-right: 1px solid var(--border-strong);
+  z-index: 1001;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  padding: 28px;
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   overflow-y: auto;
 }
-.drawer-open .drawer-backdrop { opacity: 1; visibility: visible; }
-.drawer-open .drawer-sheet { transform: translateX(0); }
+@media (max-width: 600px) {
+  .drawer-sheet {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 85vh;
+    border-right: none;
+    border-top: 1px solid var(--border-strong);
+    border-radius: 20px 20px 0 0;
+    transform: translateY(100%);
+  }
+}
+body.drawer-open {
+  overflow: hidden;
+}
+body.drawer-open .drawer-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+body.drawer-open .drawer-sheet {
+  transform: translateX(0);
+}
+@media (max-width: 600px) {
+  body.drawer-open .drawer-sheet {
+    transform: translateY(0);
+  }
+}
 
 /* ==========================================================================
    FOOTER
    ========================================================================== */
 .site-footer {
   border-top: 1px solid var(--border-subtle);
-  background: #04070d;
-  padding: 40px 24px;
+  background: #05070b;
+  padding: 40px 20px;
   text-align: center;
-  font-size: 0.88rem;
   color: var(--ink-muted);
+  font-size: 0.88rem;
 }
-.footer-logo {
+.footer-brand {
   font-size: 1.25rem;
   font-weight: 900;
   color: #fff;
@@ -1069,18 +1223,20 @@ body {
 <nav class="navbar">
   <div class="nav-container">
     <a href="#" class="nav-brand">
-      <div class="brand-logo-icon">⚡</div>
+      <div class="brand-icon">⚡</div>
       <div>
         <div class="brand-name">Job Alert</div>
       </div>
-      <div class="brand-human-tag">منظومة التوظيف المباشر 100%</div>
+      <div class="brand-badge">تواصل مباشر 100%</div>
     </a>
+    
     <div class="nav-links">
       <a href="#why-us" class="nav-link">ليه تختارنا؟</a>
-      <a href="#verification" class="nav-link">آلية التحقق المباشر</a>
+      <a href="#verification" class="nav-link">آلية التدقيق المباشر</a>
       <a href="#calculator" class="nav-link">حاسبة الوقت</a>
       <a href="#jobs" class="nav-link">استكشف الوظائف</a>
     </div>
+
     <div class="nav-actions">
       <a href="https://t.me/job_alert_sa_bot" target="_blank" class="btn-telegram-nav">
         <span>🤖</span>
@@ -1092,27 +1248,27 @@ body {
 
 <!-- HERO SECTION -->
 <header class="hero-section">
-  <div class="hero-wrapper">
-    <!-- Left Column: Emotional Pitch & Search -->
-    <div class="hero-content-col reveal">
-      <div class="hero-empathy-badge">
-        <span>❤️</span>
-        <span>صُنعت خصيصاً لكل باحث عن فرصة حقيقية بعيداً عن الاستغلال</span>
+  <div class="hero-grid">
+    <!-- Left Column: Emotional Pitch & Instant Search -->
+    <div class="hero-content reveal">
+      <div class="hero-badge-pill">
+        <span class="live-dot"></span>
+        <span>المنظومة الأسرع للوصول إلى أصحاب القرار مباشرة</span>
       </div>
-      
-      <h1 class="hero-main-title">
-        تعبت من إعلانات التوظيف الوهمية <br>
-        <span class="text-gradient-warm">والروابط اللي بتضيع وقتك؟</span>
+
+      <h1 class="hero-title">
+        وظيفتك القادمة <br>
+        <span class="hero-title-highlight">أقرب إليك مما تتخيل.</span>
       </h1>
-      
-      <p class="hero-empathy-subtitle">
-        إحنا طريقك المباشر لوظيفتك القادمة. بنجيبلك <b>رقم واتساب مسؤول التوظيف وإيميله الشخصي واستمارة التقديم الرسمية</b> بنقرة واحدة، دون المرور بأي مقالات إعلانية أو استمارات وسيطة معقدة.
+
+      <p class="hero-subtitle">
+        ودّع إعلانات التوظيف الوهمية ومواقع المقالات الإعلانية المستهلكة للوقت. نوفر لك <b>رقم واتساب مباشر، إيميل الموارد البشرية، واستمارة التقديم الرسمية</b> بنقرة واحدة.
       </p>
 
       <!-- Instant Search Console -->
-      <div class="hero-search-box">
-        <span>🔍</span>
-        <input type="text" id="hero-search-input" class="hero-search-input" placeholder="اكتب وظيفة أحلامك (مثال: مدير تسويق، محاسب، مهندس، خدمة عملاء...)" onkeydown="onHeroKey(event)">
+      <div class="hero-search-wrapper">
+        <div class="search-icon-box">🔍</div>
+        <input type="text" id="hero-search-input" class="hero-search-input" placeholder="اكتب المسمى الوظيفي (مثال: مدير تسويق، محاسب، مهندس، خدمة عملاء...)" onkeydown="onHeroKey(event)">
         <button class="hero-search-btn" onclick="triggerHeroSearch()">
           <span>ابحث الآن</span>
           <span>⚡</span>
@@ -1121,7 +1277,7 @@ body {
 
       <!-- Quick Search Tags -->
       <div class="hero-quick-tags">
-        <span>الأكثر طلباً اليوم:</span>
+        <span>الأكثر طلباً:</span>
         <span class="quick-tag-pill" onclick="quickSearch('مدير تسويق')">مدير تسويق</span>
         <span class="quick-tag-pill" onclick="quickSearch('محاسب')">محاسب عام</span>
         <span class="quick-tag-pill" onclick="quickSearch('مهندس مدني')">مهندس مدني</span>
@@ -1130,96 +1286,71 @@ body {
       </div>
     </div>
 
-    <!-- Right Column: Enterprise Real-Time Engine Card & Platform Health -->
-    <div class="hero-visual-collage reveal reveal-delay-1">
-      <div class="central-hero-card" style="padding: 28px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span style="font-size:1.6rem;">🛡️</span>
-            <div>
-              <div style="font-weight:900; color:#fff; font-size:1.05rem;">لوحة التحقق والتدقيق المباشر</div>
-              <div style="font-size:0.75rem; color:var(--accent-emerald); font-weight:700;">🟢 محرك الرصد الآلي نشط وفوري</div>
+    <!-- Right Column: Human Character Showcase (Ambitious Job Seeker) -->
+    <div class="hero-character-col reveal reveal-delay-1">
+      <div class="character-main-card">
+        <div class="character-image-container">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&h=900&fit=crop&crop=faces&q=85" alt="باحث عن عمل طموح" class="character-img">
+          <div class="character-gradient-overlay"></div>
+          
+          <!-- Character Bottom Status Banner -->
+          <div class="character-status-overlay">
+            <div class="character-badge-title">
+              <h4>طموحك يستحق فرصة حقيقية</h4>
+              <span class="character-live-chip">🟢 مباشر</span>
             </div>
+            <p class="character-quote-desc">
+              تواصل فوري مع مسؤولي الموارد البشرية والمديرين بدون وسيط وبدون تضييع ساعات في استمارات فارغة.
+            </p>
           </div>
-          <span style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:var(--accent-emerald); padding:3px 10px; border-radius:999px; font-size:0.72rem; font-weight:800;">LIVE API</span>
-        </div>
-
-        <!-- Metric Bars -->
-        <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; margin-bottom:18px;">
-          <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:10px;">
-            <span style="color:var(--ink-muted);">دقة روابط التقديم المباشر:</span>
-            <span style="font-weight:900; color:var(--accent-emerald);">100% بدون وسطاء</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:10px;">
-            <span style="color:var(--ink-muted);">حظر الإعلانات والمدونات:</span>
-            <span style="font-weight:900; color:var(--accent-cyan);">مُفعّل بالكامل 🛡️</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
-            <span style="color:var(--ink-muted);">قاعدة البيانات المفحوصة:</span>
-            <span style="font-weight:900; color:#fff;">17,770+ وظيفة نشطة</span>
-          </div>
-        </div>
-
-        <!-- Channels Breakdown -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:18px;">
-          <div style="background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); border-radius:10px; padding:10px; text-align:center;">
-            <div style="font-size:1.1rem; font-weight:900; color:var(--accent-cyan);">واتساب فوري</div>
-            <div style="font-size:0.72rem; color:var(--ink-muted); margin-top:2px;">wa.me بنقرة واحدة</div>
-          </div>
-          <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2); border-radius:10px; padding:10px; text-align:center;">
-            <div style="font-size:1.1rem; font-weight:900; color:var(--accent-emerald);">إيميل مباشر</div>
-            <div style="font-size:0.72rem; color:var(--ink-muted); margin-top:2px;">mailto لفرق الـ HR</div>
-          </div>
-        </div>
-
-        <a href="#jobs" class="btn-card-direct">
-          <span>استكشف الوظائف الحالية</span>
-          <span>⚡</span>
-        </a>
-      </div>
-
-      <!-- Floating Factual Badges -->
-      <div class="floating-badge float-1" style="border-color: rgba(56,189,248,0.3);">
-        <span style="font-size:1.4rem;">🇸🇦</span>
-        <div>
-          <div class="float-text-bold">14,330+ وظيفة بالسعودية</div>
-          <div class="float-text-sub" style="color:var(--accent-cyan);">محدثة لحظياً بتواصل مباشر</div>
         </div>
       </div>
 
-      <div class="floating-badge float-2" style="border-color: rgba(16,185,129,0.3);">
-        <span style="font-size:1.4rem;">🇦🇪</span>
+      <!-- Floating Badges on Desktop -->
+      <div class="character-floating-badge char-float-top">
+        <span class="char-float-icon">🇸🇦</span>
         <div>
-          <div class="float-text-bold">2,140+ وظيفة بالإمارات</div>
-          <div class="float-text-sub">دبي • أبوظبي • الشارقة</div>
+          <div class="char-float-title">14,338+ وظيفة بالسعودية</div>
+          <div class="char-float-sub">تحديث لحظي عبر الـ Cron</div>
+        </div>
+      </div>
+
+      <div class="character-floating-badge char-float-bottom">
+        <span class="char-float-icon">💬</span>
+        <div>
+          <div class="char-float-title">واتساب مباشر بنقرة واحدة</div>
+          <div class="char-float-sub">wa.me/direct-contact</div>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- LIVE METRICS COUNTER -->
+<!-- LIVE METRICS COUNTER SECTION -->
 <section class="stats-section reveal">
   <div class="stats-grid">
-    <div class="stat-box">
-      <div class="stat-num" id="stat-total">17,773</div>
-      <div class="stat-lbl">وظيفة نشطة وموثقة</div>
-      <div class="stat-sub">100% روابط تقديم مباشرة</div>
+    <div class="stat-card">
+      <div class="stat-number" id="stat-total" data-target="17773">17,773</div>
+      <div class="stat-label">وظيفة نشطة وموثقة</div>
+      <div class="stat-subtext">100% روابط تقديم مباشرة ⚡</div>
     </div>
-    <div class="stat-box">
-      <div class="stat-num" id="stat-sa">12,417</div>
-      <div class="stat-lbl">المملكة العربية السعودية</div>
-      <div class="stat-sub">الرياض، جدة، الشرقية، مكة</div>
+
+    <div class="stat-card">
+      <div class="stat-number" id="stat-sa" data-target="14338">14,338</div>
+      <div class="stat-label">المملكة العربية السعودية 🇸🇦</div>
+      <div class="stat-subtext">الرياض، جدة، الشرقية، مكة</div>
     </div>
-    <div class="stat-box">
-      <div class="stat-num" id="stat-ae">1,959</div>
-      <div class="stat-lbl">الإمارات العربية المتحدة</div>
-      <div class="stat-sub">دبي، أبوظبي، الشارقة</div>
+
+    <div class="stat-card">
+      <div class="stat-number" id="stat-ae" data-target="2149">2,149</div>
+      <div class="stat-label">الإمارات العربية المتحدة 🇦🇪</div>
+      <div class="stat-subtext">دبي، أبوظبي، الشارقة</div>
     </div>
-    <div class="stat-box">
-      <div class="stat-num" id="stat-eg">1,217</div>
-      <div class="stat-lbl">جمهورية مصر العربية</div>
-      <div class="stat-sub">القاهرة، الجيزة، الإسكندرية</div>
+
+    <div class="stat-card">
+      <div class="stat-number" id="stat-eg" data-target="1277">1,277</div>
+      <div class="stat-label">جمهورية مصر العربية 🇪🇬</div>
+      <div class="stat-subtext">القاهرة، الجيزة، الإسكندرية</div>
     </div>
   </div>
 </section>
@@ -1227,65 +1358,65 @@ body {
 <!-- PAIN VS SOLUTION SECTION -->
 <section class="comparison-section reveal" id="why-us">
   <div class="section-header-centered">
-    <div class="section-badge-pill">المقارنة الصادمة</div>
+    <div class="section-badge">المقارنة الصادمة</div>
     <h2 class="section-title">ليه طريقتنا بتفرق معاك 180 درجة؟</h2>
-    <p class="section-desc">صممنا المنصة دي لأننا حسينا بنفس التعب والإحباط اللي بيعيشه كل باحث عن عمل.</p>
+    <p class="section-desc">صممنا المنصة لأننا عشنا نفس التعب والإحباط في البحث التقليدي عن وظيفة.</p>
   </div>
 
   <div class="comparison-grid">
-    <!-- The Pain -->
+    <!-- Traditional Pain Card -->
     <div class="compare-card-pain">
       <div class="compare-header">
-        <div class="compare-icon compare-icon-pain">❌</div>
+        <div class="compare-header-icon icon-pain">❌</div>
         <div>
-          <h3 style="margin:0; font-size:1.25rem; font-weight:800; color:#f87171;">مواقع التوظيف التقليدية</h3>
-          <span style="font-size:0.8rem; color:#fca5a5;">مضيعة للوقت والأعصاب</span>
+          <h3>مواقع التوظيف التقليدية</h3>
+          <p>مضيعة للوقت والأعصاب</p>
         </div>
       </div>
       <ul class="compare-list">
         <li class="compare-item">
-          <span class="compare-bullet">⛔</span>
+          <span class="compare-bullet" style="color:var(--accent-rose);">⛔</span>
           <span><b>روابط توديك لمقالات وسيطة:</b> تضغط على الرابط يفتحلك مقال طويل فيه 15 إعلان مزعج وروابط ألعاب!</span>
         </li>
         <li class="compare-item">
-          <span class="compare-bullet">⛔</span>
+          <span class="compare-bullet" style="color:var(--accent-rose);">⛔</span>
           <span><b>إعلانات منتهية وميتة:</b> تقدم على وظائف منشورة من 6 شهور والشركة قفلت التقديم من زمان.</span>
         </li>
         <li class="compare-item">
-          <span class="compare-bullet">⛔</span>
+          <span class="compare-bullet" style="color:var(--accent-rose);">⛔</span>
           <span><b>استمارات تسجيل إجبارية:</b> يطلب منك تسجل حساب وتكتب خبراتك من الصفر عشان تشوف إيميل الشركة.</span>
         </li>
         <li class="compare-item">
-          <span class="compare-bullet">⛔</span>
+          <span class="compare-bullet" style="color:var(--accent-rose);">⛔</span>
           <span><b>غياب تام للشفافية:</b> ما تعرفش مين مسؤول التوظيف ولا مين هيشوف سيرتك الذاتية.</span>
         </li>
       </ul>
     </div>
 
-    <!-- The Solution -->
+    <!-- Job Alert Solution Card -->
     <div class="compare-card-solution">
       <div class="compare-header">
-        <div class="compare-icon compare-icon-sol">✅</div>
+        <div class="compare-header-icon icon-sol">✅</div>
         <div>
-          <h3 style="margin:0; font-size:1.25rem; font-weight:800; color:#34d399;">منظومة Job Alert المباشرة</h3>
-          <span style="font-size:0.8rem; color:#6ee7b7;">طريقك السريع والمحترم للوظيفة</span>
+          <h3>منظومة Job Alert المباشرة</h3>
+          <p>طريقك السريع والمحترم للوظيفة</p>
         </div>
       </div>
       <ul class="compare-list">
         <li class="compare-item">
-          <span class="compare-bullet">⚡</span>
+          <span class="compare-bullet" style="color:var(--accent-emerald);">⚡</span>
           <span><b>رابط تواصل مباشر 100%:</b> ضغطة واحدة تفتح محادثة واتساب أو إيميل رسمي مع صاحب العمل في ثانيتين!</span>
         </li>
         <li class="compare-item">
-          <span class="compare-bullet">🛡️</span>
+          <span class="compare-bullet" style="color:var(--accent-emerald);">🛡️</span>
           <span><b>تدقيق حي على مدار الساعة:</b> خوارزمياتنا تفحص الروابط دورياً وتستبعد الوظائف المنتهية فوراً.</span>
         </li>
         <li class="compare-item">
-          <span class="compare-bullet">🔓</span>
+          <span class="compare-bullet" style="color:var(--accent-emerald);">🔓</span>
           <span><b>بدون تسجيل حساب ولا وسيط:</b> ادخل، ابحث، وقدم مباشرة.. الخدمة مجانية تماماً وبدون أي عوائق.</span>
         </li>
         <li class="compare-item">
-          <span class="compare-bullet">🔔</span>
+          <span class="compare-bullet" style="color:var(--accent-emerald);">🔔</span>
           <span><b>تنبيهات فورية على تليجرام:</b> الوظيفة تنزل في المنصة وتوصل لهاتفك قبل ما أي حد تاني يشوفها.</span>
         </li>
       </ul>
@@ -1293,122 +1424,129 @@ body {
   </div>
 </section>
 
-<!-- INTERACTIVE TIME LOST CALCULATOR -->
+<!-- INTERACTIVE TIME-SAVED CALCULATOR -->
 <section class="calculator-section reveal" id="calculator">
-  <div class="calculator-card">
+  <div class="calculator-box">
     <div>
-      <div class="section-badge-pill" style="margin-bottom:8px;">حاسبة التوفير الذكية</div>
-      <h3 style="font-size:1.6rem; font-weight:900; color:#fff; margin:0 0 10px;">احسب الوقت اللي بتضيعه في البحث التقليدي</h3>
-      <p style="font-size:0.92rem; color:var(--ink-secondary); margin:0;">
-        حرّك المؤشر وشوف إحنا هنوفرلك كام ساعة شهرياً كانت بتضيع في الإعلانات وتخطي الصفحات:
-      </p>
+      <div class="section-badge">حاسبة التوفير الذكية</div>
+      <h2 style="font-size:1.6rem; font-weight:900; color:#fff; margin:8px 0 10px;">احسب الوقت اللي بتضيعه في البحث التقليدي</h2>
+      <p style="color:var(--ink-muted); font-size:0.92rem; margin:0 0 20px;">حرّك المؤشر وشوف إحنا هنوفرلك كام ساعة شهرياً كانت بتضيع في الإعلانات وتخطي الصفحات:</p>
 
-      <div class="calc-slider-wrapper">
-        <div style="display:flex; justify-content:space-between; font-weight:700; margin-bottom:10px;">
+      <div class="calc-slider-wrap">
+        <div class="calc-slider-header">
           <span>عدد الوظائف اللي بتقدم عليها أسبوعياً:</span>
-          <span id="slider-val-text" style="color:var(--accent-cyan); font-size:1.1rem;">15 وظيفة</span>
+          <span id="slider-val-text" style="color:var(--accent-cyan); font-weight:800; font-size:1.1rem;">15 وظيفة</span>
         </div>
         <input type="range" min="3" max="50" value="15" class="calc-slider" id="jobs-slider" oninput="updateCalculator(this.value)">
       </div>
     </div>
 
-    <div class="calc-result-box">
-      <div class="calc-hours-num" id="calc-hours">18</div>
-      <div class="calc-hours-lbl">ساعة بتضيع منك كل شهر!</div>
-      <div class="calc-hours-desc">مع Job Alert هتوفر 92% من وقتك وتقديمك هيكون مباشر في ثواني ✨</div>
+    <div class="calc-result-card">
+      <div class="calc-hours-value" id="calc-hours">18</div>
+      <div class="calc-hours-title">ساعة بتضيع منك كل شهر!</div>
+      <div class="calc-hours-footer">مع Job Alert هتوفر 92% من وقتك وتقديمك هيكون مباشر في ثواني ✨</div>
     </div>
   </div>
 </section>
 
-<!-- VERIFIED DIRECT APPLICATION PIPELINE SECTION -->
-<section class="stories-section reveal" id="verification">
+<!-- DIRECT VERIFICATION PIPELINE SECTION -->
+<section class="pipeline-section reveal" id="verification">
   <div class="section-header-centered">
-    <div class="section-badge-pill">منظومة التدقيق الذكية</div>
+    <div class="section-badge">منظومة التدقيق الذكية</div>
     <h2 class="section-title">كيف نضمن لك روابط تقديم وتواصل مباشرة 100%؟</h2>
     <p class="section-desc">خوارزميات مخصصة تفحص كل إعلان وظيفي وتستبعد المواقع الوسيطة وصفحات المقالات الإعلانية.</p>
   </div>
 
-  <div class="stories-grid">
-    <!-- Channel 1 -->
-    <div class="story-card">
-      <div class="story-badge" style="color:var(--accent-cyan); border-color:rgba(56,189,248,0.3); background:rgba(56,189,248,0.1);">قناة فورية 💬</div>
-      <div class="story-user">
-        <div style="width:52px; height:52px; border-radius:14px; background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); display:flex; align-items:center; justify-content:center; font-size:1.6rem;">📱</div>
-        <div class="story-info">
-          <h4>محادثة واتساب مباشرة</h4>
-          <p>WhatsApp Direct API (wa.me)</p>
+  <div class="pipeline-grid">
+    <!-- Channel 1: WhatsApp -->
+    <div class="pipeline-card">
+      <div>
+        <span class="pipeline-card-badge badge-whatsapp">قناة فورية 💬</span>
+        <div class="pipeline-card-header">
+          <div class="pipeline-icon-circle">📱</div>
+          <div>
+            <h4>محادثة واتساب مباشرة</h4>
+            <p>WhatsApp Direct API (wa.me)</p>
+          </div>
         </div>
+        <p class="pipeline-desc">
+          استخراج رقم هاتف مسؤول التوظيف المعتمد، وإنشاء رابط محادثة واتساب مباشر بنقرة واحدة، مع تعبئة رسالة تقديم أولية جاهزة للإرسال دون الحاجة لتسجيل أي حساب.
+        </p>
       </div>
-      <div class="story-quote">
-        يقوم محركنا باستخراج رقم هاتف مسؤول التوظيف المعتمد في المنشأة، وإنشاء رابط محادثة واتساب مباشر بنقرة واحدة، مع تعبئة رسالة تقديم أولية جاهزة للإرسال دون الحاجة لتسجيل أي حساب.
-      </div>
-      <div class="story-footer-metric">
+      <div class="pipeline-footer">
         <span>نوع الربط التقني:</span>
-        <span class="story-tag-channel">⚡ wa.me/direct-contact</span>
+        <span style="color:var(--accent-emerald); font-weight:700;">⚡ wa.me/direct-contact</span>
       </div>
     </div>
 
-    <!-- Channel 2 -->
-    <div class="story-card">
-      <div class="story-badge" style="color:var(--accent-purple); border-color:rgba(168,85,247,0.3); background:rgba(168,85,247,0.1);">بريد رسمي ✉️</div>
-      <div class="story-user">
-        <div style="width:52px; height:52px; border-radius:14px; background:rgba(168,85,247,0.15); border:1px solid rgba(168,85,247,0.3); display:flex; align-items:center; justify-content:center; font-size:1.6rem;">📧</div>
-        <div class="story-info">
-          <h4>بريد الموارد البشرية الرسمي</h4>
-          <p>Pre-filled HR Direct Mailto</p>
+    <!-- Channel 2: Email -->
+    <div class="pipeline-card">
+      <div>
+        <span class="pipeline-card-badge badge-email">بريد رسمي ✉️</span>
+        <div class="pipeline-card-header">
+          <div class="pipeline-icon-circle">📧</div>
+          <div>
+            <h4>بريد الموارد البشرية الرسمي</h4>
+            <p>Pre-filled HR Direct Mailto</p>
+          </div>
         </div>
+        <p class="pipeline-desc">
+          فلترة العناوين واستبعاد بريد الدعم الفني العام، واستخراج البريد المخصص لاستقبال السير الذاتية مع تعبئة خانة العنوان بالمسمى الوظيفي وكود الوظيفة لتصل فوراً لمسؤول التوظيف.
+        </p>
       </div>
-      <div class="story-quote">
-        فلترة العناوين البريدية واستبعاد بريد الدعم الفني العام، واستخراج البريد المخصص لاستقبال السير الذاتية مع تعبئة خانة العنوان بالمسمى الوظيفي وكود الوظيفة لتصل فوراً لبريد مسؤول التوظيف.
-      </div>
-      <div class="story-footer-metric">
+      <div class="pipeline-footer">
         <span>نوع الربط التقني:</span>
-        <span class="story-tag-channel" style="color:var(--accent-cyan);">⚡ mailto:hr-team-direct</span>
+        <span style="color:var(--accent-purple); font-weight:700;">⚡ mailto:hr-team-direct</span>
       </div>
     </div>
 
-    <!-- Channel 3 -->
-    <div class="story-card">
-      <div class="story-badge" style="color:var(--accent-emerald); border-color:rgba(16,185,129,0.3); background:rgba(16,185,129,0.1);">بوابة معتمدة 🛡️</div>
-      <div class="story-user">
-        <div style="width:52px; height:52px; border-radius:14px; background:rgba(56,189,248,0.15); border:1px solid rgba(56,189,248,0.3); display:flex; align-items:center; justify-content:center; font-size:1.6rem;">🌐</div>
-        <div class="story-info">
-          <h4>بوابات التوظيف الرسمية (ATS)</h4>
-          <p>Direct Verified Application Form</p>
+    <!-- Channel 3: Direct ATS -->
+    <div class="pipeline-card">
+      <div>
+        <span class="pipeline-card-badge badge-portal">بوابة معتمدة 🛡️</span>
+        <div class="pipeline-card-header">
+          <div class="pipeline-icon-circle">🌐</div>
+          <div>
+            <h4>بوابات التوظيف الرسمية (ATS)</h4>
+            <p>Direct Verified Application Form</p>
+          </div>
         </div>
+        <p class="pipeline-desc">
+          حظر تام لأي روابط إعلانية أو مدونات وسيطة (JobzSA / مواقع مقالات). كل رابط يقودك مباشرة إما إلى بوابة التوظيف الرسمية للشركة أو صفحة الوظيفة الأصلية المؤكدة بنسبة 100%.
+        </p>
       </div>
-      <div class="story-quote">
-        حظر تام لأي روابط إعلانية أو مدونات وسيطة (JobzSA / مواقع مقالات). كل رابط يقودك مباشرة إما إلى بوابة التوظيف الرسمية للشركة أو صفحة الوظيفة الأصلية المؤكدة بنسبة 100%.
-      </div>
-      <div class="story-footer-metric">
+      <div class="pipeline-footer">
         <span>نوع الربط التقني:</span>
-        <span class="story-tag-channel">⚡ Verified ATS Endpoint</span>
+        <span style="color:var(--accent-cyan); font-weight:700;">⚡ Verified ATS Endpoint</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LIVE JOBS EXPLORER -->
+<!-- LIVE JOBS EXPLORER SECTION -->
 <section class="jobs-explorer-section reveal" id="jobs">
   <div class="section-header-centered">
-    <div class="section-badge-pill">قاعدة البيانات الحية المباشرة</div>
+    <div class="section-badge">قاعدة البيانات الحية المباشرة</div>
     <h2 class="section-title">ابحث الآن وقدم على وظيفتك القادمة</h2>
     <p class="section-desc">كل وظيفة هنا تم فحصها آلياً وتأكيد رابط التقديم المباشر بنسبة 100%.</p>
   </div>
 
-  <div class="explorer-header">
+  <div class="explorer-header-box">
     <!-- Search Bar -->
-    <div class="hero-search-box" style="margin-bottom: 20px;">
-      <span>🔍</span>
+    <div class="hero-search-wrapper" style="max-width:100%; margin-bottom:14px;">
+      <div class="search-icon-box">🔍</div>
       <input type="text" id="main-search-input" class="hero-search-input" placeholder="ابحث بالمسمى الوظيفي، المدينة، أو اسم الشركة..." oninput="onMainSearch(this.value)">
-      <button class="hero-search-btn" onclick="fetchJobsData()">تحديث النتائج</button>
+      <button class="hero-search-btn" onclick="fetchJobsData()">
+        <span>تحديث النتائج</span>
+        <span>⚡</span>
+      </button>
     </div>
 
     <!-- Filters Row -->
-    <div class="explorer-filter-row">
+    <div class="filters-wrapper">
       <!-- Country Filters -->
-      <div class="pill-group" id="country-pills">
-        <span style="font-weight:700; font-size:0.88rem; color:var(--ink-muted);">الدولة:</span>
+      <div class="filter-group" id="country-pills">
+        <span class="filter-label">الدولة:</span>
         <button class="filter-pill active" onclick="setCountryFilter('', this)">الكل 🌍</button>
         <button class="filter-pill" onclick="setCountryFilter('SA', this)">🇸🇦 السعودية</button>
         <button class="filter-pill" onclick="setCountryFilter('AE', this)">🇦🇪 الإمارات</button>
@@ -1416,69 +1554,32 @@ body {
       </div>
 
       <!-- Work Mode Filters -->
-      <div class="pill-group" id="mode-pills">
-        <span style="font-weight:700; font-size:0.88rem; color:var(--ink-muted);">النمط:</span>
+      <div class="filter-group" id="mode-pills">
+        <span class="filter-label">نوع العمل:</span>
         <button class="filter-pill active" onclick="setModeFilter('', this)">الكل</button>
         <button class="filter-pill" onclick="setModeFilter('onsite', this)">🏢 حضوري</button>
         <button class="filter-pill" onclick="setModeFilter('remote', this)">🌐 عن بُعد</button>
-        <button class="filter-pill" onclick="setModeFilter('hybrid', this)">⚡ هجين</button>
       </div>
     </div>
   </div>
 
   <!-- Jobs Grid Container -->
   <div class="jobs-grid" id="jobs-container">
-    <!-- Dynamic Job Cards Injected Here -->
+    <!-- Populated via fetchJobsData() -->
   </div>
 
   <!-- Pagination -->
-  <div style="display:flex; justify-content:center; align-items:center; gap:16px; margin-top:40px;">
-    <button class="btn-view-details" id="btn-prev" onclick="changePage(-1)">‹ السابق</button>
-    <span style="font-weight:700; font-size:0.9rem; color:var(--ink-secondary);" id="page-indicator">صفحة 1 من 1</span>
-    <button class="btn-view-details" id="btn-next" onclick="changePage(1)">التالي ›</button>
-  </div>
-</section>
-
-<!-- TELEGRAM BOT SHOWCASE -->
-<section class="telegram-section reveal">
-  <div class="telegram-card">
-    <div>
-      <div class="section-badge-pill" style="margin-bottom:12px;">الميزة الأقوى في المنظومة</div>
-      <h2 style="font-size:2.2rem; font-weight:900; color:#fff; margin:0 0 16px;">
-        الوظيفة توصلك على تليجرام <br>
-        <span class="text-gradient-warm">قبل ما أي حد يشوفها</span>
-      </h2>
-      <p style="font-size:1.05rem; color:var(--ink-secondary); line-height:1.7; margin-bottom:24px;">
-        اشترك مجاناً في بوت تليجرام وحدد تخصصك ومدينتك.. البوت بيرصد إعلانات الشركات أولاً بأول وبيبعتلك رقم واتساب صاحب العمل مباشرة أول ما ينزل الإعلان.
-      </p>
-      <a href="https://t.me/job_alert_sa_bot" target="_blank" class="hero-search-btn" style="text-decoration:none; display:inline-flex;">
-        <span>🚀 تفعيل تنبيهات تليجرام مجاناً</span>
-      </a>
-    </div>
-
-    <!-- Phone Mockup -->
-    <div>
-      <div class="phone-mockup">
-        <div class="phone-notch"></div>
-        <div class="chat-bubble chat-bubble-bot">
-          🤖 <b>تنبيه فوري لـ "مدير تسويق":</b><br>
-          🏢 شركة كبرى • 📍 الرياض<br>
-          🕒 نُشرت الآن (منذ دقيقتين)<br><br>
-          💬 <b>رابط التقديم المباشر عبر واتساب:</b><br>
-          <span style="color:var(--accent-cyan);">wa.me/9665xxxxxxxx</span>
-        </div>
-        <div class="chat-bubble" style="background:#0284c7; margin-right:auto; max-width:85%;">
-          👍 شكراً! تواصلت مع المدير وبعت الـ CV فوراً.
-        </div>
-      </div>
-    </div>
+  <div class="pagination-row">
+    <button class="page-btn" id="btn-prev" onclick="changePage(-1)">السابق</button>
+    <div class="page-indicator" id="page-indicator">صفحة 1</div>
+    <button class="page-btn" id="btn-next" onclick="changePage(1)">التالي</button>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <div class="footer-logo">Job Alert Enterprise</div>
-  <p style="margin:0 0 12px;">المنظومة الإنسانية الذكية لرصد وتدقيق الوظائف المباشرة في الشرق الأوسط © 2026</p>
+  <div class="footer-brand">Job Alert Enterprise</div>
+  <p style="margin:0 0 10px;">المنظومة الإنسانية الذكية لرصد وتدقيق الوظائف المباشرة في الشرق الأوسط © 2026</p>
   <p style="font-size:0.78rem; color:#475569; margin:0;">
     مبنية بالحب لكل باحث عن فرصة عمل حقيقية بدون وسيط أو إعلانات ربحية.
   </p>
@@ -1487,14 +1588,14 @@ body {
 <!-- JOB DETAILS DRAWER -->
 <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeJobDrawer()"></div>
 <div class="drawer-sheet" id="drawer-sheet">
-  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-    <h3 style="margin:0; font-size:1.2rem; font-weight:800; color:#fff;">تفاصيل الوظيفة</h3>
-    <button onclick="closeJobDrawer()" style="background:transparent; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">✕</button>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+    <h3 style="margin:0; font-size:1.15rem; font-weight:800; color:#fff;">تفاصيل الوظيفة</h3>
+    <button onclick="closeJobDrawer()" style="background:transparent; border:none; color:#fff; font-size:1.4rem; cursor:pointer; padding:4px 8px;">✕</button>
   </div>
-  <div id="drawer-body">
+  <div id="drawer-body" style="flex:1;">
     <!-- Injected Details -->
   </div>
-  <div style="margin-top:auto; padding-top:20px; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:10px;">
+  <div style="margin-top:auto; padding-top:18px; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:10px;">
     <a href="#" target="_blank" class="btn-apply-direct" id="drawer-apply-btn" style="padding:14px; font-size:1rem;">
       التقديم المباشر الآن ⚡
     </a>
@@ -1516,28 +1617,68 @@ const STATE = {
   jobs: []
 };
 
+/* Scroll Reveal Intersection Observer */
+function setupScrollReveal() {
+  const elements = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-active');
+      }
+    });
+  }, { threshold: 0.1 });
+  elements.forEach(el => observer.observe(el));
+}
+
+/* Dynamic Animated Number Counter */
+let counted = false;
+function setupNumberCounter() {
+  const statsSection = document.querySelector('.stats-section');
+  if (!statsSection) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !counted) {
+      counted = true;
+      animateCounters();
+    }
+  }, { threshold: 0.2 });
+  observer.observe(statsSection);
+}
+
+function animateCounters() {
+  const counters = document.querySelectorAll('.stat-number');
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target') || parseInt(counter.textContent.replace(/,/g, ''));
+    if (!target) return;
+    const duration = 1600;
+    const startTime = performance.now();
+
+    function updateCount(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // easeOutCubic
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(ease * target);
+      counter.textContent = current.toLocaleString('en-US');
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      } else {
+        counter.textContent = target.toLocaleString('en-US');
+      }
+    }
+    requestAnimationFrame(updateCount);
+  });
+}
+
 /* Time Lost Calculator */
 function updateCalculator(val) {
   document.getElementById('slider-val-text').textContent = val + " وظيفة";
-  // Every job application on traditional ad sites wastes ~18-20 minutes of ad skipping
+  // Every job application on traditional ad sites wastes ~18 minutes
   const hoursPerMonth = Math.round((val * 18 * 4.3) / 60);
   document.getElementById('calc-hours').textContent = hoursPerMonth;
 }
 
-/* Scroll Reveal Observer */
-function setupScrollReveal() {
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('reveal-active');
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(r => obs.observe(r));
-}
-
-/* Hero Search Triggers */
+/* Search Triggers */
 function triggerHeroSearch() {
   const val = document.getElementById('hero-search-input').value.trim();
   const mainInput = document.getElementById('main-search-input');
@@ -1598,10 +1739,22 @@ async function fetchJobsData() {
 
     // Update Stats if available
     if (data.counts) {
-      if (data.counts.total_all) document.getElementById('stat-total').textContent = Number(data.counts.total_all).toLocaleString('ar-EG');
-      if (data.counts.sa) document.getElementById('stat-sa').textContent = Number(data.counts.sa).toLocaleString('ar-EG');
-      if (data.counts.ae) document.getElementById('stat-ae').textContent = Number(data.counts.ae).toLocaleString('ar-EG');
-      if (data.counts.eg) document.getElementById('stat-eg').textContent = Number(data.counts.eg).toLocaleString('ar-EG');
+      if (data.counts.total_all) {
+        document.getElementById('stat-total').setAttribute('data-target', data.counts.total_all);
+        document.getElementById('stat-total').textContent = Number(data.counts.total_all).toLocaleString('en-US');
+      }
+      if (data.counts.sa) {
+        document.getElementById('stat-sa').setAttribute('data-target', data.counts.sa);
+        document.getElementById('stat-sa').textContent = Number(data.counts.sa).toLocaleString('en-US');
+      }
+      if (data.counts.ae) {
+        document.getElementById('stat-ae').setAttribute('data-target', data.counts.ae);
+        document.getElementById('stat-ae').textContent = Number(data.counts.ae).toLocaleString('en-US');
+      }
+      if (data.counts.eg) {
+        document.getElementById('stat-eg').setAttribute('data-target', data.counts.eg);
+        document.getElementById('stat-eg').textContent = Number(data.counts.eg).toLocaleString('en-US');
+      }
     }
 
     STATE.jobs = data.jobs || [];
@@ -1619,9 +1772,9 @@ function renderJobsGrid() {
   const container = document.getElementById('jobs-container');
   if (!STATE.jobs.length) {
     container.innerHTML = `
-      <div style="grid-column: 1/-1; text-align:center; padding:60px 20px; background:var(--bg-card); border-radius:var(--radius-lg);">
-        <div style="font-size:3rem; margin-bottom:14px;">🔍</div>
-        <h3 style="font-size:1.3rem; font-weight:800; color:#fff; margin:0 0 8px;">لا توجد وظائف مطابقة لمعايير البحث الحالية</h3>
+      <div style="grid-column: 1/-1; text-align:center; padding:60px 20px; background:var(--bg-card); border-radius:var(--radius-lg); border:1px solid var(--border-subtle);">
+        <div style="font-size:3rem; margin-bottom:12px;">🔍</div>
+        <h3 style="font-size:1.25rem; font-weight:800; color:#fff; margin:0 0 6px;">لا توجد وظائف مطابقة لمعايير البحث الحالية</h3>
         <p style="color:var(--ink-muted); margin:0;">جرّب كلمة بحث أعمّ أو أزل فلاتر الدولة.</p>
       </div>
     `;
@@ -1635,25 +1788,30 @@ function renderJobsGrid() {
     const country = job.country_code === "SA" ? "🇸🇦 السعودية" : (job.country_code === "AE" ? "🇦🇪 الإمارات" : (job.country_code === "EG" ? "🇪🇬 مصر" : "🌐 دولي"));
     const applyUrl = job.application_url || job.original_url || "#";
     
-    // Determine direct apply channel badge
+    // Determine direct apply channel badge & CSS class
     let channelBadge = "⚡ تقديم مباشر";
-    if (applyUrl.startsWith("mailto:")) channelBadge = "✉️ بريد التوظيف";
-    else if (applyUrl.includes("wa.me") || applyUrl.includes("whatsapp")) channelBadge = "💬 واتساب مباشر";
-    else if (applyUrl.includes("forms.gle") || applyUrl.includes("google.com/forms")) channelBadge = "📝 استمارة رسمية";
+    let channelClass = "channel-portal";
+    if (applyUrl.startsWith("mailto:")) {
+      channelBadge = "✉️ بريد التوظيف";
+      channelClass = "channel-email";
+    } else if (applyUrl.includes("wa.me") || applyUrl.includes("whatsapp")) {
+      channelBadge = "💬 واتساب مباشر";
+      channelClass = "channel-whatsapp";
+    }
 
     return `
       <div class="job-card">
         <div>
           <div class="job-card-top">
-            <div class="job-company-badge">${company.charAt(0)}</div>
-            <span class="job-tag job-tag-channel">${channelBadge}</span>
+            <div class="job-company-icon">${company.charAt(0)}</div>
+            <span class="job-channel-badge ${channelClass}">${channelBadge}</span>
           </div>
           <h3 class="job-title" title="${title}">${title}</h3>
           <div class="job-company">${company}</div>
           <div class="job-tags-row">
             <span class="job-tag">${country}</span>
             <span class="job-tag">📍 ${city}</span>
-            <span class="job-tag">🟢 حديثة</span>
+            <span class="job-tag">🟢 نشطة</span>
           </div>
         </div>
         <div class="job-actions-row">
@@ -1661,7 +1819,7 @@ function renderJobsGrid() {
             <span>تقديم مباشر</span>
             <span>⚡</span>
           </a>
-          <button class="btn-view-details" onclick="openJobDrawer(${idx})">تفاصيل</button>
+          <button class="btn-details" onclick="openJobDrawer(${idx})">تفاصيل</button>
         </div>
       </div>
     `;
@@ -1689,16 +1847,16 @@ function openJobDrawer(idx) {
   const applyBtn = document.getElementById('drawer-apply-btn');
   
   body.innerHTML = `
-    <h2 style="font-size:1.3rem; font-weight:900; color:#fff; margin:0 0 8px;">${job.title}</h2>
-    <div style="font-size:1rem; font-weight:700; color:var(--accent-cyan); margin-bottom:18px;">${job.company || 'جهة توظيف معتمدة'}</div>
+    <h2 style="font-size:1.25rem; font-weight:900; color:#fff; margin:0 0 6px;">${job.title}</h2>
+    <div style="font-size:0.95rem; font-weight:700; color:var(--accent-cyan); margin-bottom:16px;">${job.company || 'جهة توظيف معتمدة'}</div>
     
-    <div style="background:rgba(255,255,255,0.04); border-radius:12px; padding:16px; margin-bottom:20px; font-size:0.86rem; line-height:1.6;">
+    <div style="background:rgba(255,255,255,0.04); border:1px solid var(--border-subtle); border-radius:12px; padding:14px; margin-bottom:18px; font-size:0.85rem; line-height:1.6;">
       <div><b>الدولة:</b> ${job.country_code} | <b>المدينة:</b> ${job.city || 'غير محدد'}</div>
       <div><b>المصدر:</b> ${job.source || 'شبكة التوظيف المعتمدة'}</div>
-      <div><b>حالة الرابط:</b> موثق ونشط 100%</div>
+      <div><b>حالة الرابط:</b> 100% رابط تواصل مباشر ومفحوص</div>
     </div>
     
-    <div style="font-size:0.92rem; line-height:1.7; color:var(--ink-secondary);">
+    <div style="font-size:0.9rem; line-height:1.7; color:var(--ink-secondary);">
       ${job.description ? job.description.replace(/\n/g, '<br>') : 'تفاصيل التقديم متاحة مباشرة عبر الرابط المعتمد أدناه.'}
     </div>
   `;
@@ -1713,6 +1871,7 @@ function closeJobDrawer() {
 /* Init */
 window.addEventListener('DOMContentLoaded', () => {
   setupScrollReveal();
+  setupNumberCounter();
   fetchJobsData();
 });
 </script>
